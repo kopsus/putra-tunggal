@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-poppins;
+  }
+
+  img {
+    @apply block object-cover w-full h-full;
+  }
+
+  .Container {
+    @apply px-5 py-10 md:py-16 lg:py-24 md:px-10 lg:px-16;
+  }
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+* {
+  scrollbar-width: none !important;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-pagination-bullet {
+  background: #23435c !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: black !important;
+}
