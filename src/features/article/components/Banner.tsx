@@ -1,24 +1,19 @@
-import imgBanner from "../../../assets/imgBanner.svg";
+import imgBanner from "../../../assets/imgBanner2.png";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { dataBanner } from "../libs/data";
+import { Autoplay } from "swiper/modules";
+import { dataBanner } from "../../home/libs/data";
 
 const Banner = () => {
   return (
     <div className="Container">
-      <div className="h-[415px] rounded-[20px] bg-white shadow-md shadow-black/25 relative">
+      <div className="h-[343px] rounded-[20px] bg-white shadow-md shadow-black/25 relative overflow-hidden">
         <Swiper
-          pagination={true}
-          navigation={true}
           loop={true}
           autoplay={{
             delay: 2500,
           }}
-          modules={[Pagination, Navigation, Autoplay]}
-          className="swiper-home"
+          modules={[Autoplay]}
         >
           {dataBanner.map((item, index) => (
             <SwiperSlide key={index}>
@@ -28,12 +23,9 @@ const Banner = () => {
                     {item.title}
                   </p>
                   <p className="text-primary/70 leading-6">{item.desc}</p>
-                  <button className="bg-red w-max py-3 px-5 rounded-lg text-white font-medium text-xl mt-5">
-                    Buat Janji Sekarang
-                  </button>
                 </div>
-                <div className="flex justify-end items-end">
-                  <img src={imgBanner} alt="" className="w-[338px] h-[332px]" />
+                <div className="h-full">
+                  <img src={imgBanner} alt="" className="" />
                 </div>
               </div>
             </SwiperSlide>

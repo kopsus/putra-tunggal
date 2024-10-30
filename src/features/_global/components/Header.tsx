@@ -10,7 +10,7 @@ const Header = () => {
     },
     {
       name: "Artikel",
-      link: "/artikel",
+      link: "/article",
     },
     {
       name: "Layanan",

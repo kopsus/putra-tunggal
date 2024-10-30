@@ -37,4 +37,30 @@ const dataServices = [
   },
 ];
 
-export { dataBanner, dataServices };
+const dataFaq = [
+  {
+    question: "Perbedaan psikolog dan psikiater?",
+    answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+  },
+  {
+    question:
+      "Apakah data yang diberikan pada terapis terjamin kerahasiaannya?",
+    answer:
+      "Yes. It comes with default styles that matches the other component's aesthetic.",
+  },
+  {
+    question: " Berapa kali saya harus melakukan konsultasi?",
+    answer:
+      "Yes. It's animated by default, but you can disable it if you prefer.",
+  },
+  {
+    question: "Apakah saya perlu meminum obat?",
+    answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+  },
+  {
+    question: "Berapa biaya pelayanan di Psikologi Putra Tunggal?",
+    answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+  },
+];
+
+export { dataBanner, dataServices, dataFaq };

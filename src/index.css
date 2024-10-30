@@ -15,6 +15,11 @@
   .Container {
     @apply px-5 py-10 md:py-16 lg:py-24 md:px-10 lg:px-16;
   }
+
+  .ContainerX {
+    @apply px-5 md:px-10 lg:px-16;
+  }
+
   :root {
     --radius: 0.5rem;
   }
@@ -33,7 +38,7 @@
   background: #23435c !important;
 }
 
-.swiper-button-prev,
-.swiper-button-next {
+.swiper-home .swiper-button-prev,
+.swiper-home .swiper-button-next {
   color: black !important;
 }
