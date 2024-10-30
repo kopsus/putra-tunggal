@@ -30,4 +30,32 @@ const faq = [
   },
 ];
 
-export { article1, article2, faq };
+const relatedMovie = [
+  {
+    img: "",
+    title: "Mengapa Kita Bisa Tertawa Saat Merasa Takut? Ini Kata Sains",
+    date: "30 Juni 2023",
+  },
+  {
+    img: "",
+    title: "Sampah Alun-alun Banyumas Capai Dua Dump Truk",
+    date: "30 Juni 2023",
+  },
+  {
+    img: "",
+    title: "Apa Itu Flexing di Medsos? Pengertian dan Cara Menyikapinya",
+    date: "30 Juni 2023",
+  },
+  {
+    img: "",
+    title: "Apa Itu Empati? Ini Perbedaannya dengan Simpati",
+    date: "30 Juni 2023",
+  },
+  {
+    img: "",
+    title: "Mengapa Kita Bisa Tertawa Saat Merasa Takut? Ini Kata Sains",
+    date: "30 Juni 2023",
+  },
+];
+
+export { article1, article2, faq, relatedMovie };

@@ -1,4 +1,5 @@
 import { TitleContent } from "../../_global/components/Text";
+import { relatedMovie } from "../libs/data";
 
 interface ICard {
   img: string;
@@ -23,31 +24,14 @@ const RelatedNews = () => {
     <div className="Container flex flex-col gap-y-5">
       <TitleContent className="text-blue">Berita Terkait</TitleContent>
       <div className="flex gap-x-[28px] overflow-x-auto">
-        <Card
-          img=""
-          title="Mengapa Kita Bisa Tertawa Saat Merasa Takut? Ini Kata Sains"
-          date="30 Juni 2023"
-        />
-        <Card
-          img=""
-          title="Mengapa Kita Bisa Tertawa Saat Merasa Takut? Ini Kata Sains"
-          date="30 Juni 2023"
-        />
-        <Card
-          img=""
-          title="Mengapa Kita Bisa Tertawa Saat Merasa Takut? Ini Kata Sains"
-          date="30 Juni 2023"
-        />
-        <Card
-          img=""
-          title="Mengapa Kita Bisa Tertawa Saat Merasa Takut? Ini Kata Sains"
-          date="30 Juni 2023"
-        />
-        <Card
-          img=""
-          title="Mengapa Kita Bisa Tertawa Saat Merasa Takut? Ini Kata Sains"
-          date="30 Juni 2023"
-        />
+        {relatedMovie.map((item, index) => (
+          <Card
+            key={index}
+            img={item.img}
+            title={item.title}
+            date={item.date}
+          />
+        ))}
       </div>
     </div>
   );
