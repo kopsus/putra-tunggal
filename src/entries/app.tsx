@@ -3,8 +3,8 @@ import "../index.css";
 import Header from "../features/_global/components/Header";
 import Home from "../features/home/views/Home";
 import Footer from "../features/_global/components/Footer";
-import Consultation from "../features/consultation/views/Consultation";
 import Article from "../features/article/views/Article";
+import Services from "../features/services/views/Services";
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/consultation" element={<Consultation />} />
         <Route path="/article" element={<Article />} />
+        <Route path="/service" element={<Services />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const Testimoni = () => {
   return (
-    <div className="bg-primary/10 h-[450px] overflow-hidden">
+    <div className="bg-primary/10 h-[450px] overflow-hidden lg:mb-16">
       <div className="grid grid-cols-2 gap-x-10 h-full px-5 md:px-10 lg:px-16">
         <div className="flex flex-col justify-center items-center gap-5">
           <TitleBanner>Lorem ipsum dolor sit amet, consectetur</TitleBanner>

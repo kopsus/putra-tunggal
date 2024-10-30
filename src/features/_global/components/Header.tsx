@@ -14,7 +14,7 @@ const Header = () => {
     },
     {
       name: "Layanan",
-      link: "/layanan",
+      link: "/service",
     },
     {
       name: "Tentang Kami",
