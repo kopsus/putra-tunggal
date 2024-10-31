@@ -6,13 +6,13 @@ import RelatedNews from "../components/RelatedNews";
 
 const Article = () => {
   return (
-    <>
+    <div className="pt-20">
       <Banner />
       <Article1 />
       <Faq />
       <Article2 />
       <RelatedNews />
-    </>
+    </div>
   );
 };
 

@@ -6,7 +6,7 @@ interface IInputSearch {
 
 const InputSearch = ({ placeholder }: IInputSearch) => {
   return (
-    <div className="relative h-[57px] rounded-[20px] border border-black shadow-sm flex items-center overflow-hidden px-4">
+    <div className="relative h-[57px] rounded-[20px] border border-black flex items-center overflow-hidden px-4 shadow-md">
       <input
         type="text"
         placeholder={placeholder}

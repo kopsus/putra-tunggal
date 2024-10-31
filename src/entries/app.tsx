@@ -5,6 +5,7 @@ import Home from "../features/home/views/Home";
 import Footer from "../features/_global/components/Footer";
 import Article from "../features/article/views/Article";
 import Services from "../features/services/views/Services";
+import Consultation from "../features/consultation/views/Consultation";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/article" element={<Article />} />
         <Route path="/service" element={<Services />} />
+        <Route path="/consultation" element={<Consultation />} />
       </Routes>
       <Footer />
     </BrowserRouter>

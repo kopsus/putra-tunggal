@@ -6,13 +6,13 @@ import ServiceFee from "../components/ServiceFee";
 
 const Services = () => {
   return (
-    <>
+    <div className="pt-20">
       <Banner />
       <OtherServices />
       <ServiceFee />
       <OurServices />
       <Testimoni />
-    </>
+    </div>
   );
 };
 

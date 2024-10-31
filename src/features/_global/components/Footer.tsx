@@ -74,6 +74,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <p className="text-center font-semibold leading-6 mt-20">
+        Copyright © 2023 PsikoHeatlh
+      </p>
     </div>
   );
 };

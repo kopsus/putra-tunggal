@@ -48,11 +48,7 @@ const TitleFooter = ({ className, children }: IText) => {
 };
 
 const DescSmall = ({ className, children }: IText) => {
-  return (
-    <p className={`${className} text-sm leading-[21.75px] text-white`}>
-      {children}
-    </p>
-  );
+  return <p className={`${className} text-sm leading-[21.75px]`}>{children}</p>;
 };
 
 export {

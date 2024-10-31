@@ -6,13 +6,13 @@ import Testimoni from "../components/Testimoni";
 
 const Home = () => {
   return (
-    <>
+    <div className="pt-20">
       <Banner />
       <Services />
       <About />
       <Testimoni />
       <Faq />
-    </>
+    </div>
   );
 };
 
