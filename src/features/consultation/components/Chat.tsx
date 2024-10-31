@@ -1,34 +1,15 @@
 import { GoDotFill, GoPlusCircle } from "react-icons/go";
-import { InputSearch } from "../../_global/components/Input";
-import {
-  DescSmall,
-  TitleAbout,
-  TitleContent,
-} from "../../_global/components/Text";
+import { DescSmall, TitleAbout } from "../../_global/components/Text";
 import { SlEmotsmile } from "react-icons/sl";
 import { IoIosSend } from "react-icons/io";
+import HistoryChat from "./HistoryChat";
 
 const Chat = () => {
   return (
     <div className="Container">
       <div className="flex items-start gap-x-10 divide-x-4 divide-black/20">
-        <div className="min-w-[497px] max-w-[497px] flex flex-col gap-5">
-          <TitleContent>Chat</TitleContent>
-          <InputSearch placeholder="Cari percakapan konsultasi" />
-          <div className="flex items-start gap-4">
-            <div className="bg-white border min-w-20 w-20 h-20 overflow-hidden shadow-md rounded-full">
-              <img src="" alt="" />
-            </div>
-            <div className="flex flex-col gap-2">
-              <TitleAbout>Dr. John Cena</TitleAbout>
-              <p className="line-clamp-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip
-              </p>
-            </div>
-          </div>
+        <div className="relative min-w-[497px] max-w-[497px] flex flex-col gap-5 max-h-[662px] overflow-y-auto">
+          <HistoryChat />
         </div>
         <div className="pl-10 w-full relative h-[662px]">
           <div className="flex items-center gap-x-4 border-b-2 border-black/50 w-full pb-5">

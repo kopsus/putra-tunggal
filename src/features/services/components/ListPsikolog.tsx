@@ -23,11 +23,13 @@ const ListPsikolog = () => {
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-3 py-1 px-3 bg-primary rounded">
                     <FaJoget className="w-5 h-5 text-white" />
-                    <DescSmall>{item.experience} Tahun</DescSmall>
+                    <DescSmall className="text-white">
+                      {item.experience} Tahun
+                    </DescSmall>
                   </div>
                   <div className="flex items-center gap-3 py-1 px-3 bg-primary rounded">
                     <BiLike className="w-5 h-5 text-white" />
-                    <DescSmall>{item.like}%</DescSmall>
+                    <DescSmall className="text-white">{item.like}%</DescSmall>
                   </div>
                 </div>
               </div>
