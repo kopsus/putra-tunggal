@@ -29,6 +29,27 @@
   scrollbar-width: none !important;
 }
 
+/* carousel service */
+.swiper-service.swiper {
+  height: 327px !important;
+}
+
+.swiper-service .swiper-button-prev {
+  left: 50px !important;
+}
+
+.swiper-service .swiper-button-next {
+  right: 50px !important;
+}
+
+.swiper-service .swiper-button-next::after,
+.swiper-service .swiper-button-prev::after {
+  font-size: 20px !important;
+  color: black !important;
+}
+/* end carousel service */
+
+/* carousel home */
 .swiper {
   width: 100%;
   height: 100%;
@@ -42,3 +63,4 @@
 .swiper-home .swiper-button-next {
   color: black !important;
 }
+/* end carousel home */

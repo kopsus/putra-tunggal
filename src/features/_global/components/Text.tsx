@@ -47,4 +47,19 @@ const TitleFooter = ({ className, children }: IText) => {
   );
 };
 
-export { TitleBanner, DescBanner, TitleContent, TitleAbout, TitleFooter };
+const DescSmall = ({ className, children }: IText) => {
+  return (
+    <p className={`${className} text-sm leading-[21.75px] text-white`}>
+      {children}
+    </p>
+  );
+};
+
+export {
+  TitleBanner,
+  DescBanner,
+  TitleContent,
+  TitleAbout,
+  TitleFooter,
+  DescSmall,
+};

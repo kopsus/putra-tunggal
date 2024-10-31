@@ -44,4 +44,69 @@ const biayaPelayanan = [
   },
 ];
 
-export { biayaPelayanan };
+const carouselServices = [
+  {
+    title: "Your Partner in Health and Wellness",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    title: "Your Partner in Health and Wellness",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+];
+
+const service = [
+  {
+    title: "Konsultasi dengan Dokter Ahli",
+    desc: "Sekarang, kamu dapat berkonsultasi dengan psikolog secara online langsung dari website kami. Layanan kesehatan mental online kami menyediakan akses ke tim psikolog terkualifikasi yang siap membantu dengan berbagai aspek kesehatan mental Anda. Mulai dari konseling psikologis untuk keluhan emosional yang lebih ringan hingga layanan dari psikolog spesialis yang berpengalaman dalam kasus-kasus yang lebih kompleks. Tidak perlu menunggu hingga masalah mental memburuk, segera berkonsultasi dengan kami untuk mendapatkan bantuan profesional dan dukungan yang Anda butuhkan.",
+  },
+  {
+    title: "Mengapa Pilih Konsultasi Dokter PsikoCare?",
+    desc: "Sekarang, kamu dapat berkonsultasi dengan psikolog secara online langsung dari website kami. Layanan kesehatan mental online kami menyediakan akses ke tim psikolog terkualifikasi yang siap membantu dengan berbagai aspek kesehatan mental Anda. Mulai dari konseling psikologis untuk keluhan emosional yang lebih ringan hingga layanan dari psikolog spesialis yang berpengalaman dalam kasus-kasus yang lebih kompleks. Tidak perlu menunggu hingga masalah mental memburuk, segera berkonsultasi dengan kami untuk mendapatkan bantuan profesional dan dukungan yang Anda butuhkan.",
+  },
+];
+
+const dataPsikolog = [
+  {
+    img: "",
+    name: "Dr. Rr. Wara Setija Brawidjajani",
+    job: "Psikiater Ahli",
+    experience: 7,
+    like: 100,
+    cost: 50000,
+  },
+  {
+    img: "",
+    name: "Dr. Ahmad Fadli",
+    job: "Psikolog Klinis",
+    experience: 10,
+    like: 100,
+    cost: 60000,
+  },
+  {
+    img: "",
+    name: "Dra. Siti Nurjanah",
+    job: "Psikolog Anak",
+    experience: 5,
+    like: 80,
+    cost: 40000,
+  },
+  {
+    img: "",
+    name: "Dr. Budi Santoso",
+    job: "Psikoterapis",
+    experience: 12,
+    like: 100,
+    cost: 55000,
+  },
+  {
+    img: "",
+    name: "Dra. Lani Setyowati",
+    job: "Konselor",
+    experience: 8,
+    like: 90,
+    cost: 45000,
+  },
+];
+
+export { biayaPelayanan, carouselServices, service, dataPsikolog };
