@@ -15,6 +15,10 @@
     @apply px-5 md:px-10 lg:px-16;
   }
 
+  .titleHighlight {
+    @apply text-3xl font-semibold text-primary;
+  }
+
   .titleSection {
     @apply text-2xl font-semibold;
   }
@@ -23,3 +27,23 @@
     @apply text-xl font-semibold;
   }
 }
+
+* {
+  scrollbar-width: none !important;
+}
+
+/* carousel home */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-pagination-bullet {
+  background: #23435c !important;
+}
+
+.swiper-home .swiper-button-prev,
+.swiper-home .swiper-button-next {
+  color: black !important;
+}
+/* end carousel home */
