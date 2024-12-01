@@ -7,7 +7,9 @@ interface IButton {
 
 const ButtonLarge = ({ children, className }: IButton) => {
   return (
-    <button className={`${className} font-bold shadow py-[18px] px-16`}>
+    <button
+      className={`${className} rounded-full font-bold shadow py-[18px] px-16`}
+    >
       {children}
     </button>
   );
@@ -15,7 +17,7 @@ const ButtonLarge = ({ children, className }: IButton) => {
 
 const ButtonMedium = ({ children, className }: IButton) => {
   return (
-    <button className={`${className} font-bold shadow py-3 px-12`}>
+    <button className={`${className} rounded-full font-bold shadow py-3 px-12`}>
       {children}
     </button>
   );
@@ -23,7 +25,7 @@ const ButtonMedium = ({ children, className }: IButton) => {
 
 const ButtonSmall = ({ children, className }: IButton) => {
   return (
-    <button className={`${className} font-bold shadow py-2 px-8`}>
+    <button className={`${className} rounded-full font-bold shadow py-2 px-8`}>
       {children}
     </button>
   );
