@@ -1,7 +1,7 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface IServiceCard {
-  img: string;
+  img: StaticImageData;
   title: string;
   desc: string;
 }

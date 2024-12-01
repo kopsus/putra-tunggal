@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import React from "react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import highlightIMG from "@/assets/imgBanner.svg";
 import { dataBanner } from "@/libs/data";
 import { ButtonMedium } from "../Button";
+
+// swiper
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export const Highlight = () => {
   return (

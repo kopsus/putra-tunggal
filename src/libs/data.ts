@@ -1,3 +1,5 @@
+import serviceIMG from "@/assets/service.png";
+
 const dataBanner = [
   {
     title: "Your Partner in Health and Wellness",
@@ -11,27 +13,27 @@ const dataBanner = [
 
 const dataServices = [
   {
-    img: "",
+    img: serviceIMG,
     title: "Konsultasi psikologi",
     desc: "Jaga kesehatan mentalmu, yuk konsultasi dengan psikolog untuk hidup yang lebih bahagia dan seimbang!",
   },
   {
-    img: "",
+    img: serviceIMG,
     title: "tes kesehatan psikologi",
     desc: "Ingin lebih mengenal dirimu? Yuk, ikut tes psikologi untuk memahami potensi dan kepribadianmu lebih dalam!",
   },
   {
-    img: "",
+    img: serviceIMG,
     title: "tes Penjurusan sekolah",
     desc: "Bingung dalam milih jurusan? Temukan jurusan yang tepat untuk masa depanmu! Yuk, ikut tes penjurusan sekolah!",
   },
   {
-    img: "",
+    img: serviceIMG,
     title: "ANALISis JABATAN",
     desc: "Ayo, lakukan analisis jabatan untuk memahami peran dan tanggung jawabmu, serta tingkatkan kinerja!",
   },
   {
-    img: "",
+    img: serviceIMG,
     title: "Konsultasi psikologi",
     desc: "Jaga kesehatan mentalmu, yuk konsultasi dengan psikolog untuk hidup yang lebih bahagia dan seimbang!",
   },
