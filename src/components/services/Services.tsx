@@ -1,4 +1,4 @@
-import { dataServices } from "@/libs/data";
+import { dataServices } from "@/lib/data";
 import React from "react";
 import ServicesCard from "./ServiceCard";
 

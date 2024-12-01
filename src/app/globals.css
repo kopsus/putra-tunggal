@@ -26,6 +26,9 @@
   .titleContent {
     @apply text-xl font-semibold;
   }
+  :root {
+    --radius: 0.5rem;
+  }
 }
 
 * {

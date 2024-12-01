@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import highlightIMG from "@/assets/imgBanner.svg";
-import { dataBanner } from "@/libs/data";
+import { dataBanner } from "@/lib/data";
 import { ButtonMedium } from "../Button";
 
 // swiper
