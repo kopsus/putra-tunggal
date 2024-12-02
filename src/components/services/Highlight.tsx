@@ -27,11 +27,11 @@ const HighlightService = () => {
               delay: 2500,
             }}
             modules={[Navigation, Autoplay]}
-            className="swiper-service"
+            className="swiper-service bg-white shadow-md border rounded-xl"
           >
             {carouselServices.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-white shadow-md border h-[327px] rounded-xl flex flex-col gap-5 justify-end items-center overflow-hidden px-10 text-center">
+                <div className="h-[327px] flex flex-col gap-5 justify-end items-center overflow-hidden px-10 text-center">
                   <p className="text-primary/70 font-medium">{item.desc}</p>
                   <div className="h-[177px]">
                     <Image

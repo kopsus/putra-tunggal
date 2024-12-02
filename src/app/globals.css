@@ -56,14 +56,6 @@
   height: 327px !important;
 }
 
-/* .swiper-service .swiper-button-prev {
-  left: 50px !important;
-}
-
-.swiper-service .swiper-button-next {
-  right: 50px !important;
-} */
-
 .swiper-service .swiper-button-next::after,
 .swiper-service .swiper-button-prev::after {
   font-size: 20px !important;
