@@ -10,9 +10,7 @@ const Chat = () => {
   return (
     <div className="Container">
       <div className="flex items-start gap-x-10 divide-x-4 divide-black/20">
-        <div className="relative min-w-[497px] max-w-[497px] flex flex-col gap-5 max-h-[662px] overflow-y-auto">
-          <HistoryChat />
-        </div>
+        <HistoryChat />
         <div className="pl-10 w-full relative h-[662px]">
           <div className="flex items-center gap-x-4 border-b-2 border-black/50 w-full pb-5">
             <div className="min-w-20 w-20 h-20 rounded-full overflow-hidden border shadow">
