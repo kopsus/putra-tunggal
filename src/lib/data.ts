@@ -180,6 +180,57 @@ const dataPsikolog = [
   },
 ];
 
+const dataTestmoni = [
+  {
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    profile: psikologIMG,
+    name: "kopsus",
+  },
+  {
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    profile: psikologIMG,
+    name: "kopsus",
+  },
+  {
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    profile: psikologIMG,
+    name: "kopsus",
+  },
+  {
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    profile: psikologIMG,
+    name: "kopsus",
+  },
+  {
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    profile: psikologIMG,
+    name: "kopsus",
+  },
+  {
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    profile: psikologIMG,
+    name: "kopsus",
+  },
+  {
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    profile: psikologIMG,
+    name: "kopsus",
+  },
+  {
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+    profile: psikologIMG,
+    name: "kopsus",
+  },
+];
+
 export {
   dataBanner,
   dataServices,
@@ -188,4 +239,5 @@ export {
   carouselServices,
   service,
   dataPsikolog,
+  dataTestmoni,
 };

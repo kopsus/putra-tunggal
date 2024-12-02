@@ -32,10 +32,15 @@ export default {
             height: "0",
           },
         },
+        "infinite-scroll-up": {
+          from: { transform: "translateY(30%)" },
+          to: { transform: "translateY(-100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "infinite-scroll-up": "infinite-scroll-up 10s linear infinite",
       },
     },
   },
