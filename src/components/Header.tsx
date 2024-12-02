@@ -8,6 +8,8 @@ import { ButtonSmall } from "./Button";
 import { usePathname } from "next/navigation";
 
 export const Header = () => {
+  const login = false;
+
   const ItemHeader = [
     {
       name: "Beranda",
@@ -52,7 +54,13 @@ export const Header = () => {
         <Link href={"consultation"}>
           <PiChatCircleText size={32} />
         </Link>
-        <ButtonSmall className="bg-red">Login</ButtonSmall>
+        {login ? (
+          <div className="h-7 w-7 rounded-full bg-white"></div>
+        ) : (
+          <Link href="login">
+            <ButtonSmall className="bg-red">Login</ButtonSmall>
+          </Link>
+        )}
       </div>
     </div>
   );

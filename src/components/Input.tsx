@@ -1,10 +1,30 @@
 import { FiSearch } from "react-icons/fi";
 
-interface IInputSearch {
+interface IInput {
   placeholder: string;
+  type?: "text" | "password" | "number";
 }
 
-const InputSearch = ({ placeholder }: IInputSearch) => {
+const Input = ({ placeholder, type }: IInput) => {
+  return (
+    <input
+      type={type}
+      placeholder={placeholder}
+      className="outline-none rounded-lg border-2 border-primary/50 p-2 text-sm"
+    />
+  );
+};
+
+const TextArea = ({ placeholder }: IInput) => {
+  return (
+    <input
+      placeholder={placeholder}
+      className="outline-none rounded-lg border-2 border-primary/50 p-2 min-h-16"
+    />
+  );
+};
+
+const InputSearch = ({ placeholder }: IInput) => {
   return (
     <div className="relative h-[57px] rounded-[20px] border border-black flex items-center overflow-hidden px-4 shadow-md">
       <input
@@ -17,4 +37,4 @@ const InputSearch = ({ placeholder }: IInputSearch) => {
   );
 };
 
-export { InputSearch };
+export { InputSearch, Input, TextArea };
