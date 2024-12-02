@@ -11,6 +11,7 @@ import { Header } from "@/components/Header";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Footer from "@/components/Foooter";
 
 const poppins = Poppins({
   weight: ["400"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         <main>
           <Header />
           {children}
+          <Footer />
         </main>
       </body>
     </html>
