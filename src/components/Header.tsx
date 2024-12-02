@@ -49,7 +49,9 @@ export const Header = () => {
         ))}
       </div>
       <div className="col-span-1 mx-auto flex items-center gap-5">
-        <PiChatCircleText size={32} />
+        <Link href={"consultation"}>
+          <PiChatCircleText size={32} />
+        </Link>
         <ButtonSmall className="bg-red">Login</ButtonSmall>
       </div>
     </div>

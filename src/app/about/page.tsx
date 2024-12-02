@@ -70,9 +70,9 @@ const page = () => {
             melayani Anda.
           </p>
           <div className="flex items-center gap-10 justify-center">
-            <FaWhatsapp size={52} />
-            <FaFacebook size={52} />
-            <FaTwitter size={52} />
+            <FaWhatsapp size={52} fill="#25D366" />
+            <FaFacebook size={52} fill="#3B5998" />
+            <FaTwitter size={52} fill="#00ACEE" />
             <FaInstagram size={52} />
           </div>
         </div>

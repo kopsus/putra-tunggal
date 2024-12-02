@@ -296,6 +296,34 @@ const dataRelatedArticle = [
   },
 ];
 
+const dataHistoryChat = [
+  {
+    img: psikologIMG,
+    name: "Dr. John Cena",
+    chat: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+  },
+  {
+    img: psikologIMG,
+    name: "Dr. Rr. Wara Setija Brawidjajani",
+    chat: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+  },
+  {
+    img: psikologIMG,
+    name: "Dr. Ahmad Fadli",
+    chat: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+  },
+  {
+    img: psikologIMG,
+    name: "Dra. Siti Nurjanah",
+    chat: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+  },
+  {
+    img: psikologIMG,
+    name: "Dr. Budi Santoso",
+    chat: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+  },
+];
+
 export {
   dataBanner,
   dataServices,
@@ -309,4 +337,5 @@ export {
   dataArticle2,
   dataFaqArticle,
   dataRelatedArticle,
+  dataHistoryChat,
 };
