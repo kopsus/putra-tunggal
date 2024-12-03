@@ -1,17 +1,24 @@
+// components
 import { BannerTrigger } from "@/components/BannerTrigger";
-import Faq from "@/components/home/FAQ";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Foooter";
+import { Faq } from "@/components/home/FAQ";
 import { Highlight } from "@/components/home/Highlight";
-import MentalHealth from "@/components/home/MentalHealth";
+import { MentalHealth } from "@/components/home/MentalHealth";
 import { Services } from "@/components/services/Services";
 
 export default function Home() {
   return (
-    <div className="pt-10">
-      <Highlight />
-      <Services />
-      <MentalHealth />
-      <BannerTrigger />
-      <Faq />
-    </div>
+    <>
+      <Header />
+      <div className="pt-10">
+        <Highlight />
+        <Services />
+        <MentalHealth />
+        <BannerTrigger />
+        <Faq />
+      </div>
+      <Footer />
+    </>
   );
 }

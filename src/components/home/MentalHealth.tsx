@@ -43,4 +43,4 @@ const MentalHealth = () => {
   );
 };
 
-export default MentalHealth;
+export { MentalHealth };

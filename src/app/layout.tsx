@@ -4,14 +4,10 @@ import "./globals.css";
 // fonts
 import { Poppins } from "next/font/google";
 
-// components
-import { Header } from "@/components/Header";
-
 // swiper
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Footer from "@/components/Foooter";
 
 const poppins = Poppins({
   weight: ["400"],
@@ -31,11 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
-        <main>
-          <Header />
-          {children}
-          <Footer />
-        </main>
+        <main>{children}</main>
       </body>
     </html>
   );

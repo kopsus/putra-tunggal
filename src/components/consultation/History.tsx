@@ -5,7 +5,7 @@ import { GoDotFill } from "react-icons/go";
 
 const HistoryChat = () => {
   return (
-    <div className="relative min-w-[497px] max-w-[497px] flex flex-col gap-5 h-screen">
+    <div className="relative min-w-[497px] w-full h-screen pt-10 md:pt-16 lg:pt-24 flex flex-col gap-5">
       <div className="flex flex-col gap-y-5 bg-white">
         <p className="titleContent">Chat</p>
         <InputSearch placeholder="Cari percakapan konsultasi" />
@@ -32,11 +32,11 @@ const HistoryChat = () => {
       {/* end online */}
 
       {/* expired */}
-      <div className="flex flex-col gap-5 h-full overflow-hidden overflow-y-auto">
+      <div className="flex flex-col gap-5 overflow-hidden overflow-y-scroll h-full">
         <p className="text-black/50 bg-white font-semibold sticky top-0">
           Expired
         </p>
-        {dataHistoryChat.map((item, index) => (
+        {dataHistoryChat.slice(0, 5).map((item, index) => (
           <div key={index} className="flex items-start gap-5">
             <div className="bg-white border min-w-20 w-20 h-20 overflow-hidden shadow-md rounded-full">
               <Image src={item.img} alt="" width={0} height={0} sizes="100vw" />
