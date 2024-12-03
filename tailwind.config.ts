@@ -14,6 +14,8 @@ export default {
         primary: "#23435C",
         red: "#FF0000",
         blue: "#0029FF",
+        online: "#00FF0A",
+        offline: "#FFF500",
       },
       keyframes: {
         "accordion-down": {

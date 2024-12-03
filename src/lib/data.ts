@@ -324,6 +324,21 @@ const dataHistoryChat = [
   },
 ];
 
+const dataHistoryInteraction = [
+  {
+    docterName: "Silvia Anastasi",
+    service: "Online",
+    date: "27 Oktober",
+    time: "10",
+  },
+  {
+    docterName: "Silvia Anastasi",
+    service: "Offline",
+    date: "27 Oktober",
+    time: "10",
+  },
+];
+
 export {
   dataBanner,
   dataServices,
@@ -338,4 +353,5 @@ export {
   dataFaqArticle,
   dataRelatedArticle,
   dataHistoryChat,
+  dataHistoryInteraction,
 };
