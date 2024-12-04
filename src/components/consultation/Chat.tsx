@@ -1,12 +1,37 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+
+// assets
 import { GoDotFill, GoPlusCircle } from "react-icons/go";
 import { IoIosSend } from "react-icons/io";
 import { SlEmotsmile } from "react-icons/sl";
 import person from "@/assets/psikolog.jpg";
+
+// components
 import HistoryChat from "./History";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogTitle,
+  DialogContent,
+} from "@/components/ui/dialog";
+import ContinuePayment from "./modal/ContinuePayment";
+import Rating from "./modal/Rating";
 
 const Chat = () => {
+  const isPayment = false;
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true); // Open the dialog after 10 seconds
+    }, 10000); // 10 seconds
+
+    return () => clearTimeout(timer); // Cleanup the timer if the component unmounts
+  }, []);
+
   return (
     <div className="grid grid-cols-2 gap-x-5 divide-x-4 divide-black/20">
       <HistoryChat />
@@ -75,11 +100,30 @@ const Chat = () => {
               <SlEmotsmile className="h-full w-full" />
             </div>
             <div className="w-5 h-5 rounded-full flex justify-center items-center">
-              <IoIosSend className="h-full w-full" />
+              {isPayment ? (
+                <IoIosSend className="h-full w-full" />
+              ) : (
+                <Dialog>
+                  <DialogTrigger>
+                    <IoIosSend className="h-full w-full" />
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogTitle></DialogTitle>
+                    <ContinuePayment />
+                  </DialogContent>
+                </Dialog>
+              )}
             </div>
           </div>
         </div>
       </div>
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogTrigger></DialogTrigger>
+        <DialogContent className="p-6 w-96">
+          <DialogTitle></DialogTitle>
+          <Rating />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

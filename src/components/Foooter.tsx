@@ -35,17 +35,9 @@ const Footer = () => {
         </div>
         <div className="flex-1 flex flex-col gap-y-2">
           <p className="titleContent">Layanan Pengaduan Konsumen</p>
-          <div className="flex flex-col">
-            <p className="font-semibold">PT. PsikoHealth</p>
-            <p>
-              Jl. H.R. Rasuna Said Kav B32-33, Jakarta Selatan
-              help@psikocare.com / 021-1234-1023
-            </p>
-          </div>
           <p>
-            Direktorat Jenderal Perlindungan Konsumen dan Tertib
-            NiagaKementerian Perdagangan Republik Indonesia0853 1111 1010
-            (WhatsApp)
+            Jalan Wahid Hasyim 37, Karangklesem, Kec. Purwokerto Sel., Kabupaten
+            Banyumas, Jawa Tengah 53144 / +628123456789
           </p>
         </div>
         <div className="flex flex-col gap-y-2 w-[231px]">
