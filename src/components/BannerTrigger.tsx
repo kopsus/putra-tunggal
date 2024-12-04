@@ -1,7 +1,7 @@
 import React from "react";
 
 // components
-import { ButtonSmall } from "./Button";
+import { ButtonMedium } from "./Button";
 
 // image
 import bannerTriggerIMG from "@/assets/bannerTrigger.png";
@@ -19,9 +19,9 @@ export const BannerTrigger = () => {
           </p>
           <p className="titleHighlight">Ayo Nikmati Layanan Kami!</p>
         </div>
-        <ButtonSmall className="bg-red text-white">
+        <ButtonMedium className="bg-red text-white">
           BUAT JANJI SEKARANG
-        </ButtonSmall>
+        </ButtonMedium>
         <div className="absolute bottom-5 right-5">
           <Image
             src={bannerTriggerIMG}
