@@ -25,7 +25,7 @@ const page = () => {
             </div>
             <div className="col-span-1" />
           </div>
-          <div className="bg-[#2A9D8F]/10 h-full p-10 grid grid-cols-3 gap-10">
+          <div className="bg-[#2A9D8F]/10 h-full p-10 grid grid-cols-3">
             <div className="col-span-2 flex flex-col gap-5 w-10/12">
               <p className="titleContent">
                 Selamat Datang di Biro Psikologi Putra Tunggal
@@ -51,14 +51,9 @@ const page = () => {
               </p>
             </div>
             <div className="col-span-1">
-              <Image
-                src={ceoIMG}
-                alt=""
-                width={0}
-                height={0}
-                sizes="100vw"
-                className="w-11/12 mx-auto"
-              />
+              <div className="w-2/3 mx-auto">
+                <Image src={ceoIMG} alt="" width={0} height={0} sizes="100vw" />
+              </div>
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import ButtonChatTrigger from "@/components/ButtonChatTrigger";
 import { Footer } from "@/components/Foooter";
 import { Header } from "@/components/Header";
 
@@ -11,6 +12,7 @@ export default function RootLayout({
       <Header />
       {children}
       <Footer />
+      <ButtonChatTrigger />
     </main>
   );
 }

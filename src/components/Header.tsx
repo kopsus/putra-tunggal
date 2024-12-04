@@ -58,7 +58,7 @@ export const Header = () => {
           <div className="h-7 w-7 rounded-full bg-white"></div>
         ) : (
           <Link href="login">
-            <ButtonSmall className="bg-red">Login</ButtonSmall>
+            <ButtonSmall className="bg-red text-base">Login</ButtonSmall>
           </Link>
         )}
       </div>

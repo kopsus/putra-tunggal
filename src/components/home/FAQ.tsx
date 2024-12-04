@@ -12,7 +12,7 @@ const Faq = () => {
   return (
     <div className="Container">
       <div className="flex items-center justify-center gap-x-2">
-        <p className="titleSection">Tanya Biro Psikologi Putra Tunggal(FAQs)</p>
+        <p className="titleContent">Tanya Biro Psikologi Putra Tunggal(FAQs)</p>
         <div className="bg-primary flex items-center gap-1 py-2 px-4 rounded-lg">
           <div>
             <Image src={Logo} alt="logo" width={0} height={0} sizes="100vw" />

@@ -16,17 +16,19 @@
   }
 
   .titleHighlight {
-    @apply text-3xl font-semibold text-primary;
+    @apply text-2xl font-semibold text-primary;
   }
 
   .titleSection {
-    @apply text-2xl font-semibold;
-  }
-
-  .titleContent {
     @apply text-xl font-semibold;
   }
 
+  .titleContent {
+    @apply text-base font-semibold;
+  }
+  p {
+    @apply text-sm;
+  }
   .badge {
     @apply bg-primary/5 rounded-full w-max mx-auto px-4 py-2;
   }

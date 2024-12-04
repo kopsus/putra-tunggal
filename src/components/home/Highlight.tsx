@@ -33,7 +33,7 @@ export const Highlight = () => {
                   </p>
                   <p className="text-primary/70 leading-6">{item.desc}</p>
                   <ButtonMedium className="bg-red text-white">
-                    Buat Janji Sekarang
+                    BUAT JANJI SEKARANG
                   </ButtonMedium>
                 </div>
                 <div className="flex justify-end items-end">

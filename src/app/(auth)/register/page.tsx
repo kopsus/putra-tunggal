@@ -13,7 +13,7 @@ const page = () => {
       </div>
       <div className="col-span-1 w-2/3 mx-auto flex flex-col justify-between gap-5 py-5">
         <div className="text-center">
-          <p className="text-[22px] font-bold text-primary">PENDAFTARAN</p>
+          <p className="text-xl font-bold text-primary">PENDAFTARAN</p>
           <p>
             Pengguna baru, Silahkan mendaftar untuk mengakses forum{" "}
             <span className="text-primary font-semibold">

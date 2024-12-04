@@ -19,7 +19,7 @@ const TextArea = ({ placeholder }: IInput) => {
   return (
     <input
       placeholder={placeholder}
-      className="outline-none rounded-lg border-2 border-primary/50 p-2 min-h-16"
+      className="text-sm outline-none rounded-lg border-2 border-primary/50 p-2 min-h-14"
     />
   );
 };

@@ -6,6 +6,7 @@ import { Faq } from "@/components/home/FAQ";
 import { Highlight } from "@/components/home/Highlight";
 import { MentalHealth } from "@/components/home/MentalHealth";
 import { Services } from "@/components/services/Services";
+import ButtonChatTrigger from "@/components/ButtonChatTrigger";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Faq />
       </div>
       <Footer />
+      <ButtonChatTrigger />
     </>
   );
 }
