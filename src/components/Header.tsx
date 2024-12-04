@@ -37,7 +37,7 @@ export const Header = () => {
       <div className="col-span-1 mx-auto">
         <Logo />
       </div>
-      <div className="col-span-2 flex items-center justify-around">
+      <div className="col-span-2 flex items-center justify-center gap-16">
         {ItemHeader.map((item, index) => (
           <Link
             href={item.link}
@@ -58,7 +58,7 @@ export const Header = () => {
           <div className="h-7 w-7 rounded-full bg-white"></div>
         ) : (
           <Link href="login">
-            <ButtonSmall className="bg-red text-base">Login</ButtonSmall>
+            <ButtonSmall className="bg-red">Login</ButtonSmall>
           </Link>
         )}
       </div>

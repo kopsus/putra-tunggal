@@ -7,10 +7,17 @@ import { dataPsikolog } from "@/lib/data";
 // components
 import { InputSearch } from "@/components/Input";
 import { ButtonSmall } from "@/components/Button";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 // icon
 import { FaJoget } from "react-icons/fa";
 import { BiLike } from "react-icons/bi";
+import ProfilePsikolog from "./ProfilePsikolog";
 
 const ListPsikolog = () => {
   return (
@@ -41,9 +48,18 @@ const ListPsikolog = () => {
               </div>
               <p className="font-semibold">{formatIDR(item.cost)}</p>
               <div className="flex items-center gap-4">
-                <ButtonSmall className="border border-black">
-                  Lihat Profil
-                </ButtonSmall>
+                <Dialog>
+                  <DialogTrigger className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black">
+                    Lihat Profil
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogTitle></DialogTitle>
+                    <ProfilePsikolog />
+                    <ButtonSmall className="bg-red text-white">
+                      Chat
+                    </ButtonSmall>
+                  </DialogContent>
+                </Dialog>
                 <ButtonSmall className="bg-red text-white">Chat</ButtonSmall>
               </div>
             </div>

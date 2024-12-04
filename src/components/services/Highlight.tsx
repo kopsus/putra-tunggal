@@ -4,7 +4,7 @@ import imgBg from "@/assets/highlightService.png";
 import Image from "next/image";
 
 // components
-import ListPsikolog from "./ListPsikolog";
+import ListPsikolog from "../psikolog/ListPsikolog";
 
 // swiper
 import "swiper/css";
