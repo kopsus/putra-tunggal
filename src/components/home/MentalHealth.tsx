@@ -5,9 +5,9 @@ import Image from "next/image";
 const MentalHealth = () => {
   return (
     <div className="Container">
-      <div className="flex items-start gap-x-20">
-        <div className="flex flex-col gap-5">
-          <p className="titleSection">
+      <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-20">
+        <div className="flex flex-col gap-5 order-2 lg:order-1">
+          <p className="titleSection hidden lg:block">
             Mari Berkenalan dengan{" "}
             <span className="text-primary">“Mental Health”</span>
           </p>
@@ -27,8 +27,12 @@ const MentalHealth = () => {
             kesejahteraan diri dan orang lain di sekitar kita.
           </p>
         </div>
-        <div>
-          <div className="w-[464px] h-[333px] rounded-3xl shadow-md border overflow-hidden">
+        <div className="order-1 lg:order-2 w-full">
+          <p className="titleSection flex flex-col text-center mb-4 lg:hidden">
+            Mari Berkenalan dengan{" "}
+            <span className="text-primary">“Mental Health”</span>
+          </p>
+          <div className="lg:w-[464px] lg:h-[333px] w-full rounded-3xl shadow-md border overflow-hidden">
             <Image
               src={mentalHealthIMG}
               alt=""
