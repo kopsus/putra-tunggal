@@ -46,7 +46,7 @@ const ListPsikolog = () => {
                   </div>
                 </div>
               </div>
-              <p className="font-semibold">{formatIDR(item.cost)}</p>
+              <p className="font-semibold text-lg">{formatIDR(item.cost)}</p>
               <div className="flex items-center gap-4">
                 <Dialog>
                   <DialogTrigger className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black">
