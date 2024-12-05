@@ -13,7 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 export const Highlight = () => {
   return (
     <div className="Container">
-      <div className="h-[415px] rounded-3xl bg-white shadow-md border relative">
+      <div className="md:h-[415px] rounded-3xl bg-white shadow-md border relative">
         <Swiper
           pagination={true}
           navigation={true}
@@ -26,21 +26,24 @@ export const Highlight = () => {
         >
           {dataBanner.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="grid grid-cols-2 h-full px-16">
-                <div className="h-full flex flex-col gap-4 justify-center items-start">
-                  <p className="titleHighlight leading-[45px] text-primary">
-                    {item.title}
-                  </p>
-                  <p className="text-primary/70 leading-6">{item.desc}</p>
+              <div className="relative grid md:grid-cols-2 h-full p-10 lg:px-16">
+                <div className="h-full flex flex-col gap-4 text-center md:text-start justify-between md:justify-center items-start z-20">
+                  <div className="flex flex-col gap-4">
+                    <p className="titleHighlight md:leading-[45px] text-primary">
+                      {item.title}
+                    </p>
+                    <p className="text-primary/70 leading-6">{item.desc}</p>
+                  </div>
                   <ButtonMedium className="bg-red text-white">
                     BUAT JANJI SEKARANG
                   </ButtonMedium>
                 </div>
-                <div className="flex justify-end items-end">
+                <div></div>
+                <div className="absolute bottom-0 mx-auto w-full flex justify-center md:justify-end lg:right-20">
                   <Image
                     src={highlightIMG}
                     alt=""
-                    className="w-[338px] h-[332px]"
+                    className="w-32 md:w-72 lg:w-[338px] lg:h-[332px]"
                   />
                 </div>
               </div>
