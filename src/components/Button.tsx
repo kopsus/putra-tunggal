@@ -18,7 +18,7 @@ const ButtonLarge = ({ children, className }: IButton) => {
 const ButtonMedium = ({ children, className }: IButton) => {
   return (
     <button
-      className={`${className} text-sm rounded-full font-bold shadow py-3 px-12`}
+      className={`${className} text-sm rounded-full font-bold shadow py-2 px-6 md:py-3 md:px-12`}
     >
       {children}
     </button>

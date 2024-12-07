@@ -12,15 +12,17 @@ const Faq = () => {
   return (
     <div className="Container">
       <div className="flex flex-col lg:flex-row items-center justify-center gap-2">
-        <p className="titleSection">Tanya Biro Psikologi Putra Tunggal(FAQs)</p>
+        <p className="titleSection text-center">
+          Tanya Biro Psikologi Putra Tunggal(FAQs)
+        </p>
         <div className="bg-primary flex items-center gap-1 py-2 px-4 rounded-lg">
-          <div>
+          <div className="min-w-5">
             <Image src={Logo} alt="logo" width={0} height={0} sizes="100vw" />
           </div>
           <p className="titleContent text-white font-medium">Putra Tunggal</p>
         </div>
       </div>
-      <div className="my-10 lg:my-16 ContainerX">
+      <div className="my-10 lg:my-16 md:ContainerX">
         <Accordion
           type="single"
           collapsible

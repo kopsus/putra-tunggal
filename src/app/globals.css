@@ -20,7 +20,7 @@
   }
 
   .titleSection {
-    @apply text-xl font-semibold;
+    @apply text-lg md:text-xl font-semibold;
   }
 
   .titleContent {

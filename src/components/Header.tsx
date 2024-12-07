@@ -35,11 +35,11 @@ export const Header = () => {
   const isActiveLink = (href: string) => pathname === href;
 
   return (
-    <div className="flex items-center justify-between lg:justify-center h-20 bg-primary text-white fixed w-full z-50 px-7 md:px-20">
+    <div className="flex items-center justify-between h-20 bg-primary text-white fixed w-full z-50 px-7 md:px-20">
       <div className="lg:hidden">
         <Hamburger toggled={isOpen} toggle={setOpen} />
       </div>
-      <div className="md:mx-auto">
+      <div className="">
         <Logo />
       </div>
       <div
@@ -65,7 +65,7 @@ export const Header = () => {
           <ButtonSmall className="bg-red">Login</ButtonSmall>
         </Link>
       </div>
-      <div className="lg:mx-auto md:flex items-center gap-5 hidden">
+      <div className=" md:flex items-center gap-5 hidden">
         <Link href={"consultation"}>
           <PiChatCircleText size={32} />
         </Link>
