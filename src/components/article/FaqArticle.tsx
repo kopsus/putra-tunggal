@@ -9,7 +9,7 @@ import { dataFaqArticle } from "@/lib/data";
 const FaqArticle = () => {
   return (
     <div className="Container">
-      <div className="ContainerX">
+      <div className="md:ContainerX">
         <Accordion
           type="single"
           collapsible

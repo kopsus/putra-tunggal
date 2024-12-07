@@ -9,12 +9,12 @@ interface ICard {
 
 const Card = ({ img, title, date }: ICard) => {
   return (
-    <div className="flex flex-col min-w-[307px] max-w-[307px]">
-      <div className="w-full h-[237px] rounded-xl shadow-md border overflow-hidden">
+    <div className="flex flex-col md:min-w-[307px] md:max-w-[307px]">
+      <div className="w-52 h-auto md:w-full md:h-[237px] rounded-xl shadow-md border overflow-hidden">
         <Image src={img} alt="" width={0} height={0} sizes="100vw" />
       </div>
-      <p className="text-red mt-5 mb-2">{title}</p>
-      <p className="text-black/50 text-sm">{date}</p>
+      <p className="text-red mt-5 mb-2 text-xs md:text-sm">{title}</p>
+      <p className="text-black/50 text-xs">{date}</p>
     </div>
   );
 };
