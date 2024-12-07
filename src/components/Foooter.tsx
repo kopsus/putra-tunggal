@@ -18,12 +18,12 @@ const Sosmed = ({ children }: ISosmed) => {
 
 const Footer = () => {
   return (
-    <div className="px-5 md:px-10 lg:py-10 lg:px-16 bg-primary text-white">
-      <div className="mb-10">
+    <div className="px-5 p-10 lg:py-10 lg:px-16 bg-primary text-white">
+      <div className="mb-10 flex justify-center">
         <Logo />
       </div>
-      <div className="flex gap-x-10">
-        <div className="flex-1 flex flex-col gap-y-2">
+      <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-16 lg:gap-20">
+        <div className="md:col-span-1 lg:col-span-2 flex flex-col gap-y-2">
           <p className="titleContent">Tentang Kami</p>
           <p>
             Situs kami adalah sumber informasi kesehatan yang dipercayai dan
@@ -33,7 +33,7 @@ const Footer = () => {
             dukungan dari para profesional kami.{" "}
           </p>
         </div>
-        <div className="flex-1 flex flex-col gap-y-2">
+        <div className="md:col-span-1 lg:col-span-2 flex flex-col gap-y-2">
           <p className="titleContent">Layanan Pengaduan Konsumen</p>
           <p>
             Jalan Wahid Hasyim 37, Karangklesem, Kec. Purwokerto Sel., Kabupaten
@@ -41,12 +41,6 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex flex-col gap-y-2 w-[231px]">
-          <p className="titleContent">Link Terkait</p>
-          <div className="flex flex-col gap-y-1">
-            <p>Edukasi</p>
-            <p>Psikologi</p>
-            <p>Konsultasi Kesehatan Mental</p>
-          </div>
           <p className="titleContent">Contact</p>
           <div className="flex items-center gap-x-2">
             <Sosmed>
@@ -64,7 +58,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="text-center font-semibold leading-6 mt-20">
+      <p className="text-center font-semibold leading-6 mt-16">
         Copyright © 2023 PsikoHeatlh
       </p>
     </div>
