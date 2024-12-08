@@ -18,6 +18,7 @@ import {
 import { FaJoget } from "react-icons/fa";
 import { BiLike } from "react-icons/bi";
 import ProfilePsikolog from "./ProfilePsikolog";
+import Link from "next/link";
 
 const ListPsikolog = () => {
   return (
@@ -70,11 +71,13 @@ const ListPsikolog = () => {
                       <DialogTitle></DialogTitle>
                       <ProfilePsikolog />
                       <ButtonSmall className="bg-red text-white">
-                        Chat
+                        <Link href={"/consultation"}>Chat</Link>
                       </ButtonSmall>
                     </DialogContent>
                   </Dialog>
-                  <ButtonSmall className="bg-red text-white">Chat</ButtonSmall>
+                  <ButtonSmall className="bg-red text-white">
+                    <Link href={"/consultation"}>Chat</Link>
+                  </ButtonSmall>
                 </div>
               </div>
             </div>
@@ -86,10 +89,14 @@ const ListPsikolog = () => {
                 <DialogContent>
                   <DialogTitle></DialogTitle>
                   <ProfilePsikolog />
-                  <ButtonSmall className="bg-red text-white">Chat</ButtonSmall>
+                  <ButtonSmall className="bg-red text-white">
+                    <Link href={"/consultation"}>Chat</Link>
+                  </ButtonSmall>
                 </DialogContent>
               </Dialog>
-              <ButtonSmall className="bg-red text-white">Chat</ButtonSmall>
+              <ButtonSmall className="bg-red text-white">
+                <Link href={"/consultation"}>Chat</Link>
+              </ButtonSmall>
             </div>
           </div>
         ))}
