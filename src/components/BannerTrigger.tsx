@@ -10,7 +10,7 @@ import Image from "next/image";
 export const BannerTrigger = () => {
   return (
     <div className="ContainerX">
-      <div className="relative bg-white shadow-md shadow-black/25 border rounded-3xl p-10 md:p-16 lg:p-20 flex flex-col gap-10 items-center justify-center">
+      <div className="relative bg-white shadow-md shadow-black/25 border rounded-3xl p-10 md:p-16 lg:p-20 flex flex-col gap-10 items-center justify-between h-96">
         <div className="flex flex-col gap-5 text-center z-20">
           <p>
             Kesehatan mental sama pentingnya dengan kesehatan fisik. Jangan ragu

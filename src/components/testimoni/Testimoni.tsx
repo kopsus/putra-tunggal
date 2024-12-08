@@ -10,9 +10,9 @@ import { dataTestmoni } from "@/lib/data";
 const Testimoni = () => {
   return (
     <div className="py-10 md:py-16 lg:py-24">
-      <div className="ContainerX bg-primary/10 h-[450px] overflow-hidden lg:mb-16">
-        <div className="grid grid-cols-2 gap-x-10 h-full">
-          <div className="flex flex-col justify-center items-start gap-5">
+      <div className="ContainerX lg:bg-primary/10 lg:h-[450px] overflow-hidden lg:mb-16">
+        <div className="grid lg:grid-cols-2 gap-10 h-full">
+          <div className="flex flex-col justify-center text-center items-center lg:text-start lg:items-start gap-5">
             <p className="titleHighlight">
               Bagikan ceritamu, dapatkan dukungan.
             </p>
@@ -24,8 +24,8 @@ const Testimoni = () => {
               BUAT JANJI SEKARANG
             </ButtonMedium>
           </div>
-          <div className="overflow-y-auto grid grid-cols-2 gap-x-5">
-            <div className="flex flex-col gap-5 overflow-y-auto">
+          <div className="overflow-auto grid lg:grid-cols-2 gap-5">
+            <div className="flex lg:flex-col gap-5 overflow-auto">
               {dataTestmoni.map((item, index) => (
                 <CardTestimoni
                   key={index}
@@ -35,7 +35,7 @@ const Testimoni = () => {
                 />
               ))}
             </div>
-            <div className="flex flex-col gap-5 overflow-y-auto">
+            <div className="flex lg:flex-col gap-5 overflow-y-auto">
               {dataTestmoni.map((item, index) => (
                 <CardTestimoni
                   key={index}

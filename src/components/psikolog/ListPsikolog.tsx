@@ -21,47 +21,75 @@ import ProfilePsikolog from "./ProfilePsikolog";
 
 const ListPsikolog = () => {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="w-full flex flex-col gap-6">
       <InputSearch placeholder="Cari Psikolog" />
-      <div className="h-[679px] overflow-hidden overflow-y-auto flex flex-col gap-y-[30px]">
+      <div className="max-h-[679px] pb-2 lg:pb-0 overflow-hidden overflow-y-auto grid gap-5 md:grid-cols-2 lg:grid-cols-1">
         {dataPsikolog.map((item, index) => (
-          <div key={index} className="flex items-start gap-x-5">
-            <div className="min-w-[169px] max-w-[169px] h-[200px] rounded-3xl overflow-hidden shadow-md border">
-              <Image src={item.img} alt="" width={0} height={0} sizes="100vw" />
-            </div>
-            <div className="flex flex-col justify-between h-full">
-              <div className="flex flex-col gap-y-[6px]">
-                <p className="font-semibold">{item.name}</p>
-                <p>{item.job}</p>
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-3 py-1 px-2 bg-primary rounded">
-                    <FaJoget className="w-5 h-5 text-white" />
-                    <p className="text-white text-sm">
-                      {item.experience} Tahun
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3 py-1 px-2 bg-primary rounded">
-                    <BiLike className="w-5 h-5 text-white" />
-                    <p className="text-white text-sm">{item.like}%</p>
+          <div
+            key={index}
+            className="border lg:border-none bg-white shadow lg:shadow-none rounded-xl lg:rounded-3xl overflow-hidden p-2 lg:p-0 lg:h-48"
+          >
+            <div className="flex items-start gap-2 lg:gap-x-5 h-32 md:h-36 lg:h-full">
+              <div className="max-w-32 lg:min-w-[169px] lg:max-w-[169px] h-full overflow-hidden rounded-xl lg:rounded-3xl shadow-md border">
+                <Image
+                  src={item.img}
+                  alt=""
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                />
+              </div>
+              <div className="flex flex-col gap-3 lg:gap-0 lg:justify-between h-full">
+                <div className="flex flex-col gap-y-[6px]">
+                  <p className="font-semibold">{item.name}</p>
+                  <p>{item.job}</p>
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-3 py-1 px-2 bg-primary rounded">
+                      <FaJoget className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
+                      <p className="text-white text-xs lg:text-sm">
+                        {item.experience} Tahun
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-3 py-1 px-2 bg-primary rounded">
+                      <BiLike className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
+                      <p className="text-white text-xs lg:text-sm">
+                        {item.like}%
+                      </p>
+                    </div>
                   </div>
                 </div>
+                <p className="font-semibold lg:text-lg">
+                  {formatIDR(item.cost)}
+                </p>
+                <div className="hidden lg:flex items-center gap-4">
+                  <Dialog>
+                    <DialogTrigger className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black">
+                      Lihat Profil
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogTitle></DialogTitle>
+                      <ProfilePsikolog />
+                      <ButtonSmall className="bg-red text-white">
+                        Chat
+                      </ButtonSmall>
+                    </DialogContent>
+                  </Dialog>
+                  <ButtonSmall className="bg-red text-white">Chat</ButtonSmall>
+                </div>
               </div>
-              <p className="font-semibold text-lg">{formatIDR(item.cost)}</p>
-              <div className="flex items-center gap-4">
-                <Dialog>
-                  <DialogTrigger className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black">
-                    Lihat Profil
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogTitle></DialogTitle>
-                    <ProfilePsikolog />
-                    <ButtonSmall className="bg-red text-white">
-                      Chat
-                    </ButtonSmall>
-                  </DialogContent>
-                </Dialog>
-                <ButtonSmall className="bg-red text-white">Chat</ButtonSmall>
-              </div>
+            </div>
+            <div className="lg:hidden flex flex-col gap-2 mt-2">
+              <Dialog>
+                <DialogTrigger className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black">
+                  Lihat Profil
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogTitle></DialogTitle>
+                  <ProfilePsikolog />
+                  <ButtonSmall className="bg-red text-white">Chat</ButtonSmall>
+                </DialogContent>
+              </Dialog>
+              <ButtonSmall className="bg-red text-white">Chat</ButtonSmall>
             </div>
           </div>
         ))}

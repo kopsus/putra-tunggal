@@ -35,7 +35,7 @@ export const Header = () => {
   const isActiveLink = (href: string) => pathname === href;
 
   return (
-    <div className="flex items-center justify-between py-2 lg:py-5 bg-primary text-white fixed w-full z-50 ContainerX">
+    <div className="max-w-screen-2xl flex items-center justify-between py-2 lg:py-5 bg-primary text-white fixed w-full z-50 ContainerX">
       <div className="lg:hidden">
         <Hamburger toggled={isOpen} toggle={setOpen} />
       </div>

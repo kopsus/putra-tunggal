@@ -8,7 +8,7 @@ interface ICardTestimoni {
 
 const CardTestimoni = ({ name, profile, review }: ICardTestimoni) => {
   return (
-    <div className="bg-primary h-[162px] rounded-xl p-4 flex flex-col gap-4">
+    <div className="bg-primary min-w-64 md:min-w-72 lg:min-w-full lg:h-[162px] rounded-xl p-4 flex flex-col gap-4">
       <p className="text-white">{review}</p>
       <div className="flex items-center gap-2">
         <div className="overflow-hidden rounded-full w-10 h-10 bg-white">

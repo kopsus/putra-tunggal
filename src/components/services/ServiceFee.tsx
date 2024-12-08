@@ -22,7 +22,9 @@ const ServiceFee = () => {
         <TableBody>
           {biayaPelayanan.map((item, index) => (
             <TableRow key={index}>
-              <TableCell className="min-w-[532px]">{item.pelayanan}</TableCell>
+              <TableCell className="lg:min-w-[532px]">
+                {item.pelayanan}
+              </TableCell>
               <TableCell>{item.biaya}</TableCell>
             </TableRow>
           ))}

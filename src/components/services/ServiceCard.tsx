@@ -20,7 +20,7 @@ const ServicesCard = ({ img, title, desc }: IServiceCard) => {
       </div>
       <div className="flex flex-col gap-2 p-5">
         <p className="font-semibold leading-6 text-black">{title}</p>
-        <p className="leading-[17.44px] text-sm">{desc}</p>
+        <p className="leading-[17.44px]">{desc}</p>
       </div>
     </div>
   );

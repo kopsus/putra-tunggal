@@ -18,8 +18,8 @@ import { carouselServices, service } from "@/lib/data";
 const HighlightService = () => {
   return (
     <div className="Container">
-      <div className="grid grid-cols-2 gap-x-10">
-        <div>
+      <div className="flex flex-col lg:flex-row gap-10">
+        <div className="w-full lg:w-[55%]">
           <Swiper
             navigation={true}
             loop={true}
@@ -27,13 +27,13 @@ const HighlightService = () => {
               delay: 2500,
             }}
             modules={[Navigation, Autoplay]}
-            className="swiper-service bg-white shadow-md border rounded-xl"
+            className="max-h-[327px] bg-white shadow-md border rounded-xl"
           >
             {carouselServices.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="h-[327px] flex flex-col gap-5 justify-end items-center overflow-hidden px-10 text-center">
+                <div className="h-full flex flex-col gap-5 justify-end items-center overflow-hidden px-5 pt-5 md:px-20 lg:px-10 text-center">
                   <p className="text-primary/70 font-medium">{item.desc}</p>
-                  <div className="h-[177px]">
+                  <div className="h-44 lg:h-[177px]">
                     <Image
                       src={imgBg}
                       alt=""
@@ -46,7 +46,7 @@ const HighlightService = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="mt-10 h-96 overflow-y-auto">
+          <div className="mt-10 lg:h-96 overflow-y-auto">
             {service.map((item, index) => (
               <div key={index} className="flex flex-col gap-y-2 mb-5">
                 <p className="titleContent">{item.title}</p>
