@@ -6,7 +6,7 @@ import { DatePicker } from "../DatePicker";
 
 const FormRegister = () => {
   return (
-    <form className="flex flex-col gap-5">
+    <form className="flex flex-col gap-2 md:gap-5">
       <div className="flex flex-col gap-2">
         <Input placeholder="Email" />
         <Input placeholder="Nama Lengkap" type="password" />
