@@ -8,8 +8,8 @@ import { MdCastForEducation } from "react-icons/md";
 
 const ProfilePsikolog = () => {
   return (
-    <div className="grid grid-cols-2 gap-5">
-      <div className="col-span-1 rounded-xl overflow-hidden">
+    <div className="grid lg:grid-cols-2 gap-5">
+      <div className="col-span-1 rounded-xl overflow-hidden h-48 md:h-64 lg:h-full">
         <Image src={psikologIMG} alt="" width={0} height={0} sizes="100vw" />
       </div>
       <div className="col-span-1 flex flex-col gap-5">

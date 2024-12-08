@@ -51,6 +51,7 @@ export const Header = () => {
           <Link
             href={item.link}
             key={index}
+            onClick={() => setOpen(false)}
             className={`${
               isActiveLink(item.link) ? "font-bold" : "font-light"
             }`}

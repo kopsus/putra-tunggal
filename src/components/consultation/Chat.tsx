@@ -19,10 +19,12 @@ import {
 } from "@/components/ui/dialog";
 import ContinuePayment from "./modal/ContinuePayment";
 import Rating from "./modal/Rating";
+import { ArrowLeft } from "lucide-react";
 
 const Chat = () => {
   const isPayment = false;
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpenChat, setIsOpenChat] = React.useState(false);
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,12 +35,29 @@ const Chat = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-2 gap-x-5 divide-x-4 divide-black/20">
-      <HistoryChat />
-      <div className="relative w-full h-screen pl-5 pt-10 md:pt-16 lg:pt-24 flex flex-col gap-5">
+    <div className="grid lg:grid-cols-2 gap-x-5 lg:divide-x-4 divide-black/20">
+      <div
+        onClick={() => setIsOpenChat(true)}
+        className={`${
+          isOpenChat ? "hidden lg:flex" : "flex"
+        } cursor-pointer relative md:min-w-[497px] w-full h-screen pt-10 md:pt-20 lg:pt-24 flex-col gap-5`}
+      >
+        <HistoryChat />
+      </div>
+      <div
+        className={`relative w-full h-screen lg:pl-5 pt-20 lg:pt-24 ${
+          isOpenChat ? "flex" : "hidden"
+        } flex-col gap-5`}
+      >
         <div className="flex items-center gap-x-4 border-b-2 border-black/50 w-full pb-5">
-          <div className="min-w-20 w-20 h-20 rounded-full overflow-hidden border shadow">
-            <Image src={person} alt="" width={0} height={0} sizes="100vw" />
+          <div className="flex items-center gap-2">
+            <ArrowLeft
+              className="lg:hidden"
+              onClick={() => setIsOpenChat(false)}
+            />
+            <div className="w-14 h-14 lg:min-w-20 lg:w-20 lg:h-20 rounded-full overflow-hidden border shadow">
+              <Image src={person} alt="" width={0} height={0} sizes="100vw" />
+            </div>
           </div>
           <div className="">
             <p className="font-semibold">Dr. John Cena</p>
@@ -86,7 +105,7 @@ const Chat = () => {
             </p>
           </div>
         </div>
-        <div className="absolute w-full bottom-0 border bg-white flex items-center justify-between py-2 px-5">
+        <div className="fixed left-0 lg:left-5 lg:absolute w-full bottom-0 border bg-white flex items-center justify-between py-2 px-5">
           <input
             type="text"
             placeholder="Type something..."

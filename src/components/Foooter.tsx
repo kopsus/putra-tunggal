@@ -22,8 +22,8 @@ const Footer = () => {
       <div className="mb-10 flex justify-center">
         <Logo />
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-16 lg:gap-20">
-        <div className="md:col-span-1 lg:col-span-2 flex flex-col gap-y-2">
+      <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-10 lg:gap-20">
+        <div className="md:col-span-1 lg:col-span-2 text-center md:text-start flex flex-col gap-y-2">
           <p className="titleContent">Tentang Kami</p>
           <p>
             Situs kami adalah sumber informasi kesehatan yang dipercayai dan
