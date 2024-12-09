@@ -36,11 +36,11 @@ export const Header = () => {
 
   return (
     <div className="max-w-screen-2xl flex items-center justify-between py-2 lg:py-5 bg-primary text-white fixed w-full z-50 ContainerX">
-      <div className="lg:hidden">
-        <Hamburger toggled={isOpen} toggle={setOpen} />
-      </div>
       <div>
         <Logo />
+      </div>
+      <div className="lg:hidden">
+        <Hamburger toggled={isOpen} toggle={setOpen} size={20} />
       </div>
       <div
         className={`flex flex-col lg:flex-row lg:items-center lg:justify-center gap-5 md:gap-10 lg:gap-16 lg:static w-full lg:w-auto absolute left-0 bg-primary rounded-b-3xl lg:bg-none p-5 md:px-20 md:py-10 lg:p-0 transition-all ${

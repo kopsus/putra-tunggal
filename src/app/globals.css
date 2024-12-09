@@ -28,7 +28,7 @@
   }
 
   .titleContent {
-    @apply text-base font-semibold;
+    @apply text-sm md:text-base font-semibold;
   }
   p {
     @apply text-sm;

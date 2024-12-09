@@ -13,7 +13,7 @@ export const Logo = () => {
         width={0}
         height={0}
         sizes="100vw"
-        className="w-10 md:w-8"
+        className="w-8"
       />
       <p className="titleContent font-medium">Putra Tunggal</p>
     </div>
