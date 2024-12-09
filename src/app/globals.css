@@ -56,8 +56,8 @@
   background: #23435c !important;
 }
 
-.swiper-home .swiper-button-prev,
-.swiper-home .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   color: rgba(0, 0, 0, 20%) !important;
 }
 /* end carousel home */

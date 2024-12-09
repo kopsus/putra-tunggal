@@ -4,9 +4,8 @@ import Image from "next/image";
 import React from "react";
 
 // assets
-import { GoDotFill, GoPlusCircle } from "react-icons/go";
-import { IoIosSend } from "react-icons/io";
-import { SlEmotsmile } from "react-icons/sl";
+import { GoDotFill } from "react-icons/go";
+import { IoMdSend } from "react-icons/io";
 import person from "@/assets/psikolog.jpg";
 
 // components
@@ -49,7 +48,7 @@ const Chat = () => {
           isOpenChat ? "flex" : "hidden"
         } flex-col gap-5`}
       >
-        <div className="flex items-center gap-x-4 border-b-2 border-black/50 w-full pb-5">
+        <div className="flex items-center gap-x-4 border-b-2 border-black/20 w-full pb-5">
           <div className="flex items-center gap-2">
             <ArrowLeft
               className="lg:hidden"
@@ -68,28 +67,28 @@ const Chat = () => {
           </div>
         </div>
         <div className="flex flex-col gap-5 overflow-hidden overflow-y-scroll h-full pb-10">
-          <div className="min-w-[30%] max-w-[85%] border border-black/80 p-2 rounded-[20px] text-sm">
+          <div className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip
           </div>
           <div className="flex justify-end">
-            <p className="min-w-[30%] max-w-[85%] border border-black/80 p-2 rounded-[20px] text-sm">
+            <p className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip
             </p>
           </div>
-          <div className="min-w-[30%] max-w-[85%] border border-black/80 p-2 rounded-[20px] text-sm">
+          <div className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip
           </div>
           <div className="flex justify-end">
-            <p className="min-w-[30%] max-w-[85%] border border-black/80 p-2 rounded-[20px] text-sm">
+            <p className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -97,7 +96,7 @@ const Chat = () => {
             </p>
           </div>
           <div className="flex justify-end">
-            <p className="min-w-[30%] max-w-[85%] border border-black/80 p-2 rounded-[20px] text-sm">
+            <p className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -113,18 +112,12 @@ const Chat = () => {
           />
           <div className="flex items-center gap-x-2 text-black h-5">
             <div className="w-5 h-5 rounded-full flex justify-center items-center">
-              <GoPlusCircle className="h-full w-full" />
-            </div>
-            <div className="w-5 h-5 rounded-full flex justify-center items-center">
-              <SlEmotsmile className="h-full w-full" />
-            </div>
-            <div className="w-5 h-5 rounded-full flex justify-center items-center">
               {isPayment ? (
-                <IoIosSend className="h-full w-full" />
+                <IoMdSend className="h-full w-full" />
               ) : (
                 <Dialog>
                   <DialogTrigger>
-                    <IoIosSend className="h-full w-full" />
+                    <IoMdSend className="h-full w-full" />
                   </DialogTrigger>
                   <DialogContent>
                     <DialogTitle></DialogTitle>

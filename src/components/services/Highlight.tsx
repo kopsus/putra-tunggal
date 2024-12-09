@@ -32,8 +32,8 @@ const HighlightService = () => {
             {carouselServices.map((item, index) => (
               <SwiperSlide key={index}>
                 <div className="h-full flex flex-col gap-5 justify-end items-center overflow-hidden px-5 pt-5 md:px-20 lg:px-10 text-center">
-                  <p className="text-primary/70 font-medium">{item.desc}</p>
-                  <div className="h-44 lg:h-[177px]">
+                  <p className="text-primary font-medium">{item.desc}</p>
+                  <div className="h-36 lg:h-[177px]">
                     <Image
                       src={imgBg}
                       alt=""

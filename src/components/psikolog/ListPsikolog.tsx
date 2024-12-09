@@ -64,7 +64,7 @@ const ListPsikolog = () => {
                 </p>
                 <div className="hidden lg:flex items-center gap-4">
                   <Dialog>
-                    <DialogTrigger className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black">
+                    <DialogTrigger className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black/20">
                       Lihat Profil
                     </DialogTrigger>
                     <DialogContent>
@@ -83,7 +83,7 @@ const ListPsikolog = () => {
             </div>
             <div className="lg:hidden flex flex-col gap-2 mt-2">
               <Dialog>
-                <DialogTrigger className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black">
+                <DialogTrigger className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black/20">
                   Lihat Profil
                 </DialogTrigger>
                 <DialogContent>

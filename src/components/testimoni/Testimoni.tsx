@@ -21,7 +21,7 @@ const Testimoni = () => {
               yang berfokus pada kesehatan mental.
             </p>
             <ButtonMedium className="bg-red text-white">
-              BUAT JANJI SEKARANG
+              CHAT DOKTER SEKARANG
             </ButtonMedium>
           </div>
           <div className="overflow-auto grid lg:grid-cols-2 gap-5">

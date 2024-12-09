@@ -26,7 +26,7 @@ const TextArea = ({ placeholder }: IInput) => {
 
 const InputSearch = ({ placeholder }: IInput) => {
   return (
-    <div className="relative h-[57px] rounded-[20px] border border-black flex items-center overflow-hidden px-4 shadow-md">
+    <div className="relative h-[57px] rounded-[20px] border border-black/20 flex items-center overflow-hidden px-4 shadow-md">
       <input
         type="text"
         placeholder={placeholder}
