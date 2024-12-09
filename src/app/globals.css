@@ -20,7 +20,7 @@
   }
 
   .titleHighlight {
-    @apply text-xl md:text-2xl font-semibold text-primary;
+    @apply text-lg md:text-2xl font-semibold text-primary;
   }
 
   .titleSection {
@@ -58,7 +58,7 @@
 
 .swiper-home .swiper-button-prev,
 .swiper-home .swiper-button-next {
-  color: black !important;
+  color: rgba(0, 0, 0, 20%) !important;
 }
 /* end carousel home */
 
