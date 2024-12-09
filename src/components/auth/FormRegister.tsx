@@ -13,8 +13,8 @@ const FormRegister = () => {
         <TextArea placeholder="Alamat"></TextArea>
         <Input placeholder="Nomer Telepon" type="number" />
         <Input placeholder="Kata Sandi" type="password" />
-        <Input placeholder="Ulang Kata Sandi" type="password" />
-        <Input placeholder="Tempat Lahir" type="text" />
+        {/* <Input placeholder="Ulang Kata Sandi" type="password" /> */}
+        {/* <Input placeholder="Tempat Lahir" type="text" /> */}
         <div className="flex items-center justify-between">
           <p className="text-sm">Jenis Kelamin</p>
           <div className="flex items-center gap-2">
