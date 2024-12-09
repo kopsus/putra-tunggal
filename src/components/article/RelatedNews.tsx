@@ -22,7 +22,7 @@ const Card = ({ img, title, date }: ICard) => {
 const RelatedNews = () => {
   return (
     <div className="Container flex flex-col gap-y-5">
-      <p className="titleSection text-blue">Berita Terkait</p>
+      <p className="titleSection text-primary">Berita Terkait</p>
       <div className="flex gap-x-5 overflow-x-auto">
         {dataRelatedArticle.map((item, index) => (
           <Card

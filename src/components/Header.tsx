@@ -59,7 +59,7 @@ export const Header = () => {
             {item.name}
           </Link>
         ))}
-        <p className="md:hidden text-center text-base mt-5">
+        <p className="md:hidden text-center text-base my-8">
           Menuju hidup yang lebih sehat dan seimbang
         </p>
         <Link href="login" className="w-full flex justify-center md:hidden">
