@@ -52,11 +52,16 @@ export const Header = () => {
             href={item.link}
             key={index}
             onClick={() => setOpen(false)}
-            className={`${
+            className={`text-sm relative group ${
               isActiveLink(item.link) ? "font-bold" : "font-light"
             }`}
           >
             {item.name}
+            <span
+              className={`hidden lg:block h-2 absolute -bottom-7 left-0 bg-white lg:bg-white group-hover:w-full transition-full duration-300 ${
+                isActiveLink(item.link) ? "w-full" : "w-0"
+              }`}
+            ></span>
           </Link>
         ))}
         <p className="md:hidden text-center text-base my-8">

@@ -25,7 +25,9 @@ const HistoryChat = () => {
             </div>
             <div className="flex flex-col gap-1 md:gap-2">
               <p className="font-semibold">{item.name}</p>
-              <p className="line-clamp-2 md:line-clamp-3">{item.chat}</p>
+              <p className="line-clamp-2 md:line-clamp-3 text-xs">
+                {item.chat}
+              </p>
             </div>
           </div>
         ))}
@@ -44,7 +46,9 @@ const HistoryChat = () => {
             </div>
             <div className="flex flex-col  gap-1 md:gap-2 text-black/60">
               <p className="font-semibold">{item.name}</p>
-              <p className="line-clamp-2 md:line-clamp-3">{item.chat}</p>
+              <p className="line-clamp-2 md:line-clamp-3 text-xs">
+                {item.chat}
+              </p>
             </div>
           </div>
         ))}

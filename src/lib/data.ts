@@ -45,6 +45,11 @@ const dataServices = [
     title: "Konsultasi psikologi",
     desc: "Jaga kesehatan mentalmu, yuk konsultasi dengan psikolog untuk hidup yang lebih bahagia dan seimbang!",
   },
+  {
+    img: serviceIMG,
+    title: "Konsultasi psikologi",
+    desc: "Jaga kesehatan mentalmu, yuk konsultasi dengan psikolog untuk hidup yang lebih bahagia dan seimbang seimbangseimbang seimbang seimbang seimbang!",
+  },
 ];
 
 const dataFaq = [

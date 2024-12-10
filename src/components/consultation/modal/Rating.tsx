@@ -5,7 +5,7 @@ import React from "react";
 import psikologIMG from "@/assets/psikolog.jpg";
 import { FaJoget } from "react-icons/fa";
 import { BiLike } from "react-icons/bi";
-import { Star } from "lucide-react";
+// import { Star } from "lucide-react";
 import { TextArea } from "@/components/Input";
 import { ButtonSmall } from "@/components/Button";
 
@@ -31,14 +31,14 @@ const Rating = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center gap-2">
+      {/* <div className="flex justify-center gap-2">
         <Star color="yellow" fill="yellow" />
         <Star color="yellow" fill="yellow" />
         <Star color="yellow" fill="yellow" />
         <Star color="yellow" fill="yellow" />
         <Star color="yellow" fill="yellow" />
-      </div>
-      <TextArea placeholder="Bagikan Pengalaman anda!" />
+      </div> */}
+      <TextArea className="h-32" placeholder="Bagikan Pengalaman anda!" />
       <ButtonSmall className="bg-red text-white">KIRIM</ButtonSmall>
     </div>
   );

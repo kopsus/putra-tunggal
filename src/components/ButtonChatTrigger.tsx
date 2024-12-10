@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import iconIMG from "@/assets/chat_icon.png";
+import iconIMG from "@/assets/chat_icon.svg";
 
 const ButtonChatTrigger = () => {
   return (

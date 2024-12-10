@@ -67,28 +67,28 @@ const Chat = () => {
           </div>
         </div>
         <div className="flex flex-col gap-5 overflow-hidden overflow-y-scroll h-full pb-10">
-          <div className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-sm">
+          <div className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-xs">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip
           </div>
           <div className="flex justify-end">
-            <p className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-sm">
+            <p className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-xs">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip
             </p>
           </div>
-          <div className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-sm">
+          <div className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-xs">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip
           </div>
           <div className="flex justify-end">
-            <p className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-sm">
+            <p className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-xs">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -96,7 +96,7 @@ const Chat = () => {
             </p>
           </div>
           <div className="flex justify-end">
-            <p className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-sm">
+            <p className="min-w-[30%] max-w-[85%] border border-black/20 p-2 rounded-[20px] text-xs">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -108,7 +108,7 @@ const Chat = () => {
           <input
             type="text"
             placeholder="Type something..."
-            className="w-full h-full outline-none text-sm"
+            className="w-full h-full outline-none text-xs"
           />
           <div className="flex items-center gap-x-2 text-black h-5">
             <div className="w-5 h-5 rounded-full flex justify-center items-center">

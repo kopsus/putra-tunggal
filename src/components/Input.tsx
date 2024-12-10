@@ -3,6 +3,7 @@ import { FiSearch } from "react-icons/fi";
 interface IInput {
   placeholder: string;
   type?: "text" | "password" | "number";
+  className?: string;
 }
 
 const Input = ({ placeholder, type }: IInput) => {
@@ -15,12 +16,12 @@ const Input = ({ placeholder, type }: IInput) => {
   );
 };
 
-const TextArea = ({ placeholder }: IInput) => {
+const TextArea = ({ placeholder, className }: IInput) => {
   return (
-    <input
+    <textarea
       placeholder={placeholder}
-      className="text-sm outline-none rounded-lg border-2 border-primary/50 p-2 min-h-14"
-    />
+      className={`${className} text-sm outline-none rounded-lg border-2 border-primary/50 p-2`}
+    ></textarea>
   );
 };
 

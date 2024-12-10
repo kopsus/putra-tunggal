@@ -19,7 +19,7 @@ export const BannerTrigger = () => {
           </p>
           <p className="titleHighlight">Ayo Nikmati Layanan Kami!</p>
         </div>
-        <ButtonMedium className="bg-red text-white z-20">
+        <ButtonMedium className="animate-zoom-in-out bg-red text-white z-20">
           BUAT JANJI SEKARANG
         </ButtonMedium>
         <div className="absolute bottom-5 lg:right-5 w-full flex justify-center lg:justify-end z-10">

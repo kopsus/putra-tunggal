@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 const page = () => {
   return (
-    <div className="pt-10">
+    <div className="pt-10 lg:pt-0">
       <div className="Container">
         <div className="w-full rounded-xl md:rounded-3xl overflow-hidden shadow-md border">
           <div className="grid grid-cols-4 w-full bg-primary/10">

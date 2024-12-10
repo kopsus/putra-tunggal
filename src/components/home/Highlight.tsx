@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 export const Highlight = () => {
   return (
-    <div className="Container">
+    <div className="ContainerT ContainerX">
       <div className="h-[50vh] md:h-[415px] rounded-3xl bg-white shadow-md border relative">
         <Swiper
           pagination={true}
@@ -27,7 +27,7 @@ export const Highlight = () => {
           {dataBanner.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="relative grid md:grid-cols-2 h-full p-10 lg:px-16">
-                <div className="h-full flex flex-col text-center md:text-start justify-between md:justify-center items-center md:items-start z-20">
+                <div className="h-full flex flex-col gap-10 text-center md:text-start justify-between md:justify-center items-center md:items-start z-20">
                   <div className="flex flex-col gap-4">
                     <p className="titleHighlight md:leading-[45px] text-primary">
                       {item.title}

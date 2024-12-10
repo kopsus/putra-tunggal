@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Article2 = () => {
   return (
-    <div className="ContainerX min-h-[340px]">
+    <div className="ContainerX pb-14 md:pb-16 lg:pb-24 min-h-[340px]">
       <div className="float-left mr-5 mb-3 w-full h-auto md:w-96 md:max-w-96 lg:min-w-[479px] lg:max-w-[479px] shadow-md border rounded-xl overflow-hidden">
         <Image
           src={dataArticle2.image}

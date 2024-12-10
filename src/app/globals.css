@@ -18,6 +18,12 @@
   .ContainerX {
     @apply px-5 md:px-10 lg:px-16;
   }
+  .ContainerY {
+    @apply py-14 md:py-16 lg:py-24;
+  }
+  .ContainerT {
+    @apply pt-14 md:pt-16 lg:pt-24;
+  }
 
   .titleHighlight {
     @apply text-lg md:text-2xl font-semibold text-primary;
@@ -28,7 +34,7 @@
   }
 
   .titleContent {
-    @apply text-sm md:text-base font-semibold;
+    @apply text-base font-semibold;
   }
   p {
     @apply text-sm;
