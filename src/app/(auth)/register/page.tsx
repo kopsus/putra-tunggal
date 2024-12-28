@@ -2,8 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 // assets
-import authIMG from "@/assets/auth.png";
-import login1IMG from "@/assets/Login1.jpg";
 import login2IMG from "@/assets/Login2.jpg";
 import FormRegister from "@/components/auth/FormRegister";
 

@@ -1,5 +1,4 @@
 // service
-import serviceIMG from "@/assets/service.png";
 import kpIMG from "@/assets/KonsultasiPsikologi.jpg";
 import ajIMG from "@/assets/analisisjabatan.jpg";
 import taIMG from "@/assets/terapianak.jpg";
@@ -21,7 +20,6 @@ import psikologIMG from "@/assets/psikolog.jpg";
 // article
 import articleIMG from "@/assets/article.png";
 import relatedArticleIMG from "@/assets/related_article.png";
-import { ta } from "date-fns/locale";
 
 const dataBanner = [
   {
@@ -45,7 +43,7 @@ const dataServices = [
     desc: "Jaga kesehatan mentalmu, yuk konsultasi dengan psikolog untuk hidup yang lebih bahagia dan seimbang!",
   },
   {
-    img: ajIMG,
+    img: tkIMG,
     title: "TES KESEHATAN PSIKOLOGI",
     desc: "Ingin lebih mengenal dirimu? Yuk, ikut tes psikologi untuk memahami potensi dan kepribadianmu lebih dalam!",
   },
@@ -188,7 +186,7 @@ const dataPsikolog = [
   },
   {
     img: suwartiIMG,
-    name: "Dra. Suwarti",
+    name: "Dr. Suwarti S.Psi.,M.Si.,Psikolog",
     job: "Psikolog Anak",
     experience: 5,
     like: 80,

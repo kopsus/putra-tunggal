@@ -3,8 +3,6 @@ import React from "react";
 import { FormLogin } from "@/components/auth/FormLogin";
 
 // assets
-import authIMG from "@/assets/auth.png";
-import login1IMG from "@/assets/Login1.jpg";
 import login2IMG from "@/assets/Login2.jpg";
 import LogoLarge from "@/assets/logo_large.png";
 
