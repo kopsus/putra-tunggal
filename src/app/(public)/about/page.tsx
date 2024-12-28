@@ -1,5 +1,5 @@
 import catFeetIMG from "@/assets/cat_feet.png";
-import ceoIMG from "@/assets/ceo.png";
+import ceoIMG from "@/assets/CEO2.svg";
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
@@ -9,7 +9,7 @@ const page = () => {
       <div className="Container">
         <div className="w-full rounded-xl md:rounded-3xl overflow-hidden shadow-md border">
           <div className="grid grid-cols-4 w-full bg-primary/10">
-            <div className="relative overflow-hidden col-span-3 bg-primary p-3 md:p-10 rounded-xl md:rounded-r-3xl">
+            <div className="relative overflow-hidden col-span-3 bg-primary p-3 md:p-8 rounded-xl md:rounded-r-3xl">
               <p className="titleContent text-white">
                 MENGENAL BIRO PSIKOLOGI PUTRA TUNGGAL
               </p>
@@ -26,15 +26,17 @@ const page = () => {
             <div className="col-span-1" />
           </div>
           <div className="bg-[#2A9D8F]/10 h-full p-4 md:p-10 grid gap-10 lg:gap-0 lg:grid-cols-3">
-            <div className="lg:col-span-2 flex flex-col gap-2 md:gap-5 lg:w-10/12">
+            <div className="lg:col-span-2 flex flex-col gap-2 md:gap-8 lg:w-10/12">
               <p className="titleContent">
                 Selamat Datang di Biro Psikologi Putra Tunggal
               </p>
               <p>
-                Biro Psikologi Putra Tunggal adalah institusi pengembangan
-                Sumber Daya Manusia terkemuka yang berkomitmen penuh dalam
-                membantu klien mencapai potensi optimal melalui serangkaian
-                solusi psikologis yang komprehensif.
+              Biro Psikologi Putra Tunggal adalah perusahaan yang bergerak 
+              di bidang pengembangan Sumber Daya Manusia yang berkomitmen untuk 
+              membantu pelanggan dalam mengelola Sumber Daya Manusia secara 
+              optimal bagi perusahaan, organisasi, lembaga maupun pemerintahan 
+              yang melayani berbagai bidang jasa seperti, konseling, training, 
+              rekrutmen dan layanan psikolog lainnya
               </p>
               <p>
                 Dengan pengalaman bertahun-tahun, kami menawarkan beragam
@@ -51,7 +53,7 @@ const page = () => {
               </p>
             </div>
             <div className="lg:col-span-1">
-              <div className="w-1/2 md:w-1/3 lg:w-2/3 mx-auto">
+              <div className="w-1/2 md:w-1/3 lg:w-1/2 mx-auto">
                 <Image src={ceoIMG} alt="" width={0} height={0} sizes="100vw" />
               </div>
             </div>

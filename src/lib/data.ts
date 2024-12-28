@@ -12,7 +12,7 @@ import fathurakmanIMG from "@/assets/fathurakman.jpg";
 import kurniasihIMG from "@/assets/kurniasih.jpg";
 import rahmawatiIMG from "@/assets/rahmawati.jpg";
 import suwartiIMG from "@/assets/suwarti.jpg";
-import waraIMG from "@/assets/wara.jpg";
+import waraIMG from "@/assets/WARA1.jpg";
 import psikologIMG from "@/assets/psikolog.jpg";
 
 
