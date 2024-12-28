@@ -1,80 +1,99 @@
 // service
 import serviceIMG from "@/assets/service.png";
+import kpIMG from "@/assets/KonsultasiPsikologi.jpg";
+import ajIMG from "@/assets/analisisjabatan.jpg";
+import taIMG from "@/assets/terapianak.jpg";
+import tkIMG from "@/assets/teskesehatan.jpg";
+import tmIMG from "@/assets/tesminat.jpg";
+import tpIMG from "@/assets/tespenjurusan.jpg";
 
 // psikolog
+import dewiIMG from "@/assets/dewi.jpg";
+import fathurakmanIMG from "@/assets/fathurakman.jpg";
+import kurniasihIMG from "@/assets/kurniasih.jpg";
+import rahmawatiIMG from "@/assets/rahmawati.jpg";
+import suwartiIMG from "@/assets/suwarti.jpg";
+import waraIMG from "@/assets/wara.jpg";
 import psikologIMG from "@/assets/psikolog.jpg";
+
+
 
 // article
 import articleIMG from "@/assets/article.png";
 import relatedArticleIMG from "@/assets/related_article.png";
+import { ta } from "date-fns/locale";
 
 const dataBanner = [
   {
-    title: "Your Partner in Health and Wellness",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: "Bagikan ceritamu, Dapatkan dukungan",
+    desc: "Biro Psikologi Putra Tunggal menyediakan forum konsultasi online yang berfokus pada kesehatan mental",
   },
   {
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: "Konsultasi dengan Psikolog ahli",
+    desc: "Berbincang lebih dekat tentang keluhan kepada dokter / psikiater ahli dibidangnya",
+  },
+  {
+    title: "Mari Mendalami Pengetahuan Tentang Kesehatan Mental",
+    desc: "Pentingnya pengetahuan kesehatan mental untuk diri sendiri, serta lingkungan yang kita tempati",
   },
 ];
 
 const dataServices = [
   {
-    img: serviceIMG,
-    title: "Konsultasi psikologi",
+    img: kpIMG,
+    title: "KONSULTASI PSIKOLOGI",
     desc: "Jaga kesehatan mentalmu, yuk konsultasi dengan psikolog untuk hidup yang lebih bahagia dan seimbang!",
   },
   {
-    img: serviceIMG,
-    title: "tes kesehatan psikologi",
+    img: ajIMG,
+    title: "TES KESEHATAN PSIKOLOGI",
     desc: "Ingin lebih mengenal dirimu? Yuk, ikut tes psikologi untuk memahami potensi dan kepribadianmu lebih dalam!",
   },
   {
-    img: serviceIMG,
-    title: "tes Penjurusan sekolah",
+    img: tpIMG,
+    title: "TES PENJURUSAN SEKOLAH",
     desc: "Bingung dalam milih jurusan? Temukan jurusan yang tepat untuk masa depanmu! Yuk, ikut tes penjurusan sekolah!",
   },
   {
-    img: serviceIMG,
-    title: "ANALISis JABATAN",
+    img: ajIMG,
+    title: "ANALISIS JABATAN",
     desc: "Ayo, lakukan analisis jabatan untuk memahami peran dan tanggung jawabmu, serta tingkatkan kinerja!",
   },
   {
-    img: serviceIMG,
-    title: "Konsultasi psikologi",
-    desc: "Jaga kesehatan mentalmu, yuk konsultasi dengan psikolog untuk hidup yang lebih bahagia dan seimbang!",
+    img: taIMG,
+    title: "TERAPI ANAK BERKEBUTUHAN",
+    desc: "Dukung perkembangan anak dengan terapi yang dirancang khusus untuk memenuhi kebutuhannya!",
   },
   {
-    img: serviceIMG,
-    title: "Konsultasi psikologi",
-    desc: "Jaga kesehatan mentalmu, yuk konsultasi dengan psikolog untuk hidup yang lebih bahagia dan seimbang seimbangseimbang seimbang seimbang seimbang!",
+    img: tmIMG,
+    title: "TES MINAT MASUK SEKOLAH DASAR",
+    desc: "Ayo, ikuti tes online kepribadian dasar dan dapatkan pemahaman lebih tentang karakter dan bakatmu!",
   },
 ];
 
 const dataFaq = [
   {
     question: "Perbedaan psikolog dan psikiater?",
-    answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+    answer: "Psikolog itu seperti seorang pelatih pikiran. Mereka membantu kita mengatasi masalah sehari-hari dengan cara bicara. Psikiater itu seperti dokternya masalah pikiran yang lebih serius. Mereka bisa memberi obat dan terapi. Jadi, kalau kamu lagi sedih atau bingung, psikolog bisa bantu. Tapi kalau masalahnya lebih berat, psikiater yang lebih ahli.",
   },
   {
     question:
       "Apakah data yang diberikan pada terapis terjamin kerahasiaannya?",
     answer:
-      "Yes. It comes with default styles that matches the other component's aesthetic.",
+      "Terapis pada Psikologi Putra Tunggal sangat menghormati serta merahasiakan segala data dan informasi yang diterima dari pasien.",
   },
   {
-    question: " Berapa kali saya harus melakukan konsultasi?",
+    question: "Berapa kali saya harus melakukan konsultasi?",
     answer:
-      "Yes. It's animated by default, but you can disable it if you prefer.",
+      "Tergantung dari kondisi anda, terapis akan melakukan observasi untuk melihat kondisi anda apakah memerlukan konsultasi intensif atau tidak. Contoh apabila anda membutuhkan pengawasan maka konsultasi bisa dilakukan 1-2x dalam satu minggu, apabila anda baik baik saja maka konsultasi bisa dilakukan saat anda sedang membutuhkan saja.",
   },
   {
     question: "Apakah saya perlu meminum obat?",
-    answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+    answer: "Terapis tidak berhak memberikan obat, terapis hanya menyarankan dan memberikan rekomendasi untuk anda agar segera bertemu dengan psikiater apabila anda membutuhkannya, dapat dilihat dari hasil observasi konsultasi.",
   },
   {
     question: "Berapa biaya pelayanan di Psikologi Putra Tunggal?",
-    answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+    answer: "Biaya konsultasi di Psikologi Putra Tunggal sangat fleksibel. Kami menawarkan berbagai paket layanan dengan harga mulai dari Rp 50.000,-. Harga dapat berbeda tergantung jenis tes, durasi sesi, dan jenis layanan yang Anda butuhkan. Untuk informasi lebih lanjut silahkan menuju halaman Layanan.",
   },
 ];
 
@@ -131,7 +150,11 @@ const carouselServices = [
   },
   {
     // title: "Your Partner in Health and Wellness",
-    desc: "Lakukan pencarian dokter atau pilih rekomendasi dokter terbaik, dan kirim permintaan untuk berbicara sesuai dengan kebutuhan dan keluhan kesehatanmu.",
+    desc: "Tunggu dokter, Dokter akan menyetujui permintaan kamu",
+  },
+  {
+    // title: "Your Partner in Health and Wellness",
+    desc: "Bicara dengan dokter, Ketika kamu telah terhubung dengan dokter, silahkan jelaskan kondisi kamu dengan ternang dan jelas dengan  dokter.",
   },
 ];
 
@@ -148,45 +171,53 @@ const service = [
 
 const dataPsikolog = [
   {
-    img: psikologIMG,
-    name: "Dr. Rr. Wara Setija Brawidjajani",
+    img: waraIMG,
+    name: "Dr. Rr.Wara Setija Brawidjajani S.Psi.,Psikolog",
     job: "Psikiater Ahli",
     experience: 7,
     like: 100,
     cost: 50000,
   },
   {
-    img: psikologIMG,
-    name: "Dr. Ahmad Fadli",
+    img: fathurakmanIMG,
+    name: "Dr. Fathurokhman, S.Psi, M.I.Kom, M.Psi, Psikolog",
     job: "Psikolog Klinis",
     experience: 10,
     like: 100,
     cost: 60000,
   },
   {
-    img: psikologIMG,
-    name: "Dra. Siti Nurjanah",
+    img: suwartiIMG,
+    name: "Dra. Suwarti",
     job: "Psikolog Anak",
     experience: 5,
     like: 80,
     cost: 40000,
   },
   {
-    img: psikologIMG,
-    name: "Dr. Budi Santoso",
+    img: kurniasihIMG,
+    name: "Dr. Kurniasih Dwi Purwarti M.Psi.,Psikolog",
     job: "Psikoterapis",
     experience: 12,
     like: 100,
     cost: 55000,
   },
   {
-    img: psikologIMG,
-    name: "Dra. Lani Setyowati",
+    img: dewiIMG,
+    name: "Dr. Dewi Rachmanningtyas, S.Psi.,Psikolog",
     job: "Konselor",
     experience: 8,
     like: 90,
     cost: 45000,
   },
+  {
+    img: rahmawatiIMG,
+    name: "Dr. Rahmawati Wulan Sari M.Psi.,Psikolog",
+    job: "Konselor",
+    experience: 8,
+    like: 90,
+    cost: 45000,
+  }
 ];
 
 const dataTestmoni = [
@@ -258,18 +289,18 @@ const dataFaqArticle = [
   {
     question:
       "Apa saja tanda-tanda seseorang mengalami masalah kesehatan mental?",
-    answer: "Yes. It adheres to the WAI-ARIA design pattern.",
+    answer: "Tanda-tanda masalah kesehatan mental bisa bervariasi, tetapi beberapa yang umum meliputi: perubahan mood yang drastis, kesulitan berkonsentrasi, menarik diri dari sosial, perubahan pola tidur atau makan, perasaan cemas atau sedih yang berlebihan, serta pikiran untuk menyakiti diri sendiri.",
   },
   {
     question: "Bagaimana cara mengatasi gangguan kecemasan?",
     answer:
-      "Yes. It comes with default styles that matches the other component's aesthetic.",
+      "Berbicara dengan orang terdekat, Konsultasi dengan psikolog atau psikiater, Hubungi layanan kesehatan mental.",
   },
   {
     question:
       "Ke mana saya harus pergi jika saya merasa tidak baik secara mental?",
     answer:
-      "Yes. It's animated by default, but you can disable it if you prefer.",
+      "Pengobatan gangguan kecemasan biasanya melibatkan kombinasi terapi dan obat-obatan. Terapi yang umum digunakan adalah terapi perilaku kognitif (CBT). Obat-obatan yang sering diresepkan adalah antidepresan dan obat penenang.",
   },
 ];
 
