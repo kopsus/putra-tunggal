@@ -1,3 +1,4 @@
+import { dataRiwayat } from "@/data/riwayat";
 import React from "react";
 
 const TableRiwayat = () => {
@@ -8,37 +9,6 @@ const TableRiwayat = () => {
     "Tanggal",
     "Waktu",
     "Keterangan",
-  ];
-
-  const dataTbody = [
-    {
-      namaPasien: "Ardea Himawari",
-      layanan: "Online",
-      tanggal: "27 Oktober",
-      waktu: "13 : 00",
-      keterangan: "Completed",
-    },
-    {
-      namaPasien: "Ardea Himawari",
-      layanan: "Offline",
-      tanggal: "27 Oktober",
-      waktu: "13 : 00",
-      keterangan: "Completed",
-    },
-    {
-      namaPasien: "Ardea Himawari",
-      layanan: "Offline",
-      tanggal: "27 Oktober",
-      waktu: "13 : 00",
-      keterangan: "Not Completed",
-    },
-    {
-      namaPasien: "Ardea Himawari",
-      layanan: "Offline",
-      tanggal: "27 Oktober",
-      waktu: "13 : 00",
-      keterangan: "Not Completed",
-    },
   ];
 
   return (
@@ -54,7 +24,7 @@ const TableRiwayat = () => {
           </tr>
         </thead>
         <tbody>
-          {dataTbody.map((item, index) => (
+          {dataRiwayat.map((item, index) => (
             <tr key={index} className="text-center border-b-2">
               <td className="py-2">
                 <div className="border-2 border-primary text-primary rounded-full w-9 h-9 mx-auto flex justify-center items-center">

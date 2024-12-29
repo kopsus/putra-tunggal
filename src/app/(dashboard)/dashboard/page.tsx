@@ -6,7 +6,7 @@ import React from "react";
 const page = () => {
   return (
     <>
-      <p className="w-1/2 my-5">
+      <p className="w-1/2 mb-5">
         Hallo, Selamat datang diforum{" "}
         <span className="text-primary font-semibold">PUTRA TUNGGAL</span>{" "}
         Berinteraksi dengan nyaman demi kesehatan mental yang baik
