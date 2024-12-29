@@ -55,16 +55,8 @@ const LastInteraction = () => {
         <tbody>
           {dataTbody.map((item, index) => (
             <tr key={index} className="text-center">
-              <td className="py-2">
-                <div className="bg-primary text-white rounded-full w-9 h-9 mx-auto flex justify-center items-center">
-                  {index + 1}
-                </div>
-              </td>
-              <td className="py-2">
-                <div className="bg-primary/10 rounded-full py-2 px-4 w-max mx-auto">
-                  {item.namaPasien}
-                </div>
-              </td>
+              <td className="py-2">{index + 1}</td>
+              <td className="py-2">{item.namaPasien}</td>
               <td className="py-2">
                 <div
                   className={`${
@@ -79,16 +71,8 @@ const LastInteraction = () => {
                   {item.layanan}
                 </div>
               </td>
-              <td className="py-2">
-                <p className="bg-primary/10 rounded-full w-max mx-auto py-2 px-4">
-                  {item.tanggal}
-                </p>
-              </td>
-              <td className="py-2">
-                <p className="bg-primary/10 rounded-full w-max mx-auto py-2 px-4">
-                  {item.waktu}
-                </p>
-              </td>
+              <td className="py-2">{item.tanggal}</td>
+              <td className="py-2">{item.waktu}</td>
               <td className="py-2">
                 <p
                   className={`${

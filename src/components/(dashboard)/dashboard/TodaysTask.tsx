@@ -46,21 +46,9 @@ export const TodaysTask = () => {
                   {item.layanan}
                 </div>
               </td>
+              <td className="py-2">{item.pasien}</td>
               <td className="py-2">
-                <p className="bg-primary/10 rounded-full w-max mx-auto py-2 px-4">
-                  {item.pasien}
-                </p>
-              </td>
-              <td className="py-2">
-                <p
-                  className={`${
-                    item.waktu === "Berlangsung"
-                      ? "bg-green-200"
-                      : "bg-primary/10"
-                  } rounded-full w-max mx-auto py-2 px-4`}
-                >
-                  {item.waktu} WIB
-                </p>
+                {item.waktu} {item.waktu !== "Berlangsung" && "WIB"}
               </td>
             </tr>
           ))}

@@ -61,7 +61,7 @@ export function DataTable<TData, TValue>({
   return (
     <Card className="space-y-4 rounded-xl overflow-hidden p-5">
       <TableToolbar table={table} />
-      <Table>
+      <Table className="rounded-xl overflow-hidden border">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
@@ -71,7 +71,7 @@ export function DataTable<TData, TValue>({
                     key={header.id}
                     className={`${
                       idx === headerGroup.headers.length - 1 && "text-right"
-                    } bg-gray-800 text-white`}
+                    } text-white`}
                   >
                     {header.isPlaceholder
                       ? null
@@ -89,11 +89,12 @@ export function DataTable<TData, TValue>({
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
+                className="border-b-2"
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
+                  <TableCell key={cell.id} className="border-none">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
