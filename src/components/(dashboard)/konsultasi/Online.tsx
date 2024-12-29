@@ -6,12 +6,12 @@ import Image from "next/image";
 import React from "react";
 import { GoDotFill } from "react-icons/go";
 
-interface IHistoryChat {
+interface IOnline {
   isOpenChat: boolean;
   setIsOpenChat: React.Dispatch<boolean>;
 }
 
-export const HistoryChat = ({ isOpenChat, setIsOpenChat }: IHistoryChat) => {
+export const Online = ({ isOpenChat, setIsOpenChat }: IOnline) => {
   return (
     <div
       onClick={() => setIsOpenChat(true)}

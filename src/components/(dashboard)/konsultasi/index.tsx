@@ -2,11 +2,12 @@
 
 import { ArrowLeft, User } from "lucide-react";
 import React from "react";
-import { HistoryChat } from "./HistoryChat";
+import { Online } from "./Online";
 import Card from "../_global/Card";
 import { RiCalendarScheduleLine } from "react-icons/ri";
 import { Chat } from "./Chat";
 import { Button } from "@/components/ui/button";
+import Offline from "./Offline";
 
 const Konsultasi = () => {
   const [isOpenChat, setIsOpenChat] = React.useState(false);
@@ -43,17 +44,16 @@ const Konsultasi = () => {
           </button>
         </div>
       )}
-      <Card className="rounded-xl overflow-hidden p-5">
+      <div>
         {tabActive === "Online" ? (
-          <>
-            <HistoryChat
-              isOpenChat={isOpenChat}
-              setIsOpenChat={setIsOpenChat}
-            />
+          <Card className="rounded-xl p-5">
+            <Online isOpenChat={isOpenChat} setIsOpenChat={setIsOpenChat} />
             <Chat isOpenChat={isOpenChat} setIsOpenChat={setIsOpenChat} />
-          </>
-        ) : null}
-      </Card>
+          </Card>
+        ) : (
+          <Offline />
+        )}
+      </div>
     </>
   );
 };
