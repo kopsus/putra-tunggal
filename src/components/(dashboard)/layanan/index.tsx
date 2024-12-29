@@ -9,7 +9,7 @@ import { Chat } from "./Chat";
 import { Button } from "@/components/ui/button";
 import Offline from "./Offline";
 
-const Konsultasi = () => {
+const Layanan = () => {
   const [isOpenChat, setIsOpenChat] = React.useState(false);
   const [tabActive, setTabActive] = React.useState("Online");
 
@@ -58,4 +58,4 @@ const Konsultasi = () => {
   );
 };
 
-export default Konsultasi;
+export default Layanan;

@@ -28,11 +28,6 @@ const menuGroups = [
         route: "/dashboard",
       },
       {
-        icon: <PiChatCircleText size={24} />,
-        label: "Konsultasi",
-        route: "/konsultasi",
-      },
-      {
         icon: <MdMedicalServices size={24} />,
         label: "Layanan",
         route: "/layanan",

@@ -1,10 +1,10 @@
-import Konsultasi from "@/components/(dashboard)/konsultasi";
+import Layanan from "@/components/(dashboard)/layanan";
 import React from "react";
 
 const page = () => {
   return (
     <>
-      <Konsultasi />
+      <Layanan />
     </>
   );
 };
