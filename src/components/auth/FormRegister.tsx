@@ -34,13 +34,6 @@ const FormRegister = () => {
     }));
   };
 
-  const onValueChange = (value: string, name: string) => {
-    setPayload((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
   const { serviceAuth } = useMutationAuth();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -83,11 +76,21 @@ const FormRegister = () => {
         <div className="flex items-center justify-between">
           <p className="text-sm">Jenis Kelamin</p>
           <div className="flex items-center gap-2">
-            <input type="radio" name="jenis_kelamin" onChange={onInputChange} />
+            <input
+              type="radio"
+              name="jenis_kelamin"
+              value={"L"}
+              onChange={onInputChange}
+            />
             <label className="text-sm">Laki - laki</label>
           </div>
           <div className="flex items-center gap-2">
-            <input type="radio" name="jenis_kelamin" onChange={onInputChange} />
+            <input
+              type="radio"
+              name="jenis_kelamin"
+              value={"P"}
+              onChange={onInputChange}
+            />
             <label className="text-sm">Perempuan</label>
           </div>
         </div>
@@ -97,6 +100,8 @@ const FormRegister = () => {
           <input
             type="date"
             className="rounded-lg border-2 border-primary/50 px-2 py-1 text-sm"
+            name="tanggal_lahir"
+            onChange={onInputChange}
           />
         </div>
       </div>
