@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum EnumRole {
+  User
+  Dokter
+  Admin
+}
+
+model Role {
+  id        String @id @default(cuid())
+  role      EnumRole
+  users     User[]
+}
+
+model User {
+  id            String       @id @default(cuid())
+  roleId        String
+  email         String       @unique
+  namaLengkap   String
+  alamat        String
+  noTlp         String
+  jenis_kelamin String
+  tanggal_lahir String
+  password      String
+  role          Role         @relation(fields: [roleId], references: [id], onDelete: Cascade)
+}
