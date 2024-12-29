@@ -12,9 +12,9 @@ export default function DefaultLayout({
   return (
     <>
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      <div className="flex flex-col items-end">
+      <div className="relative flex flex-1 flex-col ml-72 p-5">
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-        <div className="py-4 mx-5 w-3/4">{children}</div>
+        <div className="py-4">{children}</div>
       </div>
     </>
   );

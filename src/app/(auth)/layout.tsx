@@ -3,5 +3,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main>{children}</main>;
+  return <main className="max-w-screen-2xl mx-auto relative">{children}</main>;
 }

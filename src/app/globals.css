@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  main {
-    @apply max-w-screen-2xl mx-auto relative;
-  }
-
   img {
     @apply block object-cover w-full h-full;
   }

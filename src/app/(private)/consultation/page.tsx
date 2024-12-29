@@ -3,7 +3,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="ContainerX">
+    <div className="max-w-screen-2xl mx-auto relative ContainerX">
       <Chat />
     </div>
   );

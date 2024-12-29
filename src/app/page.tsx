@@ -10,7 +10,7 @@ import ButtonChatTrigger from "@/components/ButtonChatTrigger";
 
 export default function Home() {
   return (
-    <>
+    <div className="max-w-screen-2xl mx-auto relative">
       <Header />
       <div className="pt-10">
         <Highlight />
@@ -21,6 +21,6 @@ export default function Home() {
       </div>
       <Footer />
       <ButtonChatTrigger />
-    </>
+    </div>
   );
 }

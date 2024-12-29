@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../_global/Card";
+import Card from "../_global/Card";
 import Link from "next/link";
 
 const LastInteraction = () => {

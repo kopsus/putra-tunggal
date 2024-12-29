@@ -66,7 +66,7 @@ const Sidebar = ({}: SidebarProps) => {
   const isActiveLink = (href: string) => pathname === href;
 
   return (
-    <div className="fixed left-0 top-0 z-50 flex h-screen w-1/5 py-5">
+    <div className="fixed left-0 top-0 z-50 flex h-screen w-72 py-5">
       <Card className="flex-col overflow-y-hidden w-full h-full rounded-r-3xl px-5 py-10">
         <div className="mx-auto flex justify-center border-b-2 pb-2 border-primary mb-10">
           Logo

@@ -8,7 +8,7 @@ interface SidebarProps {
 
 const Header = ({}: SidebarProps) => {
   return (
-    <Card className="bg-primary sticky top-0 z-50 w-3/4 p-5 rounded-full m-5">
+    <Card className="bg-primary sticky top-0 z-50 p-5 rounded-full w-full">
       <div className="text-white flex items-center justify-between">
         <p className="text-lg">DASHBOARD</p>
         <div className="flex items-center gap-2">
