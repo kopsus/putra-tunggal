@@ -1,3 +1,5 @@
+"use client";
+
 import Breadcrumb from "@/components/(dashboard)/_global/Breadcrumb";
 import { storeDialog } from "@/store/dialog";
 import { useSetAtom } from "jotai";
