@@ -8,6 +8,8 @@ import { Poppins } from "next/font/google";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import IsLogin from "@/lib/isLogin";
+import { Query } from "@/providers/component";
 
 const poppins = Poppins({
   weight: ["400"],
@@ -27,7 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
-        <main>{children}</main>
+        <Query>
+          <main>
+            {children}
+            <IsLogin />
+          </main>
+        </Query>
       </body>
     </html>
   );

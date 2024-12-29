@@ -3,6 +3,8 @@ import React from "react";
 interface IButton {
   children: React.ReactNode;
   className?: string;
+  type?: "submit" | "button" | "reset" | undefined;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
 const ButtonLarge = ({ children, className }: IButton) => {
@@ -15,9 +17,10 @@ const ButtonLarge = ({ children, className }: IButton) => {
   );
 };
 
-const ButtonMedium = ({ children, className }: IButton) => {
+const ButtonMedium = ({ children, className, type }: IButton) => {
   return (
     <button
+      type={type}
       className={`${className} text-sm rounded-full font-bold shadow py-2 px-6 md:py-3 md:px-12`}
     >
       {children}
@@ -25,9 +28,10 @@ const ButtonMedium = ({ children, className }: IButton) => {
   );
 };
 
-const ButtonSmall = ({ children, className }: IButton) => {
+const ButtonSmall = ({ children, className, onClick }: IButton) => {
   return (
     <button
+      onClick={onClick}
       className={`${className} text-xs rounded-full font-bold shadow py-2 px-8`}
     >
       {children}

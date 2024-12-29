@@ -1,10 +1,29 @@
+"use client";
+
 import React from "react";
 import person from "@/assets/psikolog.jpg";
 import Image from "next/image";
 import { MdOutlineDataUsage } from "react-icons/md";
 import { ButtonSmall } from "../Button";
+import { useAtom } from "jotai";
+import { storeIsLogin } from "@/store/isLogin";
+import { useRouter } from "next/navigation";
+import { useMutationAuth } from "@/api/auth/mutations";
 
 export const Profile = () => {
+  const router = useRouter();
+  const [_, setIsLogin] = useAtom(storeIsLogin);
+  const { serviceAuth } = useMutationAuth();
+
+  const handleLogout = async () => {
+    await serviceAuth({
+      type: "logout",
+      body: "",
+    });
+    setIsLogin(false);
+    router.push("/");
+  };
+
   return (
     <div className="flex justify-between">
       <div className="flex items-center gap-5">
@@ -38,7 +57,10 @@ export const Profile = () => {
         <ButtonSmall className="bg-primary text-white">
           Edit Profile
         </ButtonSmall>
-        <ButtonSmall className="text-primary border border-primary">
+        <ButtonSmall
+          onClick={handleLogout}
+          className="text-primary border border-primary"
+        >
           Log Out
         </ButtonSmall>
       </div>

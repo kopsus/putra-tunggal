@@ -7,10 +7,13 @@ import { PiChatCircleText } from "react-icons/pi";
 import { ButtonSmall } from "./Button";
 import { usePathname } from "next/navigation";
 import { Fade as Hamburger } from "hamburger-react";
+import { storeIsLogin } from "@/store/isLogin";
+import { useAtomValue } from "jotai";
+import { User } from "lucide-react";
 
 export const Header = () => {
-  const login = false;
   const [isOpen, setOpen] = React.useState(false);
+  const isLogin = useAtomValue(storeIsLogin);
 
   const ItemHeader = [
     {
@@ -75,8 +78,13 @@ export const Header = () => {
         <Link href={"consultation"}>
           <PiChatCircleText size={32} />
         </Link>
-        {login ? (
-          <div className="h-7 w-7 rounded-full bg-white"></div>
+        {isLogin ? (
+          <Link
+            href={"/profile"}
+            className="h-7 w-7 rounded-full border flex justify-center items-center cursor-pointer"
+          >
+            <User />
+          </Link>
         ) : (
           <Link href="login">
             <ButtonSmall className="bg-red">Login</ButtonSmall>
