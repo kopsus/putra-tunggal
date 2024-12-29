@@ -14,8 +14,14 @@ import rahmawatiIMG from "@/assets/rahmawati.jpg";
 import suwartiIMG from "@/assets/suwarti.jpg";
 import waraIMG from "@/assets/WARA1.jpg";
 import psikologIMG from "@/assets/psikolog.jpg";
-
-
+import alexanderIMG from "@/assets/Alexander.jpg";
+import malikIMG from "@/assets/Malik.jpg";
+import rispoIMG from "@/assets/Rispo.jpg";
+import vikoIMG from "@/assets/Viko.jpg";
+import bambangIMG from "@/assets/Bambang.jpg";
+import angelIMG from "@/assets/Angel.jpg";
+import arlanIMG from "@/assets/Arlan.jpg";
+import rusdianyahIMG from "@/assets/Rusdiansyah.jpg";
 
 // article
 import articleIMG from "@/assets/article.png";
@@ -221,51 +227,51 @@ const dataPsikolog = [
 const dataTestmoni = [
   {
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    profile: psikologIMG,
-    name: "kopsus",
+      "Sangat membantu! Saya merasa lebih tenang.",
+    profile: alexanderIMG,
+    name: "Alexander",
   },
   {
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    profile: psikologIMG,
-    name: "kopsus",
+      "Konsultasi yang membuka wawasan. Terima kasih!",
+    profile: bambangIMG,
+    name: "Bambang",
   },
   {
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    profile: psikologIMG,
-    name: "kopsus",
+      "Sesi yang penuh empati. Sangat bermanfaat!",
+    profile: rusdianyahIMG,
+    name: "Rusdiansyah",
   },
   {
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    profile: psikologIMG,
-    name: "kopsus",
+      "Lebih percaya diri setelah berbicara di sini.",
+    profile: angelIMG,
+    name: "Angel",
   },
   {
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    profile: psikologIMG,
-    name: "kopsus",
+      "Mendapat solusi praktis untuk kecemasan saya.",
+    profile: malikIMG,
+    name: "Malik",
   },
   {
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    profile: psikologIMG,
-    name: "kopsus",
+      "Layanan yang profesional dan penuh perhatian.",
+    profile: arlanIMG,
+    name: "Arlan",
   },
   {
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    profile: psikologIMG,
-    name: "kopsus",
+      "Sangat puas, perasaan saya lebih stabil.",
+    profile: vikoIMG,
+    name: "Viko",
   },
   {
     review:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    profile: psikologIMG,
-    name: "kopsus",
+      "Terasa ada perubahan positif setelah sesi.",
+    profile: rispoIMG,
+    name: "Rispo",
   },
 ];
 
@@ -337,22 +343,22 @@ const dataHistoryChat = [
     chat: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
   },
   {
-    img: psikologIMG,
+    img: waraIMG,
     name: "Dr. Rr. Wara Setija Brawidjajani",
     chat: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
   },
   {
-    img: psikologIMG,
+    img: bambangIMG,
     name: "Dr. Ahmad Fadli",
     chat: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
   },
   {
-    img: psikologIMG,
+    img: vikoIMG,
     name: "Dra. Siti Nurjanah",
     chat: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
   },
   {
-    img: psikologIMG,
+    img: angelIMG,
     name: "Dr. Budi Santoso",
     chat: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
   },
