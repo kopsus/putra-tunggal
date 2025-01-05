@@ -14,8 +14,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // data
 import { carouselServices, service } from "@/lib/data";
+import { FC } from "react";
 
-const HighlightService = () => {
+const HighlightService:FC<{isLogin: boolean}> = ({isLogin}) => {
   return (
     <div className="Container">
       <div className="flex flex-col lg:flex-row gap-10">
@@ -56,7 +57,7 @@ const HighlightService = () => {
           </div>
         </div>
 
-        <ListPsikolog />
+        <ListPsikolog isLogin={isLogin} />
       </div>
     </div>
   );

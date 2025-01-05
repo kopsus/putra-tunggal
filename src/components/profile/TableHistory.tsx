@@ -1,4 +1,8 @@
-import { dataHistoryInteraction } from "@/lib/data";
+'use client'
+import { ServiceType } from "@/interface/service.interface";
+import { Order, OrderItem } from "@prisma/client";
+import { useEffect, useState } from "react";
+import moment from 'moment'
 
 type TypeService = "Online" | "Offline";
 
@@ -9,9 +13,36 @@ export type TypeleLastInteraction = {
   time: string;
 };
 
+interface HistoryUser extends OrderItem {
+  service: ServiceType,
+  order: Order
+}
+
 const TableHistory = () => {
   const thStyle = "border-b-2 border-black py-2";
   const tdStyle = "border-b-2 py-4 text-center";
+
+  const [loading, setIsloading] = useState(true);
+  const [dataHistoryInteraction, setDataHistoryInteraction] = useState<HistoryUser[]>([])
+
+  useEffect(() => {
+    (async () => {
+      try {
+        setIsloading(true);
+        const res = await fetch("/api/histories");
+        const data = await res.json();
+        setDataHistoryInteraction(data.data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsloading(false);
+      }
+    })()
+  }, [])
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="overflow-x-auto w-full bg-white shadow-md border rounded-xl p-10">
@@ -35,29 +66,29 @@ const TableHistory = () => {
                 </p>
               </td>
               <td className={tdStyle}>
-                <p className="badge">{item.docterName}</p>
+                <p className="badge">{item.service.dokter.namaLengkap}</p>
               </td>
               <td className={tdStyle}>
                 <div
                   className={`badge ${
-                    item.service === "Online" ? "bg-online/20" : "bg-offline/20"
+                    item.order.layanan === "Online" ? "bg-online/20" : "bg-offline/20"
                   } flex items-center justify-center gap-2`}
                 >
                   <div
                     className={`h-5 w-5 rounded-full ${
-                      item.service === "Online"
+                      item.order.layanan === "Online"
                         ? "bg-green-600"
                         : "bg-yellow-600"
                     }`}
                   />
-                  <p>{item.service}</p>
+                  <p>{item.order.layanan}</p>
                 </div>
               </td>
               <td className={tdStyle}>
-                <p className="badge">{item.date}</p>
+                <p className="badge">{moment(item.order.createdAt).format('DD-MM-YYYY ')}</p>
               </td>
               <td className={tdStyle}>
-                <p className="badge">{item.time} WIB</p>
+                <p className="badge">{moment(item.order.createdAt).format('hh:mm')} - {moment(item.order.createdAt).add(1, 'hour').format('hh:mm')}</p>
               </td>
             </tr>
           ))}

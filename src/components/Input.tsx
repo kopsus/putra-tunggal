@@ -5,11 +5,13 @@ interface IInput {
   type?: "text" | "password" | "number";
   className?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  value?: string;
 }
 
-const Input = ({ placeholder, type, onChange }: IInput) => {
+const Input = ({ placeholder, type, onChange, value }: IInput) => {
   return (
     <input
+      value={value}
       type={type}
       placeholder={placeholder}
       onChange={onChange}

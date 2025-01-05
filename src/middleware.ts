@@ -4,7 +4,8 @@ import jwt from "jsonwebtoken";
 
 // Daftar rute
 const privateRoutesAdmin = ["/dashboard"];
-const privateRoutesUser = ["/profile"];
+const provateRoutesDoctor = ['/layanan', 'riwayat'];
+const privateRoutesUser = ["/profile", '/consultation'];
 const authRoutes = ["/login", "/register"];
 const publicRoutes = ["/article", "/service", "/about"];
 
@@ -15,34 +16,42 @@ export async function middleware(request: NextRequest) {
 
   if (token) {
     const decoded: any = jwt.decode(token);
-
-    // Jika user memiliki token denga role === Masyarakat mencoba mengakse privateRoutesAdmin, redirect ke "/"
-    if (
-      decoded?.role === "Masyarakat" &&
-      privateRoutesAdmin.some((route) => url.pathname.startsWith(route))
-    ) {
-      url.pathname = "/";
-      return NextResponse.redirect(url);
+    if (request.nextUrl.pathname.startsWith("/api")) {
+      const headers = new Headers(request.headers);
+      headers.set('x-user-data', JSON.stringify(decoded));
+      return NextResponse.next({
+        request: {
+          headers
+        }
+      });
     }
-
-    if (
-      decoded?.role !== "Masyarakat" &&
-      publicRoutes.some((route) => url.pathname.startsWith(route))
-    ) {
-      url.pathname = "/dashboard";
-      return NextResponse.redirect(url);
-    }
-
-    // Jika user memiliki token dan mencoba mengakses halaman login/register, redirect ke "/"
     if (authRoutes.some((route) => url.pathname.startsWith(route))) {
       url.pathname = "/";
       return NextResponse.redirect(url);
     }
+
+    const role = decoded?.role;
+
+    if (role === 'User') {
+      if (privateRoutesAdmin.some((route) => url.pathname.startsWith(route)) || provateRoutesDoctor.some((route) => url.pathname.startsWith(route))) {
+        url.pathname = "/";
+        return NextResponse.redirect(url)
+      }
+    }
+
+    if (role === 'Dokter') {
+      if (privateRoutesAdmin.some((route) => url.pathname.startsWith(route))) {
+        url.pathname = "/";
+        return NextResponse.redirect(url);
+      }
+    }
+    
   } else {
     // Jika tidak ada token dan mengakses private routes, redirect ke /login
     if (
       privateRoutesAdmin.some((route) => url.pathname.startsWith(route)) ||
-      privateRoutesUser.some((route) => url.pathname.startsWith(route))
+      privateRoutesUser.some((route) => url.pathname.startsWith(route)) ||
+      provateRoutesDoctor.some((route) => url.pathname.startsWith(route))
     ) {
       url.pathname = "/login";
       return NextResponse.redirect(url);
@@ -54,17 +63,7 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // public routes
-    "/",
-    "/article",
-    "/service",
-    "/about",
-    // auth routes
-    "/login",
-    "/register",
-    // privateRoutesMasyarakat
-    "/profile",
-    // privateRoutesAdmin
-    "/dashboard",
+    "/((?!_next/static|_next/image|.*\.png$|.*\.jpg$|.*\.jpeg$|.*\.gif$|.*\.svg$).*)/",
+    '/:path*',
   ],
 };

@@ -1,7 +1,9 @@
-import { dataRiwayat } from "@/data/riwayat";
-import React from "react";
+'use client';
+import { HistoryType } from "@/interface/history.interface";
+import React, { FC, useEffect, useState } from "react";
+import moment from 'moment'
 
-const TableRiwayat = () => {
+const TableRiwayat:FC<{searchName: string}> = ({searchName}) => {
   const dataThead = [
     "No",
     "Nama Pasien",
@@ -10,6 +12,30 @@ const TableRiwayat = () => {
     "Waktu",
     "Keterangan",
   ];
+
+  const [histories, setHistories] = useState<HistoryType[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        setLoading(true);
+        const res = await fetch("/api/histories");
+        const data = await res.json();
+        console.log(data)
+        setHistories(data.data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, [])
+
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="border rounded-2xl overflow-hidden">
@@ -24,10 +50,10 @@ const TableRiwayat = () => {
           </tr>
         </thead>
         <tbody>
-          {dataRiwayat.map((item, index) => (
+          {(searchName != '' ? histories.filter(v => v.user.namaLengkap.toLowerCase().includes(searchName)) : histories).map((item, index) => (
             <tr key={index} className="text-center border-b-2">
               <td className="py-2">{index + 1}</td>
-              <td className="py-2">{item.namaPasien}</td>
+              <td className="py-2">{item.user.namaLengkap}</td>
               <td className="py-2">
                 <div
                   className={`${
@@ -42,17 +68,17 @@ const TableRiwayat = () => {
                   {item.layanan}
                 </div>
               </td>
-              <td className="py-2">{item.tanggal}</td>
-              <td className="py-2">{item.waktu}</td>
+              <td className="py-2">{moment(item.createdAt).format('DD-MM-YYYY ')}</td>
+              <td className="py-2">{moment(item.createdAt).format('hh:mm')} - {moment(item.createdAt).add(1, 'hour').format('hh:mm')}</td>
               <td className="py-2">
                 <p
                   className={`${
-                    item.keterangan === "Completed"
+                    item.status === "Success"
                       ? "bg-green-200"
                       : "bg-red/10"
                   } rounded-full w-max mx-auto py-2 px-4`}
                 >
-                  {item.keterangan}
+                  {item.status}
                 </p>
               </td>
             </tr>

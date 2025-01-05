@@ -1,9 +1,6 @@
 import Image from "next/image";
 import { formatIDR } from "@/lib/format";
 
-// data
-import { dataPsikolog } from "@/lib/data";
-
 // components
 import { InputSearch } from "@/components/Input";
 import { ButtonSmall } from "@/components/Button";
@@ -18,14 +15,63 @@ import {
 import { FaJoget } from "react-icons/fa";
 import { BiLike } from "react-icons/bi";
 import ProfilePsikolog from "./ProfilePsikolog";
-import Link from "next/link";
+import { FC, useEffect, useState } from "react";
+import { Service, User } from "@prisma/client";
+import waraIMG from "@/assets/person-empty.png";
+import ContinuePayment from "../consultation/modal/ContinuePayment";
+import { useRouter } from "next/navigation";
 
-const ListPsikolog = () => {
+interface ServiceData extends Service {
+  dokter: User
+}
+
+const ListPsikolog:FC<{isLogin: boolean}> = ({isLogin}) => {
+  const [services, setServices] = useState<ServiceData[]>([])
+  const [loadingClickChat, setLoadingClickChat] = useState(false);
+  const [needToPay, setNeedToPay] = useState(false);
+  const route = useRouter()
+
+  const handleClickChat = async (serviceId: string) => {
+    
+    if (!isLogin) {
+      route.push('/login')
+    }
+    setLoadingClickChat(true)
+    try {
+      const res = await fetch(`/api/rooms?serviceId=${serviceId}`)
+      const data = await res.json()
+      if (data.data.length > 0) {
+        route.push(`/consultation`)
+      } else {
+        setNeedToPay(true)
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoadingClickChat(false)
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch("/api/services");
+        const data = await res.json();
+        setServices(data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    })()
+  }, [])
+
+  if (services.length === 0) {
+    return <p>Loading...</p>
+  }
   return (
     <div className="w-full flex flex-col gap-6">
       <InputSearch placeholder="Cari Psikolog" />
       <div className="max-h-[679px] pb-2 lg:pb-0 overflow-hidden overflow-y-auto grid gap-5 md:grid-cols-2 lg:grid-cols-1">
-        {dataPsikolog.map((item, index) => (
+        {services.map((item, index) => (
           <div
             key={index}
             className="border lg:border-none bg-white shadow lg:shadow-none rounded-xl lg:rounded-3xl overflow-hidden p-2 lg:p-0 lg:h-48"
@@ -33,7 +79,7 @@ const ListPsikolog = () => {
             <div className="flex items-start gap-2 lg:gap-x-5 h-32 md:h-36 lg:h-full">
               <div className="max-w-32 lg:min-w-[169px] lg:max-w-[169px] h-full overflow-hidden rounded-xl lg:rounded-3xl shadow-md border">
                 <Image
-                  src={item.img}
+                  src={item.dokter.foto ?? waraIMG}
                   alt=""
                   width={0}
                   height={0}
@@ -42,42 +88,47 @@ const ListPsikolog = () => {
               </div>
               <div className="flex flex-col gap-3 lg:gap-0 lg:justify-between h-full">
                 <div className="flex flex-col gap-y-[6px]">
-                  <p className="font-semibold">{item.name}</p>
-                  <p>{item.job}</p>
+                  <p className="font-semibold">{item.dokter.namaLengkap}</p>
+                  <p>{item.dokter.email}</p>
                   <div className="flex items-center gap-2">
                     <div className="flex items-center gap-3 py-1 px-2 bg-primary rounded">
                       <FaJoget className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
                       <p className="text-white text-xs lg:text-sm">
-                        {item.experience} Tahun
+                        7 Tahun
                       </p>
                     </div>
                     <div className="flex items-center gap-3 py-1 px-2 bg-primary rounded">
                       <BiLike className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
                       <p className="text-white text-xs lg:text-sm">
-                        {item.like}%
+                        {100}%
                       </p>
                     </div>
                   </div>
                 </div>
                 <p className="font-semibold lg:text-lg">
-                  {formatIDR(item.cost)}
+                  {formatIDR(item.harga)}
                 </p>
                 <div className="hidden lg:flex items-center gap-4">
                   <Dialog>
-                    <DialogTrigger className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black/20">
+                    <DialogTrigger onClick={() => setNeedToPay(false)} className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black/20">
                       Lihat Profil
                     </DialogTrigger>
                     <DialogContent>
                       <DialogTitle></DialogTitle>
-                      <ProfilePsikolog />
-                      <ButtonSmall className="bg-red text-white">
-                        <Link href={"/consultation"}>Chat</Link>
-                      </ButtonSmall>
+                      {
+                        needToPay ? (
+                          <ContinuePayment serviceId={item.id} />
+                        ) :
+                          <ProfilePsikolog service={item} />
+                      }
+                      {
+                        !needToPay &&
+                        <ButtonSmall className="bg-red text-white">
+                          <div onClick={() => handleClickChat(item.id)}>{loadingClickChat ? 'loading...' : "Chat"}</div>
+                        </ButtonSmall>
+                      }
                     </DialogContent>
                   </Dialog>
-                  <ButtonSmall className="bg-red text-white">
-                    <Link href={"/consultation"}>Chat</Link>
-                  </ButtonSmall>
                 </div>
               </div>
             </div>
@@ -88,15 +139,20 @@ const ListPsikolog = () => {
                 </DialogTrigger>
                 <DialogContent>
                   <DialogTitle></DialogTitle>
-                  <ProfilePsikolog />
-                  <ButtonSmall className="bg-red text-white">
-                    <Link href={"/consultation"}>Chat</Link>
-                  </ButtonSmall>
+                  {
+                    needToPay ? (
+                      <ContinuePayment serviceId={item.id} />
+                    ) :
+                      <ProfilePsikolog service={item} />
+                  }
+                  {
+                    !needToPay &&
+                    <ButtonSmall className="bg-red text-white">
+                      <div onClick={() => handleClickChat(item.id)}>{loadingClickChat ? 'loading...' : "Chat"}</div>
+                    </ButtonSmall>
+                  }
                 </DialogContent>
               </Dialog>
-              <ButtonSmall className="bg-red text-white">
-                <Link href={"/consultation"}>Chat</Link>
-              </ButtonSmall>
             </div>
           </div>
         ))}

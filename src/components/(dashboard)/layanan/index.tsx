@@ -1,23 +1,24 @@
 "use client";
 
 import { ArrowLeft, User } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import { Online } from "./Online";
 import Card from "../_global/Card";
 import { RiCalendarScheduleLine } from "react-icons/ri";
-import { Chat } from "./Chat";
 import { Button } from "@/components/ui/button";
 import Offline from "./Offline";
+import { RoomType } from "@/interface/room.interface";
+import ChatBox from "@/components/chatbox/chatbox";
 
 const Layanan = () => {
-  const [isOpenChat, setIsOpenChat] = React.useState(false);
+  const [selectedRoom, setSelectedRoom] = useState<RoomType | null>(null);
   const [tabActive, setTabActive] = React.useState("Online");
 
   return (
     <>
-      {isOpenChat ? (
+      {selectedRoom !== null ? (
         <Button
-          onClick={() => setIsOpenChat(false)}
+          onClick={() => setSelectedRoom(null)}
           className="bg-red hover:bg-red/80 mb-5"
         >
           <ArrowLeft /> Kembali
@@ -47,8 +48,14 @@ const Layanan = () => {
       <div>
         {tabActive === "Online" ? (
           <Card className="rounded-xl p-5">
-            <Online isOpenChat={isOpenChat} setIsOpenChat={setIsOpenChat} />
-            <Chat isOpenChat={isOpenChat} setIsOpenChat={setIsOpenChat} />
+            <Online isOpenChat={selectedRoom !== null} setSelectedRoom={setSelectedRoom} />
+            {
+              selectedRoom && (
+                <div >
+                  <ChatBox h="h-[calc(100vh-300px)]" room={selectedRoom} role="User" />
+                </div>
+              )
+            }
           </Card>
         ) : (
           <Offline />

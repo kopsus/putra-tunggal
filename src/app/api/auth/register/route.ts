@@ -1,6 +1,8 @@
-import { prisma } from "@/constants/variables";
 import { ResponseHandler } from "@/lib/responseHandler";
+import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
+
+const prisma = new PrismaClient()
 
 export async function POST(req: Request) {
   try {

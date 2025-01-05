@@ -3,12 +3,14 @@ import HighlightService from "@/components/services/Highlight";
 import ServiceFee from "@/components/services/ServiceFee";
 import { Services } from "@/components/services/Services";
 import Testimoni from "@/components/testimoni/Testimoni";
+import { cookies } from "next/headers";
 import React from "react";
 
-const page = () => {
+const page = async () => {
+  const isLogin = (await cookies()).has('accessToken')
   return (
     <div className="pt-10 lg:pt-0">
-      <HighlightService />
+      <HighlightService isLogin={isLogin} />
       <BannerTrigger />
       <Services />
       <ServiceFee />

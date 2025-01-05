@@ -8,15 +8,16 @@ import {
 } from "@/components/ui/select";
 import { dataBulan } from "@/data/bulan";
 import { dataTahun } from "@/data/tahun";
-import React from "react";
+import { SetStateAction } from "jotai";
+import React, { Dispatch, FC } from "react";
 
-const Toolbar = () => {
+const Toolbar: FC<{setSearch: Dispatch<SetStateAction<string>>, searchValue: string}> = ({setSearch, searchValue}) => {
   return (
     <div className="flex flex-col gap-5 mb-10">
       <div className="flex items-center gap-5">
         <div className="flex items-center gap-2">
           <p>Pencarian</p> :
-          <Input placeholder="Cari Nama Pasien" />
+          <Input placeholder="Cari Nama Pasien" value={searchValue} onChange={(e) => setSearch(e.target.value)}/>
         </div>
         <div className="flex items-center gap-2">
           <p>Bulan</p> :

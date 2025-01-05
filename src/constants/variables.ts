@@ -1,6 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+    omit: {
+        user: {
+            password: true
+        }
+    }
+});
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 const roleId = process.env.NEXT_PUBLIC_ROLE_USER;
 

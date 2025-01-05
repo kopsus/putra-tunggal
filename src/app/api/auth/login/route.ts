@@ -1,8 +1,10 @@
 import bcrypt from "bcrypt";
-import { prisma } from "@/constants/variables";
 import { ResponseHandler } from "@/lib/responseHandler";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
   try {
@@ -34,7 +36,7 @@ export async function POST(req: Request) {
       path: "/",
     });
 
-    return ResponseHandler.get("Berhasil Login");
+    return ResponseHandler.get({token}, "Berhasil Login");
   } catch (error) {
     return ResponseHandler.serverError();
   }

@@ -1,14 +1,16 @@
+'use client';
 import TableRiwayat from "@/components/(dashboard)/riwayat/Table";
 import Toolbar from "@/components/(dashboard)/riwayat/Toolbar";
-import React from "react";
+import React, { useState } from "react";
 
-const page = () => {
+const Page = () => {
+  const [searchName, setSearchName] = useState<string>('')
   return (
     <>
-      <Toolbar />
-      <TableRiwayat />
+      <Toolbar searchValue={searchName} setSearch={setSearchName} />
+      <TableRiwayat searchName={searchName}  />
     </>
   );
 };
 
-export default page;
+export default Page;

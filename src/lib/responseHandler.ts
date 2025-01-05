@@ -40,10 +40,24 @@ export const ResponseHandler = {
     });
   },
 
+  Unauthorized(message = "Unauthorized") {
+    return NextResponse.json({
+      status: 401,
+      message,
+    });
+  },
+
   serverError(message = "Internal Server Error") {
     return NextResponse.json({
       status: 500,
       message,
     });
   },
+
+  notAllowed(message = "Method Not Allowed") {
+    return NextResponse.json({
+      status: 405,
+      message,
+    });
+  }
 };
