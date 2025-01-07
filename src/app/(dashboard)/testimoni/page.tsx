@@ -2,6 +2,8 @@
 
 import { useQueryTestomoni } from "@/api/testimoni/queries";
 import Breadcrumb from "@/components/(dashboard)/_global/Breadcrumb";
+import DialogCreate from "@/components/(dashboard)/testimoni/dialog/DialogCreate";
+import DialogDelete from "@/components/(dashboard)/testimoni/dialog/DialogDelete";
 import { columns } from "@/components/(dashboard)/testimoni/table/Columns";
 import { DataTable } from "@/components/(dashboard)/testimoni/table/DataTable";
 import { storeDialog } from "@/store/dialog";
@@ -25,6 +27,8 @@ const Testimoni = () => {
         }}
       />
       <DataTable columns={columns} data={dataTestimoni ?? []} />
+      <DialogCreate />
+      <DialogDelete />
     </>
   );
 };
