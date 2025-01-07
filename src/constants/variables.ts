@@ -1,13 +1,14 @@
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient({
-    omit: {
-        user: {
-            password: true
-        }
-    }
+  omit: {
+    user: {
+      password: true,
+    },
+  },
 });
-const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+const baseURL = process.env.BASE_URL;
+const apiURL = `${(process.env.BASE_URL, process.env.NEXT_PUBLIC_BASE_URL)}`;
 const roleId = process.env.NEXT_PUBLIC_ROLE_USER;
 
-export { prisma, baseURL, roleId };
+export { prisma, baseURL, roleId, apiURL };

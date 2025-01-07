@@ -1,26 +1,25 @@
+"use client";
+
+import { useQueryArticles } from "@/api/article/queries";
 import { dataArticle2 } from "@/lib/data";
 import Image from "next/image";
 
 const Article2 = () => {
-  return (
-    <div className="ContainerX pb-14 md:pb-16 lg:pb-24 min-h-[340px]">
+  const { dataArticles } = useQueryArticles();
+
+  return dataArticles?.slice(2, 3).map((item, index) => (
+    <div
+      key={index}
+      className="ContainerX pb-14 md:pb-16 lg:pb-24 min-h-[340px] mb-10"
+    >
       <div className="float-left mr-5 mb-3 w-full h-auto md:w-96 md:max-w-96 lg:min-w-[479px] lg:max-w-[479px] shadow-md border rounded-xl overflow-hidden">
-        <Image
-          src={dataArticle2.image}
-          alt=""
-          width={0}
-          height={0}
-          sizes="100vw"
-        />
+        <Image src={item.image} alt="" width={0} height={0} sizes="100vw" />
       </div>
-      <p className="titleContent text-red mb-3">{dataArticle2.title}</p>
-      <p className="mb-5">
-        <span className="font-bold">{dataArticle2.place}</span> -{" "}
-        {dataArticle2.desc}
-      </p>
+      <p className="titleContent text-red mb-3">{item.title}</p>
+      <p className="mb-5">{item.desc}</p>
       <p className="text-blue/80">{dataArticle2.date}</p>
     </div>
-  );
+  ));
 };
 
 export default Article2;

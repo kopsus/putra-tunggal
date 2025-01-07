@@ -8,8 +8,9 @@ import Image from "next/image";
 import useImagePreview from "@/hooks/useImagePreview";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { TextArea } from "@/components/Input";
-import { DatePicker } from "@/components/DatePicker";
+import { uploadImage } from "@/api/upload/fetcher";
+import { TypeArticle } from "@/api/article/types";
+import { useMutationArticle } from "@/api/article/mutation";
 
 const DialogCreate = () => {
   const [dialog, setDialog] = useAtom(storeDialog);
@@ -42,13 +43,65 @@ const DialogCreate = () => {
     }));
   };
 
+  const handleUploadImage = async (file: File) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await uploadImage(formData);
+      console.log("response", response);
+      const imageUrl = response.data;
+
+      return imageUrl; // URL gambar yang berhasil di-upload
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      throw new Error("Failed to upload image");
+    }
+  };
+
+  const { serviceArticle } = useMutationArticle();
+  const mutationArticle = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const imageUrl = imageFile
+      ? await handleUploadImage(imageFile)
+      : dialog.data?.image;
+
+    const payloadArticle: TypeArticle = {
+      image: imageUrl,
+      title: dialog.data?.title ?? "",
+      desc: dialog.data?.desc ?? 0,
+      date: dialog.data?.date ?? "",
+    };
+
+    try {
+      if (dialog.type === "CREATE") {
+        // Call create gallery API
+        await serviceArticle({
+          type: "create",
+          body: payloadArticle,
+        });
+        closeDialog();
+      } else {
+        // Call update gallery API
+        await serviceArticle({
+          type: "update",
+          body: payloadArticle,
+          id: dialog.data?.id,
+        });
+        closeDialog();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <DialogLayout
       show={dialog.type !== "DELETE" && dialog.show}
       onHide={closeDialog}
       title={dialog.type === "CREATE" ? "Tambah Artikel" : "Update Artikel"}
     >
-      <form action="" className="flex flex-col gap-3">
+      <form onSubmit={mutationArticle} className="flex flex-col gap-3">
         <div className="w-full h-52 rounded-xl border bg-white shadow-1 overflow-hidden mb-2">
           {previewUrl || dialog.data?.image ? (
             <Image
@@ -62,11 +115,13 @@ const DialogCreate = () => {
         </div>
         <Input
           type="file"
+          name="image"
           onChange={(e) => {
-            handleImageChange(e); // Preview gambar
+            handleImageChange(e); // Update preview
             const file = e.target.files?.[0];
-            setImageFile(file ?? null); // Set image file in state
+            setImageFile(file ?? null); // Set file for upload
           }}
+          className="max-w-72"
         />
         <div className="flex flex-col gap-1">
           <p>Judul</p>
@@ -93,11 +148,12 @@ const DialogCreate = () => {
           <input
             type="date"
             onChange={onInputChange}
+            name="date"
             value={dialog.data?.date ?? ""}
             className="border text-sm shadow-sm rounded-md overflow-hidden p-1 outline-none"
           />
         </div>
-        <Button>
+        <Button type="submit">
           {dialog.type === "CREATE" ? "Tambah Artikel" : "Simpan Perubahan"}
         </Button>
       </form>
