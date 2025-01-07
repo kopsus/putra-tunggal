@@ -1,11 +1,10 @@
 import React from "react";
 
-// components
-import { ButtonMedium } from "./Button";
-
 // image
 import bannerTriggerIMG from "@/assets/bannerTrigger.png";
 import Image from "next/image";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { MakePromise } from "./makePromise/MakePromise";
 
 export const BannerTrigger = () => {
   return (
@@ -19,9 +18,15 @@ export const BannerTrigger = () => {
           </p>
           <p className="titleHighlight">Ayo Nikmati Layanan Kami!</p>
         </div>
-        <ButtonMedium className="animate-zoom-in-out bg-red text-white z-20">
-          BUAT JANJI SEKARANG
-        </ButtonMedium>
+        <Dialog>
+          <DialogTrigger className="animate-zoom-in-out bg-red text-white z-20 text-sm rounded-full font-bold shadow py-2 px-6 md:py-3 md:px-12">
+            BUAT JANJI SEKARANG
+          </DialogTrigger>
+          <DialogContent>
+            <DialogTitle />
+            <MakePromise />
+          </DialogContent>
+        </Dialog>
         <div className="absolute bottom-5 lg:right-5 w-full flex justify-center lg:justify-end z-10">
           <Image
             src={bannerTriggerIMG}

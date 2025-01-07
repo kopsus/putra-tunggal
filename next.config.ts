@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
       {
         hostname: "localhost",
       },
+      {
+        hostname: "asset-2.tstatic.net",
+      },
     ],
   },
 };

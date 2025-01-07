@@ -36,6 +36,7 @@ model User {
   Order         Order[]
   Chat          Chat[]
   RoomUser      RoomUser[]
+  Testimoni Testimoni[]
 }
 
 model Service {
@@ -116,4 +117,11 @@ model Article {
   desc    String @db.Text
   image   String
   date    String?
+}
+
+model Testimoni {
+  id          String @id @default(cuid())
+  userId      String
+  testimoni   String
+  user        User   @relation(fields: [userId], references: [id])
 }
