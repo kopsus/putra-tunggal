@@ -36,7 +36,7 @@ export async function POST(req: Request) {
       path: "/",
     });
 
-    return ResponseHandler.get({token}, "Berhasil Login");
+    return ResponseHandler.get({ token }, "Berhasil Login");
   } catch (error) {
     return ResponseHandler.serverError();
   }

@@ -4,7 +4,6 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { ButtonMedium } from "../Button";
 import Link from "next/link";
-import { DatePicker } from "../DatePicker";
 import { useRouter } from "next/navigation";
 import { roleId } from "@/constants/variables";
 import { useMutationAuth } from "@/api/auth/mutations";
@@ -96,7 +95,6 @@ const FormRegister = () => {
         </div>
         <div className="flex items-center gap-5 justify-between">
           <p className="text-sm text-nowrap">Tanggal Lahir</p>
-          {/* <DatePicker /> */}
           <input
             type="date"
             className="rounded-lg border-2 border-primary/50 px-2 py-1 text-sm"

@@ -109,3 +109,11 @@ model Chat {
   pengirim  User     @relation(fields: [senderId], references: [id])
   Room      Room     @relation(fields: [roomId], references: [id])
 }
+
+model Article {
+  id      String @id @default(cuid())
+  title   String
+  desc    String @db.Text
+  image   String
+  date    String?
+}
