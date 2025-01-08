@@ -49,12 +49,10 @@ const DialogCreate = () => {
 
     try {
       const response = await uploadImage(formData);
-      console.log("response", response);
       const imageUrl = response.data;
 
       return imageUrl; // URL gambar yang berhasil di-upload
     } catch (error) {
-      console.error("Error uploading image:", error);
       throw new Error("Failed to upload image");
     }
   };

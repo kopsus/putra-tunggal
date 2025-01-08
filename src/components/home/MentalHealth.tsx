@@ -2,12 +2,10 @@
 
 import { useQueryArticles } from "@/api/article/queries";
 import mentalHealthIMG from "@/assets/mental_health.svg";
-import { formatDate } from "@/lib/format";
 import Image from "next/image";
 
 const MentalHealth = () => {
   const { dataArticles } = useQueryArticles();
-  console.log("data article", dataArticles);
 
   return (
     <div className="Container">

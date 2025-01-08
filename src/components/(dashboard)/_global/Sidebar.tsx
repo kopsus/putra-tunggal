@@ -16,20 +16,35 @@ import { LogOut, Users } from "lucide-react";
 import { useMutationAuth } from "@/api/auth/mutations";
 import { storeIsLogin } from "@/store/isLogin";
 import { useAtom } from "jotai";
+import { useQueryProfile } from "@/api/user/queries";
 
 interface SidebarProps {
   sidebarOpen: boolean;
   setSidebarOpen: (arg: boolean) => void;
 }
 
-const menuGroups = [
-  {
-    menuItems: [
-      {
-        icon: <CiGrid42 size={24} />,
-        label: "Dashboard",
-        route: "/dashboard",
-      },
+type Role = "Admin" | "Dokter";
+
+// Define a MenuItem type
+interface MenuItem {
+  icon: React.JSX.Element;
+  label: string;
+  route: string;
+  children?: { label: string; route: string }[]; // Make 'children' optional
+}
+
+const getMenuGroups = (role: Role): MenuItem[] => {
+  const commonMenuItems: MenuItem[] = [
+    {
+      icon: <CiGrid42 size={24} />,
+      label: "Dashboard",
+      route: "/dashboard",
+    },
+  ];
+
+  const menuGroups = {
+    Admin: [
+      ...commonMenuItems,
       {
         icon: <MdMedicalServices size={24} />,
         label: "Layanan",
@@ -46,18 +61,28 @@ const menuGroups = [
         route: "/testimoni",
       },
       {
-        icon: <MdOutlineHistoryToggleOff size={24} />,
-        label: "Riwayat",
-        route: "/riwayat",
-      },
-      {
         icon: <Users size={24} />,
         label: "Pengguna",
         route: "/pengguna",
       },
     ],
-  },
-];
+    Dokter: [
+      ...commonMenuItems,
+      {
+        icon: <MdMedicalServices size={24} />,
+        label: "Layanan",
+        route: "/layanan",
+      },
+      {
+        icon: <MdOutlineHistoryToggleOff size={24} />,
+        label: "Riwayat",
+        route: "/riwayat",
+      },
+    ],
+  };
+
+  return menuGroups[role];
+};
 
 const Sidebar = ({}: SidebarProps) => {
   const pathname = usePathname();
@@ -65,6 +90,11 @@ const Sidebar = ({}: SidebarProps) => {
   const { serviceAuth } = useMutationAuth();
   const [_, setIsLogin] = useAtom(storeIsLogin);
   const router = useRouter();
+  const { dataProfile } = useQueryProfile();
+
+  const menuItems = dataProfile
+    ? getMenuGroups(dataProfile.role?.role as Role)
+    : [];
 
   const handleLogout = async () => {
     await serviceAuth({
@@ -82,21 +112,19 @@ const Sidebar = ({}: SidebarProps) => {
         <div className="mx-auto flex justify-center border-b-2 pb-2 border-primary mb-10">
           Logo
         </div>
-        {menuGroups.map((group, groupIndex) => (
+        {menuItems.map((group, groupIndex) => (
           <ul key={groupIndex} className="mb-6 flex flex-col gap-2">
-            {group.menuItems.map((menuItem, menuIndex) => (
-              <li key={menuIndex} className="rounded-full overflow-hidden">
-                <Link
-                  href={menuItem.route}
-                  className={`${
-                    isActiveLink(menuItem.route) ? "bg-primary text-white" : ""
-                  } group relative flex items-center gap-2.5 rounded-sm p-4 font-medium`}
-                >
-                  {menuItem.icon}
-                  {menuItem.label}
-                </Link>
-              </li>
-            ))}
+            <li className="rounded-full overflow-hidden">
+              <Link
+                href={group.route}
+                className={`${
+                  isActiveLink(group.route) ? "bg-primary text-white" : ""
+                } group relative flex items-center gap-2.5 rounded-sm p-4 font-medium`}
+              >
+                {group.icon}
+                {group.label}
+              </Link>
+            </li>
           </ul>
         ))}
         <div
