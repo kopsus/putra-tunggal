@@ -24,6 +24,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { TableToolbar } from "./TableToolbar";
 import Card from "../../_global/Card";
 
 interface DataTableProps<TData, TValue> {
@@ -58,7 +59,8 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <Card className="space-y-4 rounded-xl overflow-hidden p-5">
+    <div className="flex flex-col gap-5">
+      <TableToolbar table={table} />
       <Table className="rounded-xl overflow-hidden border">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -107,6 +109,6 @@ export function DataTable<TData, TValue>({
           )}
         </TableBody>
       </Table>
-    </Card>
+    </div>
   );
 }

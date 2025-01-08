@@ -3,7 +3,11 @@ import { ResponseHandler } from "@/lib/responseHandler";
 
 export async function GET() {
   try {
-    const users = await prisma.user.findMany();
+    const users = await prisma.user.findMany({
+      include: {
+        role: true,
+      },
+    });
 
     return ResponseHandler.get(users);
   } catch (error) {
