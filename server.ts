@@ -2,11 +2,10 @@ import { createServer } from "node:http";
 import next from "next";
 import { Server } from "socket.io";
 import { IMessageData } from "@/interface/sendMessage,interface";
-import { Chat } from "@prisma/client";
 
 const dev = process.env.NODE_ENV !== "production";
 const hostname = "localhost";
-const port = 3000;
+const port = 3001;
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ dev, hostname, port });
 const handler = app.getRequestHandler();
@@ -17,22 +16,21 @@ app.prepare().then(() => {
   const io = new Server(httpServer);
 
   io.on("connection", (socket) => {
-    console.log('a user connected');
-    socket.on('join_room', (roomId) => {
+    console.log("a user connected");
+    socket.on("join_room", (roomId) => {
       socket.join(roomId);
       console.log(`user join room ${roomId}`);
     });
 
-    socket.on('send_message', async (data: IMessageData) => {
+    socket.on("send_message", async (data: IMessageData) => {
       try {
-        
-        io.to(data.roomId).emit('receive_message', data);
+        io.to(data.roomId).emit("receive_message", data);
       } catch (error) {
         console.log(error);
       }
     });
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
+    socket.on("disconnect", () => {
+      console.log("user disconnected");
     });
   });
 

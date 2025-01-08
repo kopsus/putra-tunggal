@@ -9,7 +9,7 @@ import useImagePreview from "@/hooks/useImagePreview";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { uploadImage } from "@/api/upload/fetcher";
-import { TypeArticle } from "@/api/article/types";
+import { TypeUser } from "@/api/user/types";
 import { useMutationArticle } from "@/api/article/mutation";
 
 const DialogCreate = () => {
@@ -17,7 +17,7 @@ const DialogCreate = () => {
   const { previewUrl, setPreviewUrl, handleImageChange } = useImagePreview();
   const [imageFile, setImageFile] = React.useState<File | null>(null);
 
-  const imageSrc = previewUrl || dialog.data?.image || "";
+  const imageSrc = previewUrl || dialog.data?.foto || "";
 
   const closeDialog = () => {
     setDialog((prev) => ({
@@ -66,11 +66,14 @@ const DialogCreate = () => {
       ? await handleUploadImage(imageFile)
       : dialog.data?.image;
 
-    const payloadArticle: TypeArticle = {
-      image: imageUrl,
-      title: dialog.data?.title ?? "",
-      desc: dialog.data?.desc ?? 0,
-      date: dialog.data?.date ?? "",
+    const payloadArticle: TypeUser = {
+      foto: imageUrl,
+      email: dialog.data?.email,
+      namaLengkap: dialog.data?.namaLengkap,
+      noTlp: dialog.data?.noTlp,
+      jenis_kelamin: dialog.data?.jenis_kelamin,
+      alamat: dialog.data?.alamat,
+      tanggal_lahir: dialog.data?.tanggal_lahir,
     };
 
     try {
@@ -102,8 +105,8 @@ const DialogCreate = () => {
       title={dialog.type === "CREATE" ? "Tambah Pengguna" : "Update Pengguna"}
     >
       <form onSubmit={mutationArticle} className="flex flex-col gap-3">
-        <div className="w-full h-52 rounded-xl border bg-white shadow-1 overflow-hidden mb-2">
-          {previewUrl || dialog.data?.image ? (
+        <div className="h-52 w-52 rounded-full mx-auto border bg-white shadow-1 overflow-hidden mb-2">
+          {previewUrl || dialog.data?.foto ? (
             <Image
               src={imageSrc}
               alt="Preview"
@@ -121,27 +124,36 @@ const DialogCreate = () => {
             const file = e.target.files?.[0];
             setImageFile(file ?? null); // Set file for upload
           }}
-          className="max-w-72"
+          className="max-w-72 mx-auto"
         />
         <div className="flex flex-col gap-1">
-          <p>Judul</p>
+          <p>Email</p>
           <Input
-            type="text"
-            placeholder="Title"
-            value={dialog.data?.title ?? ""}
+            type="email"
+            placeholder="Email"
+            value={dialog.data?.email ?? ""}
             onChange={onInputChange}
-            name="title"
+            name="email"
           />
         </div>
         <div className="w-full flex flex-col gap-1">
-          <p>Deskripsi</p>
-          <textarea
-            name="desc"
+          <p>Nama Lengkap</p>
+          <Input
+            name="namaLengkap"
             id=""
-            value={dialog.data?.desc ?? ""}
+            value={dialog.data?.namaLengkap ?? ""}
             onChange={onInputChange}
-            className="h-52 outline-none p-2 border rounded-md text-sm w-full"
-          ></textarea>
+          />
+        </div>
+        <div className="w-full flex flex-col gap-1">
+          <p>No Telephone</p>
+          <Input
+            name="noTlp"
+            id=""
+            placeholder="No Telephone"
+            value={dialog.data?.noTlp ?? ""}
+            onChange={onInputChange}
+          />
         </div>
         <div className="flex flex-col gap-1">
           <p>Tanggal</p>

@@ -21,7 +21,7 @@ type TypeUser = {
   tanggal_lahir?: string;
   foto?: string;
   role?: TypeRole;
-  service?: TypeService;
+  Service?: TypeService[];
 };
 
 export type { TypeUser };
