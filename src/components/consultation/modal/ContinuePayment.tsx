@@ -16,29 +16,28 @@ const ContinuePayment: FC<{ serviceId: string }> = ({ serviceId }) => {
 
   const clickPay = async () => {
     try {
-      setIsloading(true)
+      setIsloading(true);
       const res = await fetch("/api/orders", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           serviceId: serviceId,
-          qty: 1
-        })
-      })
-      const data = await res.json()
-      setLinkUrl(data.data.redirectUrl)
-
+          qty: 1,
+        }),
+      });
+      const data = await res.json();
+      setLinkUrl(data.data.redirectUrl);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     } finally {
-      setIsloading(false)
+      setIsloading(false);
     }
-  }
+  };
 
   useEffect(() => {
-    if (linkUrl) return
+    if (linkUrl) return;
     (async () => {
       try {
         const res = await fetch(`/api/services/${serviceId}`);
@@ -48,7 +47,7 @@ const ContinuePayment: FC<{ serviceId: string }> = ({ serviceId }) => {
         console.log(error);
       }
     })();
-  }, []);
+  }, [linkUrl, serviceId]);
 
   if (!service) {
     return <p>Loading...</p>;
@@ -57,9 +56,14 @@ const ContinuePayment: FC<{ serviceId: string }> = ({ serviceId }) => {
   if (linkUrl) {
     return (
       <div className="w-full h-[500px]">
-        <iframe src={linkUrl} width="100%" height="100%" frameBorder="0"></iframe>
+        <iframe
+          src={linkUrl}
+          width="100%"
+          height="100%"
+          frameBorder="0"
+        ></iframe>
       </div>
-    )
+    );
   }
 
   return (
@@ -69,7 +73,13 @@ const ContinuePayment: FC<{ serviceId: string }> = ({ serviceId }) => {
       </p>
       <div className="grid grid-cols-3 gap-x-5">
         <div className="col-span-1 min-h-40 rounded-3xl overflow-hidden shadow-md border">
-          <Image src={service.dokter.foto ?? psikologIMG} alt="" width={0} height={0} sizes="100vw" />
+          <Image
+            src={service.dokter.foto ?? psikologIMG}
+            alt=""
+            width={0}
+            height={0}
+            sizes="100vw"
+          />
         </div>
         <div className="col-span-2 flex flex-col justify-between h-full">
           <div className="flex flex-col gap-y-[6px]">
@@ -87,23 +97,23 @@ const ContinuePayment: FC<{ serviceId: string }> = ({ serviceId }) => {
             </div>
           </div>
           <p className="font-semibold">{formatIDR(service.harga)}</p>
-          <div className="flex items-center gap-4">
-          </div>
+          <div className="flex items-center gap-4"></div>
         </div>
       </div>
       <p className="text-center">
         Perjalanan menuju kesembuhan Anda belum selesai. Lanjutkan konsultasi
         sekarang
       </p>
-      <ButtonSmall className={`${isLoading ? 'bg-gray-600' : 'bg-red'} text-white ${isLoading ? "cursor-not-allowed" : ""}`} onClick={clickPay}>
-        {
-          isLoading ? "Loading..." : "Lanjutkan Pemabayaran"
-        }
+      <ButtonSmall
+        className={`${isLoading ? "bg-gray-600" : "bg-red"} text-white ${
+          isLoading ? "cursor-not-allowed" : ""
+        }`}
+        onClick={clickPay}
+      >
+        {isLoading ? "Loading..." : "Lanjutkan Pemabayaran"}
       </ButtonSmall>
     </div>
   );
 };
-
-
 
 export default ContinuePayment;

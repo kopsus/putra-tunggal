@@ -3,6 +3,13 @@ type TypeRole = {
   role?: "Admin" | "User" | "Dokter";
 };
 
+type TypeService = {
+  id?: string;
+  namaService?: string;
+  harga?: number;
+  dokterId?: string;
+};
+
 type TypeUser = {
   id?: string;
   roleId?: string;
@@ -14,6 +21,7 @@ type TypeUser = {
   tanggal_lahir?: string;
   foto?: string;
   role?: TypeRole;
+  service?: TypeService;
 };
 
 export type { TypeUser };

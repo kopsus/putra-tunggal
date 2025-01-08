@@ -6,7 +6,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className=" xl:block">
+    <div className="hidden xl:block">
       <DefaultLayout>{children}</DefaultLayout>
     </div>
   );
