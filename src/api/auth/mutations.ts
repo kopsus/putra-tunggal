@@ -4,7 +4,7 @@ import { fetchAuth, fetchLogout } from "./fetcher";
 
 type MUTATION_TYPE =
   | { type: "login"; body: TypeBodyLogin }
-  | { type: "regsiter"; body: TypeBodyRegister }
+  | { type: "regsiter"; body: any }
   | { type: "logout"; body: "" };
 
 const useMutationAuth = () => {

@@ -8,8 +8,11 @@ import { DataTable } from "./table/DataTable";
 import { Columns } from "./table/Columns";
 import { Button } from "@/components/ui/button";
 import { ColumnsUsers } from "./table/ColumnsUser";
+import { storeDialog } from "@/store/dialog";
+import { useSetAtom } from "jotai";
 
 const Pengguna = () => {
+  const setDialog = useSetAtom(storeDialog);
   const [tabActive, setTabActive] = React.useState("Psikolog");
   const { dataUsers } = useQueryUsers();
 
@@ -42,7 +45,18 @@ const Pengguna = () => {
             User
           </button>
         </div>
-        <Button className="bg-primary">Tambah Pengguna</Button>
+        <Button
+          onClick={() => {
+            setDialog({
+              type: "CREATE",
+              show: true,
+              data: null,
+            });
+          }}
+          className="bg-primary"
+        >
+          Tambah Pengguna
+        </Button>
       </div>
       <Card className="p-5 rounded-xl overflow-hidden">
         {tabActive === "Psikolog" ? (

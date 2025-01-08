@@ -20,8 +20,9 @@ type TypeUser = {
   jenis_kelamin?: string;
   tanggal_lahir?: string;
   foto?: string;
+  password?: string;
   role?: TypeRole;
   Service?: TypeService[];
 };
 
-export type { TypeUser };
+export type { TypeUser, TypeRole };

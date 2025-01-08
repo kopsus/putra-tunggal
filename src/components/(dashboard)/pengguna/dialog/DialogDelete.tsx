@@ -5,6 +5,7 @@ import DialogLayout from "../../layout/DialogLayout";
 import { storeDialog } from "@/store/dialog";
 import { useAtom } from "jotai";
 import { Button } from "@/components/ui/button";
+import { useMutationUser } from "@/api/user/mutation";
 
 const DialogDelete = () => {
   const [dialog, setDialog] = useAtom(storeDialog);
@@ -14,6 +15,16 @@ const DialogDelete = () => {
       ...prev,
       show: false,
     }));
+  };
+
+  const { serviceUser } = useMutationUser();
+
+  const handleDelete = async () => {
+    await serviceUser({
+      type: "delete",
+      id: dialog.data?.id,
+    });
+    closeDialog();
   };
   return (
     <DialogLayout
@@ -25,7 +36,7 @@ const DialogDelete = () => {
         <Button variant={"outline"} onClick={closeDialog}>
           Cancel
         </Button>
-        <Button variant={"danger"} onClick={closeDialog}>
+        <Button variant={"danger"} onClick={handleDelete}>
           Delete
         </Button>
       </div>

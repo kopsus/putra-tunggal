@@ -10,12 +10,22 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { uploadImage } from "@/api/upload/fetcher";
 import { TypeUser } from "@/api/user/types";
-import { useMutationArticle } from "@/api/article/mutation";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { useMutationAuth } from "@/api/auth/mutations";
+import { useMutationUser } from "@/api/user/mutation";
+import { useQueryRoles } from "@/api/user/queries";
 
 const DialogCreate = () => {
   const [dialog, setDialog] = useAtom(storeDialog);
   const { previewUrl, setPreviewUrl, handleImageChange } = useImagePreview();
   const [imageFile, setImageFile] = React.useState<File | null>(null);
+  const { dataRole } = useQueryRoles();
 
   const imageSrc = previewUrl || dialog.data?.foto || "";
 
@@ -26,6 +36,16 @@ const DialogCreate = () => {
     }));
     setPreviewUrl("");
     setImageFile(null);
+  };
+
+  const onValueChange = (value: string, name: string) => {
+    setDialog((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        [name]: value,
+      },
+    }));
   };
 
   const onInputChange = (
@@ -59,36 +79,39 @@ const DialogCreate = () => {
     }
   };
 
-  const { serviceArticle } = useMutationArticle();
+  const { serviceAuth } = useMutationAuth();
+  const { serviceUser } = useMutationUser();
   const mutationArticle = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const imageUrl = imageFile
       ? await handleUploadImage(imageFile)
       : dialog.data?.image;
 
-    const payloadArticle: TypeUser = {
-      foto: imageUrl,
-      email: dialog.data?.email,
-      namaLengkap: dialog.data?.namaLengkap,
-      noTlp: dialog.data?.noTlp,
-      jenis_kelamin: dialog.data?.jenis_kelamin,
-      alamat: dialog.data?.alamat,
-      tanggal_lahir: dialog.data?.tanggal_lahir,
+    const payloadUser: TypeUser = {
+      roleId: dialog.data?.roleId ?? null,
+      foto: imageUrl ?? null,
+      email: dialog.data?.email ?? null,
+      namaLengkap: dialog.data?.namaLengkap ?? null,
+      noTlp: dialog.data?.noTlp ?? null,
+      jenis_kelamin: dialog.data?.jenis_kelamin ?? null,
+      tanggal_lahir: dialog.data?.tanggal_lahir ?? null,
+      alamat: dialog.data?.alamat ?? null,
+      password: dialog.data?.password ?? null,
     };
 
     try {
       if (dialog.type === "CREATE") {
         // Call create gallery API
-        await serviceArticle({
-          type: "create",
-          body: payloadArticle,
+        await serviceAuth({
+          type: "regsiter",
+          body: payloadUser,
         });
         closeDialog();
       } else {
         // Call update gallery API
-        await serviceArticle({
+        await serviceUser({
           type: "update",
-          body: payloadArticle,
+          body: payloadUser,
           id: dialog.data?.id,
         });
         closeDialog();
@@ -124,8 +147,27 @@ const DialogCreate = () => {
             const file = e.target.files?.[0];
             setImageFile(file ?? null); // Set file for upload
           }}
-          className="max-w-72 mx-auto"
+          className="max-w-72 mx-auto p-1"
         />
+        <div className="flex flex-col gap-1">
+          <p>Role</p>
+          <Select
+            value={dialog.data?.roleId}
+            onValueChange={(value) => onValueChange(value, "roleId")}
+            required
+          >
+            <SelectTrigger className="w-full border-2 border-primary/50">
+              <SelectValue placeholder="Role" />
+            </SelectTrigger>
+            <SelectContent>
+              {dataRole?.map((item, index) => (
+                <SelectItem key={index} value={item.id!}>
+                  {item.role}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
         <div className="flex flex-col gap-1">
           <p>Email</p>
           <Input
@@ -134,15 +176,18 @@ const DialogCreate = () => {
             value={dialog.data?.email ?? ""}
             onChange={onInputChange}
             name="email"
+            required
           />
         </div>
         <div className="w-full flex flex-col gap-1">
           <p>Nama Lengkap</p>
           <Input
             name="namaLengkap"
+            placeholder="Nama Lengkap"
             id=""
             value={dialog.data?.namaLengkap ?? ""}
             onChange={onInputChange}
+            required
           />
         </div>
         <div className="w-full flex flex-col gap-1">
@@ -156,6 +201,21 @@ const DialogCreate = () => {
           />
         </div>
         <div className="flex flex-col gap-1">
+          <p>Jenis Kelamin</p>
+          <Select
+            value={dialog.data?.jenis_kelamin}
+            onValueChange={(value) => onValueChange(value, "jenis_kelamin")}
+          >
+            <SelectTrigger className="w-full border-2 border-primary/50">
+              <SelectValue placeholder="Jenis Kelamin" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="L">Laki - laki</SelectItem>
+              <SelectItem value="P">Perempuan</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="flex flex-col gap-1">
           <p>Tanggal</p>
           <input
             type="date"
@@ -163,6 +223,27 @@ const DialogCreate = () => {
             name="date"
             value={dialog.data?.date ?? ""}
             className="border text-sm shadow-sm rounded-md overflow-hidden p-1 outline-none"
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <p>Alamat</p>
+          <textarea
+            name="alamat"
+            onChange={onInputChange}
+            placeholder="Alamat"
+            value={dialog.data?.alamat ?? ""}
+            className="border h-32 text-sm shadow-sm rounded-md overflow-hidden p-1 outline-none"
+          ></textarea>
+        </div>
+        <div className="flex flex-col gap-1">
+          <p>password</p>
+          <Input
+            name="password"
+            id=""
+            placeholder="Password"
+            value={dialog.data?.password ?? ""}
+            onChange={onInputChange}
+            required
           />
         </div>
         <Button type="submit">
