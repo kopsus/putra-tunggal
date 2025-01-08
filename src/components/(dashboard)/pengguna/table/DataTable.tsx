@@ -25,8 +25,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { TableToolbar } from "./TableToolbar";
-import Card from "../../_global/Card";
-
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];

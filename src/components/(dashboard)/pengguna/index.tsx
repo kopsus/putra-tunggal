@@ -7,6 +7,7 @@ import { useQueryUsers } from "@/api/user/queries";
 import { DataTable } from "./table/DataTable";
 import { Columns } from "./table/Columns";
 import { Button } from "@/components/ui/button";
+import { ColumnsUsers } from "./table/ColumnsUser";
 
 const Pengguna = () => {
   const [tabActive, setTabActive] = React.useState("Psikolog");
@@ -47,7 +48,7 @@ const Pengguna = () => {
         {tabActive === "Psikolog" ? (
           <DataTable data={dataDokter} columns={Columns} />
         ) : (
-          <DataTable data={dataPasien} columns={Columns} />
+          <DataTable data={dataPasien} columns={ColumnsUsers} />
         )}
       </Card>
     </>
