@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getRole, getUserById, getUsers } from "./fetcher";
+import { getProfile, getRole, getUserById, getUsers } from "./fetcher";
 import { TypeRole, TypeUser } from "./types";
 import { ApiResponse } from "../_global/ApiResponse";
 import { useParams } from "next/navigation";
@@ -14,6 +14,17 @@ const useQueryRoles = () => {
 
   return {
     dataRole: query.data?.data,
+    ...query,
+  };
+};
+const useQueryProfile = () => {
+  const query = useQuery<ApiResponse<TypeUser>>({
+    queryKey: ["profile"],
+    queryFn: () => getProfile(),
+  });
+
+  return {
+    dataProfile: query.data?.data,
     ...query,
   };
 };
@@ -44,4 +55,4 @@ const useQueryDetailUser = () => {
   };
 };
 
-export { useQueryUsers, useQueryDetailUser, useQueryRoles };
+export { useQueryUsers, useQueryDetailUser, useQueryRoles, useQueryProfile };

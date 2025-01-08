@@ -5,6 +5,10 @@ const getRole = async () => {
   const res = await axios.get(`${apiURL}/role`);
   return res.data;
 };
+const getProfile = async () => {
+  const res = await axios.get(`${apiURL}/user`);
+  return res.data;
+};
 const getUsers = async () => {
   const res = await axios.get(`${apiURL}/users`);
   return res.data;
@@ -22,4 +26,4 @@ const deleteUser = async (id: string) => {
   return res.data;
 };
 
-export { getUsers, getUserById, updateUser, deleteUser, getRole };
+export { getUsers, getUserById, updateUser, deleteUser, getRole, getProfile };
