@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
       const user: JwtPayload = JSON.parse(userData);
       const detailuser = await prisma.user.findFirstOrThrow({
         where: { id: user.id },
-        include: { role: true },
+        include: { role: true, Order: true },
       });
       return ResponseHandler.get(detailuser);
     }

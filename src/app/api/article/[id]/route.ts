@@ -6,7 +6,7 @@ import path from "path";
 
 export async function GET(req: NextRequest, { params }: any) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     const article = await prisma.article.findUnique({
       where: {
@@ -26,10 +26,6 @@ export async function GET(req: NextRequest, { params }: any) {
 }
 
 export async function PATCH(req: NextRequest, { params }: any) {
-  //   const decoded = await verifyToken(req);
-  //   if (decoded instanceof Response) {
-  //     return decoded;
-  //   }
   try {
     const body = await req.json();
     const { id } = params;

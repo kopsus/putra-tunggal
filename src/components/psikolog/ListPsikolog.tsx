@@ -22,35 +22,34 @@ import ContinuePayment from "../consultation/modal/ContinuePayment";
 import { useRouter } from "next/navigation";
 
 interface ServiceData extends Service {
-  dokter: User
+  dokter: User;
 }
 
-const ListPsikolog:FC<{isLogin: boolean}> = ({isLogin}) => {
-  const [services, setServices] = useState<ServiceData[]>([])
+const ListPsikolog: FC<{ isLogin: boolean }> = ({ isLogin }) => {
+  const [services, setServices] = useState<ServiceData[]>([]);
   const [loadingClickChat, setLoadingClickChat] = useState(false);
   const [needToPay, setNeedToPay] = useState(false);
-  const route = useRouter()
+  const route = useRouter();
 
   const handleClickChat = async (serviceId: string) => {
-    
     if (!isLogin) {
-      route.push('/login')
+      route.push("/login");
     }
-    setLoadingClickChat(true)
+    setLoadingClickChat(true);
     try {
-      const res = await fetch(`/api/rooms?serviceId=${serviceId}`)
-      const data = await res.json()
+      const res = await fetch(`/api/rooms?serviceId=${serviceId}`);
+      const data = await res.json();
       if (data.data.length > 0) {
-        route.push(`/consultation`)
+        route.push(`/consultation`);
       } else {
-        setNeedToPay(true)
+        setNeedToPay(true);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     } finally {
-      setLoadingClickChat(false)
+      setLoadingClickChat(false);
     }
-  }
+  };
 
   useEffect(() => {
     (async () => {
@@ -61,11 +60,11 @@ const ListPsikolog:FC<{isLogin: boolean}> = ({isLogin}) => {
       } catch (error) {
         console.log(error);
       }
-    })()
-  }, [])
+    })();
+  }, []);
 
-  if (services.length === 0) {
-    return <p>Loading...</p>
+  if (services?.length === 0) {
+    return <p>Loading...</p>;
   }
   return (
     <div className="w-full flex flex-col gap-6">
@@ -93,15 +92,11 @@ const ListPsikolog:FC<{isLogin: boolean}> = ({isLogin}) => {
                   <div className="flex items-center gap-2">
                     <div className="flex items-center gap-3 py-1 px-2 bg-primary rounded">
                       <FaJoget className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
-                      <p className="text-white text-xs lg:text-sm">
-                        7 Tahun
-                      </p>
+                      <p className="text-white text-xs lg:text-sm">7 Tahun</p>
                     </div>
                     <div className="flex items-center gap-3 py-1 px-2 bg-primary rounded">
                       <BiLike className="w-3 h-3 lg:w-5 lg:h-5 text-white" />
-                      <p className="text-white text-xs lg:text-sm">
-                        {100}%
-                      </p>
+                      <p className="text-white text-xs lg:text-sm">{100}%</p>
                     </div>
                   </div>
                 </div>
@@ -110,23 +105,26 @@ const ListPsikolog:FC<{isLogin: boolean}> = ({isLogin}) => {
                 </p>
                 <div className="hidden lg:flex items-center gap-4">
                   <Dialog>
-                    <DialogTrigger onClick={() => setNeedToPay(false)} className="text-xs rounded-full font-bold shadow py-2 px-8 border border-black/20">
-                      Lihat Profil
+                    <DialogTrigger
+                      onClick={() => setNeedToPay(false)}
+                      className="text-xs rounded-full font-bold shadow py-2 px-8 bg-red text-white"
+                    >
+                      Chat
                     </DialogTrigger>
                     <DialogContent>
                       <DialogTitle></DialogTitle>
-                      {
-                        needToPay ? (
-                          <ContinuePayment serviceId={item.id} />
-                        ) :
-                          <ProfilePsikolog service={item} />
-                      }
-                      {
-                        !needToPay &&
+                      {needToPay ? (
+                        <ContinuePayment serviceId={item.id} />
+                      ) : (
+                        <ProfilePsikolog service={item} />
+                      )}
+                      {!needToPay && (
                         <ButtonSmall className="bg-red text-white">
-                          <div onClick={() => handleClickChat(item.id)}>{loadingClickChat ? 'loading...' : "Chat"}</div>
+                          <div onClick={() => handleClickChat(item.id)}>
+                            {loadingClickChat ? "loading..." : "Chat"}
+                          </div>
                         </ButtonSmall>
-                      }
+                      )}
                     </DialogContent>
                   </Dialog>
                 </div>
@@ -139,18 +137,18 @@ const ListPsikolog:FC<{isLogin: boolean}> = ({isLogin}) => {
                 </DialogTrigger>
                 <DialogContent>
                   <DialogTitle></DialogTitle>
-                  {
-                    needToPay ? (
-                      <ContinuePayment serviceId={item.id} />
-                    ) :
-                      <ProfilePsikolog service={item} />
-                  }
-                  {
-                    !needToPay &&
+                  {needToPay ? (
+                    <ContinuePayment serviceId={item.id} />
+                  ) : (
+                    <ProfilePsikolog service={item} />
+                  )}
+                  {!needToPay && (
                     <ButtonSmall className="bg-red text-white">
-                      <div onClick={() => handleClickChat(item.id)}>{loadingClickChat ? 'loading...' : "Chat"}</div>
+                      <div onClick={() => handleClickChat(item.id)}>
+                        {loadingClickChat ? "loading..." : "Chat"}
+                      </div>
                     </ButtonSmall>
-                  }
+                  )}
                 </DialogContent>
               </Dialog>
             </div>

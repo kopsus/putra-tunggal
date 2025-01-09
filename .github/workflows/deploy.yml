@@ -50,7 +50,6 @@ jobs:
             export MIDTRANS_SERVER_KEY=${{ secrets.MIDTRANS_SERVER_KEY }} 
             export MIDTRANS_CLIENT_KEY=${{ secrets.MIDTRANS_CLIENT_KEY }} 
 
-            npx prisma migrate deploy
 
             npm run build
             

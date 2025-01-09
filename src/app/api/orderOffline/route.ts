@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     const newOrder = await prisma.order.create({
       data: {
         ...body,
-        layanan: "Offliine",
+        layanan: "Offline",
         userId: user.id,
       },
     });
