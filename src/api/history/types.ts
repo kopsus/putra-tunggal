@@ -14,6 +14,8 @@ type TypeHistory = {
   orderId?: string;
   serviceId?: string;
   qty?: number;
+  layanan?: "Offline" | "Online";
+  status?: string;
   createdAt?: string;
   order?: TypeOrder;
   service?: TypeServices;

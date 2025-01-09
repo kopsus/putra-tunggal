@@ -1,14 +1,20 @@
-'use client';
+"use client";
+import React, { useState } from "react";
 import TableRiwayat from "@/components/(dashboard)/riwayat/Table";
 import Toolbar from "@/components/(dashboard)/riwayat/Toolbar";
-import React, { useState } from "react";
 
 const Page = () => {
-  const [searchName, setSearchName] = useState<string>('')
+  const [searchValue, setSearch] = useState("");
+  const [serviceFilter, setServiceFilter] = useState("");
+
   return (
     <>
-      <Toolbar searchValue={searchName} setSearch={setSearchName} />
-      <TableRiwayat searchName={searchName}  />
+      <Toolbar
+        setSearch={setSearch}
+        searchValue={searchValue}
+        setServiceFilter={setServiceFilter}
+      />
+      <TableRiwayat searchValue={searchValue} serviceFilter={serviceFilter} />
     </>
   );
 };
