@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/select";
 import { useMutationAuth } from "@/api/auth/mutations";
 import { useMutationUser } from "@/api/user/mutation";
-import { useQueryRoles } from "@/api/user/queries";
+import { useQueryProfile, useQueryRoles } from "@/api/user/queries";
 
 const DialogCreate = () => {
   const [dialog, setDialog] = useAtom(storeDialog);
@@ -79,13 +79,14 @@ const DialogCreate = () => {
     }
   };
 
+  const { refetch } = useQueryProfile();
   const { serviceAuth } = useMutationAuth();
   const { serviceUser } = useMutationUser();
   const mutationArticle = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const imageUrl = imageFile
       ? await handleUploadImage(imageFile)
-      : dialog.data?.image;
+      : dialog.data?.foto;
 
     const payloadUser: TypeUser = {
       roleId: dialog.data?.roleId ?? null,
@@ -114,6 +115,7 @@ const DialogCreate = () => {
           body: payloadUser,
           id: dialog.data?.id,
         });
+        refetch();
         closeDialog();
       }
     } catch (error) {
@@ -149,25 +151,27 @@ const DialogCreate = () => {
           }}
           className="max-w-72 mx-auto p-1"
         />
-        <div className="flex flex-col gap-1">
-          <p>Role</p>
-          <Select
-            value={dialog.data?.roleId}
-            onValueChange={(value) => onValueChange(value, "roleId")}
-            required
-          >
-            <SelectTrigger className="w-full border-2 border-primary/50">
-              <SelectValue placeholder="Role" />
-            </SelectTrigger>
-            <SelectContent>
-              {dataRole?.map((item, index) => (
-                <SelectItem key={index} value={item.id!}>
-                  {item.role}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        {dialog.data?.role?.role === "Admin" && (
+          <div className="flex flex-col gap-1">
+            <p>Role</p>
+            <Select
+              value={dialog.data?.roleId}
+              onValueChange={(value) => onValueChange(value, "roleId")}
+              required
+            >
+              <SelectTrigger className="w-full border-2 border-primary/50">
+                <SelectValue placeholder="Role" />
+              </SelectTrigger>
+              <SelectContent>
+                {dataRole?.map((item, index) => (
+                  <SelectItem key={index} value={item.id!}>
+                    {item.role}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        )}
         <div className="flex flex-col gap-1">
           <p>Email</p>
           <Input
@@ -220,8 +224,8 @@ const DialogCreate = () => {
           <input
             type="date"
             onChange={onInputChange}
-            name="date"
-            value={dialog.data?.date ?? ""}
+            name="tanggal_lahir"
+            value={dialog.data?.tanggal_lahir ?? ""}
             className="border text-sm shadow-sm rounded-md overflow-hidden p-1 outline-none"
           />
         </div>
@@ -243,7 +247,6 @@ const DialogCreate = () => {
             placeholder="Password"
             value={dialog.data?.password ?? ""}
             onChange={onInputChange}
-            required
           />
         </div>
         <Button type="submit">

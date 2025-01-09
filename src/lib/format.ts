@@ -14,4 +14,23 @@ const formatDate = (date: Date): string => {
   }).format(date);
 };
 
-export { formatIDR, formatDate };
+const calculateAge = (birthDate: string): number => {
+  const today = new Date();
+  const birth = new Date(birthDate);
+
+  let age = today.getFullYear() - birth.getFullYear();
+
+  // Periksa apakah ulang tahun tahun ini belum terlewati
+  const isBirthdayPassed =
+    today.getMonth() > birth.getMonth() ||
+    (today.getMonth() === birth.getMonth() &&
+      today.getDate() >= birth.getDate());
+
+  if (!isBirthdayPassed) {
+    age--;
+  }
+
+  return age;
+};
+
+export { formatIDR, formatDate, calculateAge };

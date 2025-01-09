@@ -1,17 +1,20 @@
 "use client";
 
-import React, { FC, useEffect, useState } from "react";
+import React from "react";
 import person from "@/assets/person-empty.png";
 import Image from "next/image";
 import { MdOutlineDataUsage } from "react-icons/md";
 import { ButtonSmall } from "../Button";
-import { useAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import { storeIsLogin } from "@/store/isLogin";
 import { useRouter } from "next/navigation";
 import { useMutationAuth } from "@/api/auth/mutations";
 import { useQueryProfile } from "@/api/user/queries";
+import { storeDialog } from "@/store/dialog";
+import { calculateAge } from "@/lib/format";
 
 export const Profile = () => {
+  const setDialog = useSetAtom(storeDialog);
   const { dataProfile } = useQueryProfile();
   const router = useRouter();
   const [_, setIsLogin] = useAtom(storeIsLogin);
@@ -56,7 +59,7 @@ export const Profile = () => {
             {dataProfile?.tanggal_lahir && (
               <div className="flex items-center gap-2">
                 <MdOutlineDataUsage />
-                <p>{dataProfile?.tanggal_lahir} Tahun</p>
+                <p>{calculateAge(dataProfile?.tanggal_lahir)} Tahun</p>
               </div>
             )}
             {dataProfile?.alamat && (
@@ -72,7 +75,16 @@ export const Profile = () => {
         </div>
       </div>
       <div className="flex flex-col gap-2 items-center">
-        <ButtonSmall className="bg-primary text-white">
+        <ButtonSmall
+          onClick={() => {
+            setDialog({
+              type: "UPDATE",
+              show: true,
+              data: dataProfile,
+            });
+          }}
+          className="bg-primary text-white"
+        >
           Edit Profile
         </ButtonSmall>
         <ButtonSmall
