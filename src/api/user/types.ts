@@ -21,6 +21,7 @@ type TypeOrder = {
   layanan: "Offline" | "Online";
   createdAt: string;
   status: string;
+  user: TypeUser;
 };
 
 type TypeUser = {

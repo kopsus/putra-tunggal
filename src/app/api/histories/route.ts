@@ -58,6 +58,11 @@ export async function GET() {
       },
       include: {
         user: true,
+        orderItem: {
+          include: {
+            service: true,
+          },
+        },
       },
     });
     return ResponseHandler.get(orders);

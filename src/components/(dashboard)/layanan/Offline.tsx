@@ -1,25 +1,36 @@
 import React from "react";
 import Card from "../_global/Card";
+import { useQueryHistories } from "@/api/history/queries";
+import moment from "moment";
 
 const Offline = () => {
   const dataThead = ["Layanan", "Tanggal", "Waktu", "Nama Pasien"];
-  const dataTbody = [
-    {
-      layanan: "Konsultasi Psikolog",
-      tanggal: "29 Oktober",
-      waktu: "10 : 00",
-      nama_pasien: "Sani Akhzam",
-    },
-    {
-      layanan: "Konsultasi Psikolog",
-      tanggal: "29 Oktober",
-      waktu: "10 : 00",
-      nama_pasien: "Sani Akhzam",
-    },
-  ];
+  const { dataHistories = [] } = useQueryHistories();
+
+  // Fungsi untuk memisahkan data hari ini dan akan datang
+  const filterDataByDate = (data: any[]) => {
+    const today = moment().startOf("day"); // Awal hari ini (00:00)
+
+    // Data untuk hari ini
+    const todayData = data.filter((item) => {
+      const orderDate = moment(item?.createdAt).startOf("day");
+      return orderDate.isSame(today);
+    });
+
+    // Data untuk tanggal yang akan datang
+    const upcomingData = data.filter((item) => {
+      const orderDate = moment(item?.createdAt).startOf("day");
+      return orderDate.isAfter(today);
+    });
+
+    return { todayData, upcomingData };
+  };
+
+  const { todayData, upcomingData } = filterDataByDate(dataHistories);
 
   return (
     <>
+      {/* Card Hari Ini */}
       <Card className="rounded-xl p-5 mb-10">
         <p className="text-lg font-semibold mb-5">Hari ini</p>
         <div className="grid grid-cols-4 gap-5 mb-5">
@@ -33,24 +44,26 @@ const Offline = () => {
           ))}
         </div>
         <div className="grid gap-5">
-          {dataTbody.map((item, index) => (
+          {todayData.map((item, index) => (
             <div key={index} className="grid grid-cols-4 gap-5">
               <p className="text-center text-base bg-online/20 rounded-full py-2 px-4 w-max mx-auto">
-                {item.layanan}
+                {item.orderItem?.[0]?.service?.namaService}
               </p>
               <p className="text-center text-base bg-online/20 rounded-full py-2 px-4 w-max mx-auto">
-                {item.tanggal}
+                {moment(item?.createdAt).format("DD-MM-YYYY")}
               </p>
               <p className="text-center text-base bg-online/20 rounded-full py-2 px-4 w-max mx-auto">
-                {item.waktu}
+                {moment(item?.createdAt).format("HH:mm")}
               </p>
               <p className="text-center text-base bg-online/20 rounded-full py-2 px-4 w-max mx-auto">
-                {item.nama_pasien}
+                {item?.user?.namaLengkap}
               </p>
             </div>
           ))}
         </div>
       </Card>
+
+      {/* Card Akan Datang */}
       <Card className="rounded-xl p-5 mb-10">
         <p className="text-lg font-semibold mb-5 text-primary/50">
           Akan Datang
@@ -66,19 +79,19 @@ const Offline = () => {
           ))}
         </div>
         <div className="grid gap-5">
-          {dataTbody.map((item, index) => (
+          {upcomingData.map((item, index) => (
             <div key={index} className="grid grid-cols-4 gap-5">
-              <p className="text-center text-base bg-primary/20 rounded-full py-2 px-4 w-max mx-auto">
-                {item.layanan}
+              <p className="text-center text-base bg-online/20 rounded-full py-2 px-4 w-max mx-auto">
+                {item.orderItem?.[0]?.service?.namaService}
               </p>
-              <p className="text-center text-base bg-primary/20 rounded-full py-2 px-4 w-max mx-auto">
-                {item.tanggal}
+              <p className="text-center text-base bg-online/20 rounded-full py-2 px-4 w-max mx-auto">
+                {moment(item?.createdAt).format("DD-MM-YYYY")}
               </p>
-              <p className="text-center text-base bg-primary/20 rounded-full py-2 px-4 w-max mx-auto">
-                {item.waktu}
+              <p className="text-center text-base bg-online/20 rounded-full py-2 px-4 w-max mx-auto">
+                {moment(item?.createdAt).format("HH:mm")}
               </p>
-              <p className="text-center text-base bg-primary/20 rounded-full py-2 px-4 w-max mx-auto">
-                {item.nama_pasien}
+              <p className="text-center text-base bg-online/20 rounded-full py-2 px-4 w-max mx-auto">
+                {item?.user?.namaLengkap}
               </p>
             </div>
           ))}
