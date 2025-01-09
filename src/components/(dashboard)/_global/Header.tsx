@@ -1,14 +1,11 @@
+"use client";
+
 import React from "react";
 import Card from "./Card";
 import Image from "next/image";
 import { useQueryProfile } from "@/api/user/queries";
 
-interface SidebarProps {
-  sidebarOpen: boolean;
-  setSidebarOpen: (arg: boolean) => void;
-}
-
-const Header = ({}: SidebarProps) => {
+const Header = () => {
   const { dataProfile } = useQueryProfile();
 
   return (

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Select,
@@ -8,9 +10,14 @@ import {
 } from "../ui/select";
 import { ButtonMedium } from "../Button";
 import { dataLayanan } from "@/data/layanan";
-import { dataDokter } from "@/data/users";
+import { useQueryUsers } from "@/api/user/queries";
 
 export const MakePromise = () => {
+  const { dataUsers } = useQueryUsers();
+
+  const dataDokter =
+    dataUsers?.filter((item) => item.role?.role === "Dokter") || [];
+
   return (
     <form className="flex flex-col items-center gap-5">
       <p className="titleContent border-b-2 border-black pb-2">
@@ -40,9 +47,9 @@ export const MakePromise = () => {
               <SelectValue placeholder="Pilih Dokter (Opsional)" />
             </SelectTrigger>
             <SelectContent>
-              {dataDokter.map((item, index) => (
-                <SelectItem key={index} value={item.name}>
-                  {item.name}
+              {dataDokter?.map((item, index) => (
+                <SelectItem key={index} value={item.id!}>
+                  {item.namaLengkap}
                 </SelectItem>
               ))}
             </SelectContent>

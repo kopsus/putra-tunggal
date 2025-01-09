@@ -31,7 +31,7 @@ jobs:
       - name: Deploy to GCP
         run: |
           sshpass -p "${{ secrets.USER_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.USER_VPS }} << 'EOF'
-          
+
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # Ini memuat nvm
 
@@ -49,6 +49,8 @@ jobs:
             export NEXT_PUBLIC_ROLE_USER=${{ secrets.NEXT_PUBLIC_ROLE_USER }} 
             export MIDTRANS_SERVER_KEY=${{ secrets.MIDTRANS_SERVER_KEY }} 
             export MIDTRANS_CLIENT_KEY=${{ secrets.MIDTRANS_CLIENT_KEY }} 
+
+            npx prisma migrate deploy
 
             npm run build
             

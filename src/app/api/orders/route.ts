@@ -1,6 +1,5 @@
 import { CreateOrderDto } from "@/dto/createOrder.dto";
 import { ResponseHandler } from "@/lib/responseHandler";
-import { PrismaClient } from "@prisma/client";
 import { JwtPayload } from "jsonwebtoken";
 import { headers } from "next/headers";
 import midtrans from "@/providers/midtrans";

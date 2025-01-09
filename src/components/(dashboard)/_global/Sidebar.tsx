@@ -109,24 +109,26 @@ const Sidebar = ({}: SidebarProps) => {
   return (
     <div className="fixed left-0 top-0 z-50 flex h-screen w-72 py-5">
       <Card className="flex flex-col overflow-y-hidden w-full h-full rounded-r-3xl px-5 py-10 justify-between">
-        <div className="mx-auto flex justify-center border-b-2 pb-2 border-primary mb-10">
-          Logo
+        <div>
+          <div className="mx-auto flex justify-center border-b-2 pb-2 border-primary mb-10">
+            Logo
+          </div>
+          {menuItems.map((group, groupIndex) => (
+            <ul key={groupIndex} className="mb-6 flex flex-col gap-2">
+              <li className="rounded-full overflow-hidden">
+                <Link
+                  href={group.route}
+                  className={`${
+                    isActiveLink(group.route) ? "bg-primary text-white" : ""
+                  } group relative flex items-center gap-2.5 rounded-sm p-4 font-medium`}
+                >
+                  {group.icon}
+                  {group.label}
+                </Link>
+              </li>
+            </ul>
+          ))}
         </div>
-        {menuItems.map((group, groupIndex) => (
-          <ul key={groupIndex} className="mb-6 flex flex-col gap-2">
-            <li className="rounded-full overflow-hidden">
-              <Link
-                href={group.route}
-                className={`${
-                  isActiveLink(group.route) ? "bg-primary text-white" : ""
-                } group relative flex items-center gap-2.5 rounded-sm p-4 font-medium`}
-              >
-                {group.icon}
-                {group.label}
-              </Link>
-            </li>
-          </ul>
-        ))}
         <div
           onClick={handleLogout}
           className="mx-auto flex justify-center gap-2 text-red cursor-pointer border-b-2 pb-2 border-primary mb-10"

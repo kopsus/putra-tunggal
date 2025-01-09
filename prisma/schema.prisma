@@ -70,16 +70,19 @@ enum EnumLayanan {
 }
 
 model Order {
-  id          String            @id @default(cuid())
-  userId      String
-  total       Int
-  redirectUrl String
-  layanan     EnumLayanan       @default(Online)
-  createdAt   DateTime          @default(now())
-  status      EnumPaymentStatus @default(Pending)
-  user        User              @relation(fields: [userId], references: [id])
-  orderItem   OrderItem[]
-}
+  id              String            @id @default(cuid())
+  userId          String
+  total           Int?
+  redirectUrl     String?
+  time            String?
+  dokter          String?
+  jenisLayanan    String?
+  layanan         EnumLayanan       @default(Online)
+  createdAt       DateTime          @default(now())
+  status          EnumPaymentStatus? @default(Pending)
+  user            User              @relation(fields: [userId], references: [id])
+  orderItem       OrderItem[]
+}   
 
 model Room {
   id          String     @id @default(cuid())

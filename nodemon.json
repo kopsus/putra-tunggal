@@ -1,5 +1,5 @@
 {
   "watch": ["server.ts"],
-  "exec": "set TURBOPACK=1 && set NODE_ENV=development && ts-node --project tsconfig.server.json server.ts",
+  "exec": "set TURBOPACK=1 && set NODE_ENV=development && node --loader ts-node/esm server.ts",
   "ext": "js ts"
 }

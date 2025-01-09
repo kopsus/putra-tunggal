@@ -50,7 +50,7 @@ export const Header = () => {
           isOpen ? "top-full" : "-top-[900px]"
         }`}
       >
-        {ItemHeader.map((item, index) => (
+        {ItemHeader?.map((item, index) => (
           <Link
             href={item.link}
             key={index}
