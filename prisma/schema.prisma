@@ -54,7 +54,7 @@ model OrderItem {
   orderId   String
   serviceId String
   qty       Int
-  order     Order   @relation(fields: [orderId], references: [id])
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
   service   Service @relation(fields: [serviceId], references: [id])
 }
 
@@ -75,8 +75,6 @@ model Order {
   total           Int?
   redirectUrl     String?
   time            String?
-  dokter          String?
-  jenisLayanan    String?
   layanan         EnumLayanan       @default(Online)
   createdAt       DateTime          @default(now())
   status          EnumPaymentStatus? @default(Pending)

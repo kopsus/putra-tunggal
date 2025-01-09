@@ -9,29 +9,41 @@ import {
   SelectValue,
 } from "../ui/select";
 import { ButtonMedium } from "../Button";
-import { dataLayanan } from "@/data/layanan";
-import { useQueryUsers } from "@/api/user/queries";
 import { useMutationOrderOffline } from "@/api/orderOffline/mutation";
 import { useRouter } from "next/navigation";
 import Maps from "../Map";
+import { useQueryServices } from "@/api/services/queries";
+import { Input } from "../ui/input";
 
 export const MakePromise = () => {
+  const { dataServices } = useQueryServices();
   const router = useRouter();
-  const { dataUsers } = useQueryUsers();
   const [payload, setPayload] = useState({
     time: "",
-    dokter: "",
-    jenisLayanan: "",
+    dokterId: "",
+    serviceId: "",
   });
-
-  const dataDokter =
-    dataUsers?.filter((item) => item.role?.role === "Dokter") || [];
+  const [selectedDokter, setSelectedDokter] = useState<string>("");
 
   const onValueChange = (value: string, name: string) => {
     setPayload((prev) => ({
       ...prev,
       [name]: value,
     }));
+
+    if (name === "serviceId") {
+      // Cari dokter berdasarkan serviceId
+      const selectedService = dataServices?.find(
+        (service) => service.id === value
+      );
+      if (selectedService) {
+        setPayload((prev) => ({
+          ...prev,
+          dokterId: selectedService.dokterId!,
+        }));
+        setSelectedDokter(selectedService.dokter?.namaLengkap || ""); // Set nama dokter
+      }
+    }
   };
 
   const onInputChange = (
@@ -59,6 +71,8 @@ export const MakePromise = () => {
     if (res.message !== "Unauthorized") {
       router.push("/login");
     }
+
+    router.push("/profile");
   };
 
   return (
@@ -74,36 +88,26 @@ export const MakePromise = () => {
         <div className="flex flex-col gap-2">
           <p className="font-semibold">Layanan</p>
           <Select
-            name="jenisLayanan"
-            onValueChange={(value) => onValueChange(value, "jenisLayanan")}
+            name="serviceId"
+            onValueChange={(value) => onValueChange(value, "serviceId")}
             required
           >
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Pilih jenis layanan" />
             </SelectTrigger>
             <SelectContent>
-              {dataLayanan.map((item, index) => (
-                <SelectItem key={index} value={item.title}>
-                  {item.title}
+              {dataServices?.map((item, index) => (
+                <SelectItem key={item.id} value={item.id!}>
+                  {item?.namaService}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
-          <Select
-            name="dokter"
-            onValueChange={(value) => onValueChange(value, "dokter")}
-          >
-            <SelectTrigger className="w-full">
-              <SelectValue placeholder="Pilih Dokter (Opsional)" />
-            </SelectTrigger>
-            <SelectContent>
-              {dataDokter?.map((item, index) => (
-                <SelectItem key={index} value={item.id!}>
-                  {item.namaLengkap}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <Input
+            value={selectedDokter} // Menampilkan nama dokter
+            readOnly
+            placeholder="Nama dokter"
+          />
           <div className="flex flex-col gap-1">
             <p className="font-semibold">Waktu</p>
             <input

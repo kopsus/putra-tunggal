@@ -90,7 +90,11 @@ const Sidebar = ({}: SidebarProps) => {
   const { serviceAuth } = useMutationAuth();
   const [_, setIsLogin] = useAtom(storeIsLogin);
   const router = useRouter();
-  const { dataProfile } = useQueryProfile();
+  const { dataProfile, isLoading } = useQueryProfile();
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   const menuItems = dataProfile
     ? getMenuGroups(dataProfile.role?.role as Role)
@@ -113,7 +117,7 @@ const Sidebar = ({}: SidebarProps) => {
           <div className="mx-auto flex justify-center border-b-2 pb-2 border-primary mb-10">
             Logo
           </div>
-          {menuItems.map((group, groupIndex) => (
+          {menuItems?.map((group, groupIndex) => (
             <ul key={groupIndex} className="mb-6 flex flex-col gap-2">
               <li className="rounded-full overflow-hidden">
                 <Link

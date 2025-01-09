@@ -1,6 +1,7 @@
 type TypeOrderOffline = {
   time: string;
-  dokter: string;
+  dokterId: string;
+  serviceId: string;
 };
 
 export type { TypeOrderOffline };
