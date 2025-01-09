@@ -10,7 +10,7 @@ import { biayaPelayanan } from "@/lib/data";
 
 const ServiceFee = () => {
   return (
-    <div className="ContainerX flex flex-col">
+    <div className="ContainerX flex flex-col mb-20">
       <p className="titleSection mb-5">Biaya pelayanan</p>
       <Table>
         <TableHeader>

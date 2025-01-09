@@ -7,14 +7,14 @@ import { cookies } from "next/headers";
 import React from "react";
 
 const page = async () => {
-  const isLogin = (await cookies()).has('accessToken')
+  const isLogin = (await cookies()).has("accessToken");
   return (
     <div className="pt-10 lg:pt-0">
       <HighlightService isLogin={isLogin} />
       <BannerTrigger />
       <Services />
       <ServiceFee />
-      <Testimoni />
+      {/* <Testimoni /> */}
     </div>
   );
 };

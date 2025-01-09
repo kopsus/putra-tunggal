@@ -1,5 +1,6 @@
 import catFeetIMG from "@/assets/cat_feet.png";
 import ceoIMG from "@/assets/CEO2.svg";
+import Maps from "@/components/Map";
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
@@ -31,12 +32,12 @@ const page = () => {
                 Selamat Datang di Biro Psikologi Putra Tunggal
               </p>
               <p>
-              Biro Psikologi Putra Tunggal adalah perusahaan yang bergerak 
-              di bidang pengembangan Sumber Daya Manusia yang berkomitmen untuk 
-              membantu pelanggan dalam mengelola Sumber Daya Manusia secara 
-              optimal bagi perusahaan, organisasi, lembaga maupun pemerintahan 
-              yang melayani berbagai bidang jasa seperti, konseling, training, 
-              rekrutmen dan layanan psikolog lainnya
+                Biro Psikologi Putra Tunggal adalah perusahaan yang bergerak di
+                bidang pengembangan Sumber Daya Manusia yang berkomitmen untuk
+                membantu pelanggan dalam mengelola Sumber Daya Manusia secara
+                optimal bagi perusahaan, organisasi, lembaga maupun pemerintahan
+                yang melayani berbagai bidang jasa seperti, konseling, training,
+                rekrutmen dan layanan psikolog lainnya
               </p>
               <p>
                 Dengan pengalaman bertahun-tahun, kami menawarkan beragam
@@ -82,7 +83,9 @@ const page = () => {
             Jalan Wahid Hasyim 37, Karangklesem, Kec. Purwokerto Sel., Kabupaten
             Banyumas, Jawa Tengah 53144
           </p>
-          <div className="w-full h-52 md:h-72 lg:h-96 rounded-3xl bg-white shadow-md border"></div>
+          <div className="w-full h-52 md:h-72 lg:h-96 rounded-3xl bg-white shadow-md border">
+            <Maps />
+          </div>
         </div>
         {/* end location */}
       </div>

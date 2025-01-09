@@ -13,6 +13,7 @@ import { dataLayanan } from "@/data/layanan";
 import { useQueryUsers } from "@/api/user/queries";
 import { useMutationOrderOffline } from "@/api/orderOffline/mutation";
 import { useRouter } from "next/navigation";
+import Maps from "../Map";
 
 export const MakePromise = () => {
   const router = useRouter();
@@ -120,7 +121,9 @@ export const MakePromise = () => {
             Jalan Wahid Hasyim 37, Karangklesem, Kec. Purwokerto Sel., Kabupaten
             Banyumas, Jawa Tengah 53144
           </p>
-          <div className="bg-white shadow border w-full h-32 rounded-xl overflow-hidden"></div>
+          <div className="bg-white shadow border w-full h-32 rounded-xl overflow-hidden">
+            <Maps />
+          </div>
         </div>
       </div>
       <ButtonMedium className="bg-red text-white mx-auto">
