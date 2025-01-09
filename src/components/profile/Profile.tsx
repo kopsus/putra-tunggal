@@ -53,17 +53,21 @@ export const Profile = () => {
             <p className="text-black/80">{dataProfile?.email}</p>
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <MdOutlineDataUsage />
-              <p>{dataProfile?.tanggal_lahir} Tahun</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="flex flex-col border-2 border-primary">
-                <span className="bg-red h-1 w-4"></span>
-                <span className="bg-white h-1 w-4"></span>
+            {dataProfile?.tanggal_lahir && (
+              <div className="flex items-center gap-2">
+                <MdOutlineDataUsage />
+                <p>{dataProfile?.tanggal_lahir} Tahun</p>
               </div>
-              <p>{dataProfile?.alamat}</p>
-            </div>
+            )}
+            {dataProfile?.alamat && (
+              <div className="flex items-center gap-2">
+                <div className="flex flex-col border-2 border-primary">
+                  <span className="bg-red h-1 w-4"></span>
+                  <span className="bg-white h-1 w-4"></span>
+                </div>
+                <p>{dataProfile?.alamat}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
