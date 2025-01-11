@@ -49,7 +49,7 @@ const Maps = () => {
   return (
     <div
       id="map"
-      className="h-full w-full rounded-xl shadow-lg bg-white overflow-hidden"
+      className="h-full w-full rounded-xl shadow-lg bg-white overflow-hidden z-10"
     ></div>
   );
 };

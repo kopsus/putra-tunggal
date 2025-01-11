@@ -41,7 +41,7 @@ jobs:
 
             cd putra-tunggal
             git pull origin main
-            npm install
+            npm install --force
 
             export DATABASE_URL=${{ secrets.DATABASE_URL }} 
             export JWT_SECRET=${{ secrets.JWT_SECRET }} 
