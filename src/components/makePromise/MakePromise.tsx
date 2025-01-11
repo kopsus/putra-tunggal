@@ -11,9 +11,11 @@ import {
 import { ButtonMedium } from "../Button";
 import { useMutationOrderOffline } from "@/api/orderOffline/mutation";
 import { useRouter } from "next/navigation";
-import Maps from "../Map";
 import { useQueryServices } from "@/api/services/queries";
 import { Input } from "../ui/input";
+
+import dynamic from "next/dynamic";
+const Maps = dynamic(() => import("@/components/Map"), { ssr: false });
 
 export const MakePromise = () => {
   const { dataServices } = useQueryServices();

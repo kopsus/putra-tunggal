@@ -17,6 +17,7 @@ type TypeHistory = {
   layanan?: "Offline" | "Online";
   status?: string;
   createdAt?: string;
+  time?: string;
   order?: TypeOrder;
   service?: TypeServices;
   user?: TypeUser;

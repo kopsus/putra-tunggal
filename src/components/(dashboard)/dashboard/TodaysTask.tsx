@@ -1,25 +1,20 @@
+"use client";
+
 import React from "react";
 import Card from "../_global/Card";
+import { useQueryHistories } from "@/api/history/queries";
+import moment from "moment";
 
 export const TodaysTask = () => {
   const dataThead = ["Layanan", "Nama Pasien", "Waktu"];
-  const dataTbody = [
-    {
-      layanan: "Online",
-      pasien: "Addharu Qutni",
-      waktu: "Berlangsung",
-    },
-    {
-      layanan: "Online",
-      pasien: "Addharu Qutni",
-      waktu: "10 : 00",
-    },
-    {
-      layanan: "Online",
-      pasien: "Addharu Qutni",
-      waktu: "13 : 00",
-    },
-  ];
+
+  const { dataHistories } = useQueryHistories();
+
+  const today = moment().startOf("day");
+  const todayData = dataHistories?.filter((item) => {
+    const orderDate = moment(item?.createdAt).startOf("day");
+    return orderDate.isSame(today);
+  });
 
   return (
     <Card className="rounded-xl p-5">
@@ -38,17 +33,27 @@ export const TodaysTask = () => {
           </tr>
         </thead>
         <tbody>
-          {dataTbody.map((item, index) => (
+          {todayData?.map((item, index) => (
             <tr key={index} className="text-center">
               <td className="py-2">
-                <div className="flex items-center gap-2 bg-green-200 rounded-full py-2 px-4 w-max mx-auto">
-                  <span className="w-5 h-5 rounded-full bg-online"></span>
-                  {item.layanan}
+                <div
+                  className={`${
+                    item?.layanan === "Online"
+                      ? "bg-online/20"
+                      : "bg-offline/20"
+                  } flex items-center gap-2 rounded-full py-2 px-4 w-max mx-auto`}
+                >
+                  <span
+                    className={`${
+                      item?.layanan === "Online" ? "bg-online" : "bg-offline"
+                    } w-5 h-5 rounded-full`}
+                  ></span>
+                  {item?.layanan}
                 </div>
               </td>
-              <td className="py-2">{item.pasien}</td>
+              <td className="py-2">{item.user?.namaLengkap}</td>
               <td className="py-2">
-                {item.waktu} {item.waktu !== "Berlangsung" && "WIB"}
+                {moment(item?.createdAt).format("HH:mm")}
               </td>
             </tr>
           ))}

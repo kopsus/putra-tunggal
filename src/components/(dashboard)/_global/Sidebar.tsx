@@ -17,6 +17,7 @@ import { useMutationAuth } from "@/api/auth/mutations";
 import { storeIsLogin } from "@/store/isLogin";
 import { useAtom } from "jotai";
 import { useQueryProfile } from "@/api/user/queries";
+import { LogoDashboard } from "@/components/Logo";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -54,11 +55,6 @@ const getMenuGroups = (role: Role): MenuItem[] => {
         icon: <MdArticle size={24} />,
         label: "Artikel",
         route: "/artikel",
-      },
-      {
-        icon: <MdFeedback size={24} />,
-        label: "Testimoni",
-        route: "/testimoni",
       },
       {
         icon: <Users size={24} />,
@@ -115,7 +111,7 @@ const Sidebar = ({}: SidebarProps) => {
       <Card className="flex flex-col overflow-y-hidden w-full h-full rounded-r-3xl px-5 py-10 justify-between">
         <div>
           <div className="mx-auto flex justify-center border-b-2 pb-2 border-primary mb-10">
-            Logo
+            <LogoDashboard />
           </div>
           {menuItems?.map((group, groupIndex) => (
             <ul key={groupIndex} className="mb-6 flex flex-col gap-2">

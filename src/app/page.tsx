@@ -1,4 +1,3 @@
-// components
 import { BannerTrigger } from "@/components/BannerTrigger";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Foooter";

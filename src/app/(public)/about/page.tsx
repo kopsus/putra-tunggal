@@ -1,8 +1,12 @@
+"use client";
+
 import catFeetIMG from "@/assets/cat_feet.png";
 import ceoIMG from "@/assets/CEO2.svg";
-import Maps from "@/components/Map";
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+
+import dynamic from "next/dynamic";
+const Maps = dynamic(() => import("@/components/Map"), { ssr: false });
 
 const page = () => {
   return (

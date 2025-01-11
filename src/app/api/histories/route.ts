@@ -18,6 +18,15 @@ export async function GET() {
       const orders = await prisma.order.findMany({
         include: {
           user: true,
+          orderItem: {
+            include: {
+              service: {
+                include: {
+                  dokter: true,
+                },
+              },
+            },
+          },
         },
       });
       return ResponseHandler.get(orders);

@@ -1,14 +1,5 @@
 "use client";
 import { Input } from "@/components/Input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { dataBulan } from "@/data/bulan";
-import { dataTahun } from "@/data/tahun";
 import { Dispatch, FC, SetStateAction } from "react";
 
 const Toolbar: FC<{
