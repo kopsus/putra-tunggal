@@ -5,7 +5,7 @@ import DialogLayout from "@/components/(dashboard)/layout/DialogLayout";
 import { storeDialog } from "@/store/dialog";
 import { useAtom } from "jotai";
 import { Button } from "@/components/ui/button";
-import { useMutationUser } from "@/api/user/mutation";
+import { useMutationOrderOffline } from "@/api/orderOffline/mutation";
 
 const DialogDelete = () => {
   const [dialog, setDialog] = useAtom(storeDialog);
@@ -17,10 +17,10 @@ const DialogDelete = () => {
     }));
   };
 
-  const { serviceUser } = useMutationUser();
+  const { serviceOrderOffline } = useMutationOrderOffline();
 
   const handleDelete = async () => {
-    await serviceUser({
+    await serviceOrderOffline({
       type: "delete",
       id: dialog.data?.id,
     });
@@ -30,7 +30,7 @@ const DialogDelete = () => {
     <DialogLayout
       show={dialog.type === "DELETE" && dialog.show}
       onHide={closeDialog}
-      titleDelete="Hapus item ini dari User ?"
+      titleDelete="Hapus item ini dari Layanan ?"
     >
       <div className="flex items-center justify-center gap-5">
         <Button variant={"outline"} onClick={closeDialog}>

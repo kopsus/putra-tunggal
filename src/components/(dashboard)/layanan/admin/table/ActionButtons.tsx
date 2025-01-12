@@ -28,7 +28,7 @@ const ActionButtons = ({ item, itemId }: IActionButtons) => {
   };
 
   return (
-    <div className="flex items-center justify-end gap-2">
+    <div className="flex items-center justify-center gap-2">
       <Edit size={18} className="cursor-pointer" onClick={handleEdit} />
       <Trash
         size={18}

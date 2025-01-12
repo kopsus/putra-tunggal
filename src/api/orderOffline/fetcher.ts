@@ -6,4 +6,14 @@ const createOrderOffline = async (body: any) => {
   return res.data;
 };
 
-export { createOrderOffline };
+const updateOrderOffline = async ({ body, id }: any) => {
+  const res = await axios.patch(`${apiURL}/orderOffline/${id}`, body);
+  return res.data;
+};
+
+const deleteOrderOffline = async (id: any) => {
+  const res = await axios.delete(`${apiURL}/orderOffline/${id}`);
+  return res.data;
+};
+
+export { createOrderOffline, updateOrderOffline, deleteOrderOffline };

@@ -1,22 +1,27 @@
 "use client";
 
 import React from "react";
-import { DataTable } from "./table/DataTable";
-import { useQueryHistories } from "@/api/history/queries";
-import { Columns } from "./table/Columns";
-import DialogCreate from "./dialog/DialogCreate";
+import DialogUpdate from "./dialog/DialogUpdate";
 import DialogDelete from "./dialog/DialogDelete";
+import TableLayananAdmin from "./table/table";
+import { TableToolbar } from "./table/TableToolbar";
 
 const LayananAdmin = () => {
-  const { dataHistories } = useQueryHistories();
+  const [searchValue, setSearch] = React.useState("");
+  const [serviceFilter, setServiceFilter] = React.useState("");
 
   return (
     <>
-      <h2 className="titleSection font-semibold text-black dark:text-white">
-        Layanan
-      </h2>
-      <DataTable data={dataHistories ?? []} columns={Columns} />
-      <DialogCreate />
+      <TableToolbar
+        setSearch={setSearch}
+        searchValue={searchValue}
+        setServiceFilter={setServiceFilter}
+      />
+      <TableLayananAdmin
+        searchValue={searchValue}
+        serviceFilter={serviceFilter}
+      />
+      <DialogUpdate />
       <DialogDelete />
     </>
   );

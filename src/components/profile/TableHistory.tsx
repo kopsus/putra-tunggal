@@ -1,8 +1,8 @@
 "use client";
 
 import moment from "moment";
-import { useQueryProfile } from "@/api/user/queries";
 import { useQueryHistories } from "@/api/history/queries";
+import { formatDate } from "@/lib/format";
 
 type TypeService = "Online" | "Offline";
 
@@ -66,7 +66,11 @@ const TableHistory = () => {
                 </div>
               </td>
               <td className={tdStyle}>
-                <p className="badge">{moment().format("DD-MM-YYYY")}</p>
+                {item.order?.layanan === "Online" ? (
+                  <p className="badge">{moment().format("DD-MM-YYYY")}</p>
+                ) : (
+                  <p className="badge">{formatDate(item.order?.time!)}</p>
+                )}
               </td>
               <td className={tdStyle}>
                 {item.order?.layanan === "Online" ? (
@@ -78,7 +82,7 @@ const TableHistory = () => {
                   </p>
                 ) : (
                   <p className="badge">
-                    {moment(item.order?.createdAt).format("hh:mm")}
+                    {moment(item.order?.time).format("hh:mm")}
                   </p>
                 )}
               </td>

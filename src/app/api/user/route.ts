@@ -26,16 +26,6 @@ export async function GET(request: NextRequest) {
       const detailuser = await prisma.user.findFirstOrThrow({
         where: { id: user.id },
         include: {
-          Order: {
-            include: {
-              user: true,
-            },
-          },
-          Service: {
-            include: {
-              dokter: true,
-            },
-          },
           role: true,
         },
       });

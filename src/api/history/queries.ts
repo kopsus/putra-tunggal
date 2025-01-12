@@ -7,7 +7,7 @@ import { ApiResponse } from "../_global/ApiResponse";
 
 const useQueryHistories = () => {
   const query = useQuery<ApiResponse<TypeHistory[]>>({
-    queryKey: ["role"],
+    queryKey: ["history"],
     queryFn: () => getHistory(),
   });
 

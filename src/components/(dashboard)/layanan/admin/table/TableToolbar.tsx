@@ -1,23 +1,59 @@
-import { Input } from "@/components/ui/input";
-import React from "react";
-import { Table } from "@tanstack/react-table";
+"use client";
+import { Input } from "@/components/Input";
+import { Dispatch, FC, SetStateAction } from "react";
 
-interface ITableToolbar<TData> {
-  table: Table<TData>;
-}
-
-export function TableToolbar<TData>({ table }: ITableToolbar<TData>) {
+const TableToolbar: FC<{
+  setSearch: Dispatch<SetStateAction<string>>;
+  setServiceFilter: Dispatch<SetStateAction<string>>;
+  searchValue: string;
+}> = ({ setSearch, setServiceFilter, searchValue }) => {
   return (
-    <div className="flex items-center justify-end">
-      <Input
-        type="text"
-        placeholder="Cari nama user ..."
-        className="w-[150px] md:w-[250px] border outline-none"
-        value={(table.getColumn("user")?.getFilterValue() as string) ?? ""}
-        onChange={(event) =>
-          table.getColumn("user")?.setFilterValue(event.target.value)
-        }
-      />
+    <div className="flex flex-col gap-5 mb-10">
+      <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2">
+          <p>Pencarian</p> :
+          <Input
+            placeholder="Cari Nama Pasien"
+            value={searchValue}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="flex items-center gap-5">
+        <p>Jenis Layanan : </p>
+        <div className="flex items-center gap-1">
+          <p>All</p>
+          <input
+            id="jenis_layanan"
+            name="jenis_layanan"
+            type="radio"
+            value=""
+            onChange={(e) => setServiceFilter(e.target.value)}
+          />
+        </div>
+        <div className="flex items-center gap-1">
+          <p>Offline</p>
+          <input
+            id="jenis_layanan"
+            name="jenis_layanan"
+            type="radio"
+            value="Offline"
+            onChange={(e) => setServiceFilter(e.target.value)}
+          />
+        </div>
+        <div className="flex items-center gap-1">
+          <p>Online</p>
+          <input
+            id="jenis_layanan"
+            name="jenis_layanan"
+            type="radio"
+            value="Online"
+            onChange={(e) => setServiceFilter(e.target.value)}
+          />
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export { TableToolbar };
