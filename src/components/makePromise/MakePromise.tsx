@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FormEventHandler, useState } from "react";
+import React, { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -8,13 +8,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import { ButtonMedium } from "../Button";
 import { useMutationOrderOffline } from "@/api/orderOffline/mutation";
 import { useRouter } from "next/navigation";
 import { useQueryServices } from "@/api/services/queries";
 import { Input } from "../ui/input";
 
 import dynamic from "next/dynamic";
+import { Button } from "../ui/button";
 const Maps = dynamic(() => import("@/components/Map"), { ssr: false });
 
 export const MakePromise = () => {
@@ -60,7 +60,7 @@ export const MakePromise = () => {
     }));
   };
 
-  const { serviceOrderOffline } = useMutationOrderOffline();
+  const { serviceOrderOffline, isPending } = useMutationOrderOffline();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -132,9 +132,12 @@ export const MakePromise = () => {
           </div>
         </div>
       </div>
-      <ButtonMedium className="bg-red text-white mx-auto">
-        Buat Janji
-      </ButtonMedium>
+      <Button
+        disabled={isPending ? true : false}
+        className="bg-red text-white mx-auto"
+      >
+        {isPending ? "Loading..." : "Buat Janji"}
+      </Button>
     </form>
   );
 };

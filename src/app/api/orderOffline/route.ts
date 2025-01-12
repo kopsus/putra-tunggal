@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     const { serviceId, time, dokterId } = body;
 
     // Validasi body
-    if (!serviceId || !time || !dokterId) {
+    if (!serviceId || !dokterId) {
       return ResponseHandler.InvalidData("Missing required fields");
     }
 
@@ -32,22 +32,29 @@ export async function POST(req: Request) {
       );
     }
 
+    // Make sure `time` is passed if provided, or exclude it if not
+    const orderData: any = {
+      userId: user.id,
+      total: service.harga, // Harga diambil dari service
+      layanan: "Offline",
+      orderItem: {
+        create: [
+          {
+            serviceId: service.id,
+            qty: 1, // Default jumlah qty
+          },
+        ],
+      },
+    };
+
+    // Add `time` only if it is provided (i.e., not undefined or null)
+    if (time) {
+      orderData.time = time;
+    }
+
     // Buat order baru
     const newOrder = await prisma.order.create({
-      data: {
-        userId: user.id,
-        total: service.harga, // Harga diambil dari service
-        time,
-        layanan: "Offline",
-        orderItem: {
-          create: [
-            {
-              serviceId: service.id,
-              qty: 1, // Default jumlah qty
-            },
-          ],
-        },
-      },
+      data: orderData,
       include: {
         orderItem: {
           include: {
