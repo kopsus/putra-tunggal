@@ -40,7 +40,6 @@ jobs:
             npm -v     # Verifikasi versi npm
 
             cd putra-tunggal
-            git reset --hard HEAD
             git pull origin main
 
             export DATABASE_URL=${{ secrets.DATABASE_URL }} 
@@ -50,7 +49,7 @@ jobs:
             export MIDTRANS_SERVER_KEY=${{ secrets.MIDTRANS_SERVER_KEY }} 
             export MIDTRANS_CLIENT_KEY=${{ secrets.MIDTRANS_CLIENT_KEY }} 
             
-            npx prisma migrate resolve --applied 20250108005254_init
+            npx prisma migrate reset --force --skip-seed
             npx prisma migrate deploy
 
             npm run build
