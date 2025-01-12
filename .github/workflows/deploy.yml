@@ -40,8 +40,8 @@ jobs:
             npm -v     # Verifikasi versi npm
 
             cd putra-tunggal
+            
             git pull origin main
-            npm install --force
 
             export DATABASE_URL=${{ secrets.DATABASE_URL }} 
             export JWT_SECRET=${{ secrets.JWT_SECRET }} 
@@ -49,7 +49,8 @@ jobs:
             export NEXT_PUBLIC_ROLE_USER=${{ secrets.NEXT_PUBLIC_ROLE_USER }} 
             export MIDTRANS_SERVER_KEY=${{ secrets.MIDTRANS_SERVER_KEY }} 
             export MIDTRANS_CLIENT_KEY=${{ secrets.MIDTRANS_CLIENT_KEY }} 
-
+            
+            npx prisma migrate deploy
 
             npm run build
             
