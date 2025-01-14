@@ -49,12 +49,9 @@ jobs:
             export MIDTRANS_SERVER_KEY=${{ secrets.MIDTRANS_SERVER_KEY }} 
             export MIDTRANS_CLIENT_KEY=${{ secrets.MIDTRANS_CLIENT_KEY }} 
             
-            npx prisma generate 
-            npx prisma db push
-            
             npm run build
             
-            pm2 restart 1 --update-env
+            pm2 restart 0 --update-env
 
             # Save PM2 process list
             pm2 save

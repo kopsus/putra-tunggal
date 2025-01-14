@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { uploadImage } from "@/api/upload/fetcher";
 import { TypeArticle } from "@/api/article/types";
 import { useMutationArticle } from "@/api/article/mutation";
+import { imageURL } from "@/constants/variables";
 
 const DialogCreate = () => {
   const [dialog, setDialog] = useAtom(storeDialog);
@@ -44,15 +45,23 @@ const DialogCreate = () => {
   };
 
   const handleUploadImage = async (file: File) => {
+    // Periksa ukuran file (1MB = 1024 * 1024 bytes)
+    const maxSize = 1 * 1024 * 1024; // 1MB
+    if (file.size > maxSize) {
+      alert("File terlalu besar! ukuran maxiaml adalah 1MB.");
+      return; // Menghentikan eksekusi jika ukuran file lebih besar dari 1MB
+    }
+
     const formData = new FormData();
     formData.append("file", file);
 
     try {
       const response = await uploadImage(formData);
-      const imageUrl = response.data;
+      const imageUrl = `${imageURL}/${response.data.id}`;
 
       return imageUrl; // URL gambar yang berhasil di-upload
     } catch (error) {
+      console.error("Error uploading image:", error);
       throw new Error("Failed to upload image");
     }
   };

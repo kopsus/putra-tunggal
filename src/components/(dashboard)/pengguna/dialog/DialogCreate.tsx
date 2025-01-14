@@ -20,6 +20,7 @@ import {
 import { useMutationAuth } from "@/api/auth/mutations";
 import { useMutationUser } from "@/api/user/mutation";
 import { useQueryProfile, useQueryRoles } from "@/api/user/queries";
+import { imageURL } from "@/constants/variables";
 
 const DialogCreate = () => {
   const [dialog, setDialog] = useAtom(storeDialog);
@@ -64,13 +65,19 @@ const DialogCreate = () => {
   };
 
   const handleUploadImage = async (file: File) => {
+    // Periksa ukuran file (1MB = 1024 * 1024 bytes)
+    const maxSize = 1 * 1024 * 1024; // 1MB
+    if (file.size > maxSize) {
+      alert("File terlalu besar! ukuran maxiaml adalah 1MB.");
+      return; // Menghentikan eksekusi jika ukuran file lebih besar dari 1MB
+    }
+
     const formData = new FormData();
     formData.append("file", file);
 
     try {
       const response = await uploadImage(formData);
-      console.log("response", response);
-      const imageUrl = response.data;
+      const imageUrl = `${imageURL}/${response.data.id}`;
 
       return imageUrl; // URL gambar yang berhasil di-upload
     } catch (error) {
